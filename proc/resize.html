@@ -6,20 +6,35 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="Documentation for ForImage">
+      <meta name="description" content="A Fortran library for processing and editing images and managing colors">
     <meta name="author" content="Seyed Ali Ghasemi" >
     <link rel="icon" href="../favicon.png">
 
     <title>resize &ndash; ForImage</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="../css/pygments.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
     <link href="../css/local.css" rel="stylesheet">
-      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="../css/pygments.css" rel="stylesheet">
     <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
@@ -29,7 +44,7 @@
     <div class="container-fluid mb-sm-4 mb-xl-2">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="../index.html">ForImage <small>0.3.0</small></a>
+          <a class="navbar-brand" href="../index.html">ForImage </a>
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
                   aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">
@@ -74,23 +89,23 @@
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
             <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Seyed Ali Ghasemi</li>
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> BSD 3-Clause</li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
-              <a data-bs-toggle="tooltip"
-                 data-bs-placement="bottom" data-html="true"
-                 title=" 2.5% of total for procedures.">39 statements</a>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 2.3% of total for procedures.">39 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/pnm.f90"> Source File</a>
+              <a href="../src/pnm.F90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/pnm.f90.html'>pnm.f90</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/pnm.f90.html'>pnm.F90</a></li>
                 <li class="breadcrumb-item"><a href='../module/pnm.html'>pnm</a></li>
             <li class="breadcrumb-item active" aria-current="page">resize</li>
           </ol>
@@ -99,9 +114,11 @@
     </div>
   </div>
   <script>
-    $(function () {
-    $('[data-bs-toggle="tooltip"]').tooltip()
-    })
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
   </script>
 
   </div>
@@ -147,6 +164,7 @@
 </h2>
     
 
+    <p>Resizes the image to specified dimensions.</p>
 
     <h3>Type Bound</h3>
     <p><a href='../type/format_pnm.html'>format_pnm</a></p>
@@ -164,7 +182,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-this~50"></span>
+              <span class="anchor" id="variable-this~42"></span>
               class(<a href='../type/format_pnm.html'>format_pnm</a>),
             </td>
 <td>intent(inout)</td>
@@ -219,94 +237,124 @@
   <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: proc~~resize~~CallsGraph Pages: 1 -->
-<svg id="procresizeCallsGraph" width="641pt" height="157pt"
- viewBox="0.00 0.00 641.00 156.78" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~resize~~CallsGraph" class="graph" transform="scale(1.01 1.01) rotate(0) translate(4 154)">
+<svg id="procresizeCallsGraph" width="641pt" height="158pt"
+ viewBox="0.00 0.00 641.00 158.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~resize~~CallsGraph" class="graph" transform="scale(0.87919 0.87919) rotate(0) translate(4 175.27)">
 <title>proc~~resize~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-154 642,-154 642,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-175.27 725.08,-175.27 725.08,4 -4,4"/>
 <!-- proc~resize -->
 <g id="proc~~resize~~CallsGraph_node1" class="node">
 <title>proc~resize</title>
-<polygon fill="none" stroke="black" points="150,-87 0,-87 0,-63 150,-63 150,-87"/>
-<text text-anchor="middle" x="75" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50">pnm::format_pnm%resize</text>
+<polygon fill="none" stroke="black" points="117.27,-87.27 0,-87.27 0,-63 117.27,-63 117.27,-87.27"/>
+<text xml:space="preserve" text-anchor="middle" x="58.63" y="-71.53" font-family="Helvetica,sans-Serif" font-size="10.50">format_pnm%resize</text>
+</g>
+<!-- none~set_pixels -->
+<g id="proc~~resize~~CallsGraph_node2" class="node">
+<title>none~set_pixels</title>
+<g id="a_proc~~resize~~CallsGraph_node2"><a xlink:href="../type/format_pnm.html#boundprocedure-set_pixels" xlink:title="format_pnm%set_pixels">
+<polygon fill="#a7506f" stroke="#a7506f" points="305.04,-150.27 166.77,-150.27 166.77,-126 305.04,-126 305.04,-150.27"/>
+<text xml:space="preserve" text-anchor="middle" x="235.9" y="-134.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">format_pnm%set_pixels</text>
+</a>
+</g>
+</g>
+<!-- proc~resize&#45;&gt;none~set_pixels -->
+<g id="proc~~resize~~CallsGraph_edge1" class="edge">
+<title>proc~resize&#45;&gt;none~set_pixels</title>
+<path fill="none" stroke="#ff0000" d="M84.6,-87.73C103.19,-96.77 129.39,-108.78 153.27,-117.13 158.57,-118.99 164.12,-120.76 169.72,-122.43"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="168.47,-125.72 179.05,-125.1 170.4,-118.99 168.47,-125.72"/>
 </g>
 <!-- proc~allocate_pixels -->
-<g id="proc~~resize~~CallsGraph_node2" class="node">
+<g id="proc~~resize~~CallsGraph_node3" class="node">
 <title>proc~allocate_pixels</title>
-<g id="a_proc~~resize~~CallsGraph_node2"><a xlink:href="../proc/allocate_pixels.html" xlink:title="pnm::format_pnm%allocate_pixels">
-<polygon fill="#d9534f" stroke="#d9534f" points="384,-150 186,-150 186,-126 384,-126 384,-150"/>
-<text text-anchor="middle" x="285" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pnm::format_pnm%allocate_pixels</text>
+<g id="a_proc~~resize~~CallsGraph_node3"><a xlink:href="../proc/allocate_pixels.html" xlink:title="format_pnm%allocate_pixels">
+<polygon fill="#d9534f" stroke="#d9534f" points="318.54,-108.27 153.27,-108.27 153.27,-84 318.54,-84 318.54,-108.27"/>
+<text xml:space="preserve" text-anchor="middle" x="235.9" y="-92.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">format_pnm%allocate_pixels</text>
 </a>
 </g>
 </g>
 <!-- proc~resize&#45;&gt;proc~allocate_pixels -->
-<g id="proc~~resize~~CallsGraph_edge1" class="edge">
+<g id="proc~~resize~~CallsGraph_edge2" class="edge">
 <title>proc~resize&#45;&gt;proc~allocate_pixels</title>
-<path fill="none" stroke="#255000" d="M104.08,-87.09C126.06,-96.23 157.58,-108.58 186,-117 194.03,-119.38 202.51,-121.61 210.99,-123.65"/>
-<polygon fill="#255000" stroke="#255000" points="210.37,-127.1 220.9,-125.98 211.96,-120.29 210.37,-127.1"/>
+<path fill="none" stroke="#ff0000" d="M117.51,-82.07C125.33,-83.01 133.5,-83.98 141.74,-84.97"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="141.14,-88.43 151.48,-86.14 141.97,-81.47 141.14,-88.43"/>
 </g>
 <!-- proc~set_height -->
-<g id="proc~~resize~~CallsGraph_node3" class="node">
+<g id="proc~~resize~~CallsGraph_node4" class="node">
 <title>proc~set_height</title>
-<g id="a_proc~~resize~~CallsGraph_node3"><a xlink:href="../proc/set_height.html" xlink:title="pnm::format_pnm%set_height">
-<polygon fill="#d9534f" stroke="#d9534f" points="372,-108 198,-108 198,-84 372,-84 372,-108"/>
-<text text-anchor="middle" x="285" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pnm::format_pnm%set_height</text>
+<g id="a_proc~~resize~~CallsGraph_node4"><a xlink:href="../proc/set_height.html" xlink:title="format_pnm%set_height">
+<polygon fill="#d9534f" stroke="#d9534f" points="306.54,-66.27 165.27,-66.27 165.27,-42 306.54,-42 306.54,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="235.9" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">format_pnm%set_height</text>
 </a>
 </g>
 </g>
 <!-- proc~resize&#45;&gt;proc~set_height -->
-<g id="proc~~resize~~CallsGraph_edge2" class="edge">
-<title>proc~resize&#45;&gt;proc~set_height</title>
-<path fill="none" stroke="#255000" d="M150.21,-82.49C162.36,-83.72 175.11,-85.01 187.7,-86.28"/>
-<polygon fill="#255000" stroke="#255000" points="187.45,-89.77 197.75,-87.29 188.16,-82.81 187.45,-89.77"/>
-</g>
-<!-- proc~set_pixels -->
-<g id="proc~~resize~~CallsGraph_node4" class="node">
-<title>proc~set_pixels</title>
-<g id="a_proc~~resize~~CallsGraph_node4"><a xlink:href="../proc/set_pixels.html" xlink:title="pnm::format_pnm%set_pixels">
-<polygon fill="#d9534f" stroke="#d9534f" points="370.5,-66 199.5,-66 199.5,-42 370.5,-42 370.5,-66"/>
-<text text-anchor="middle" x="285" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pnm::format_pnm%set_pixels</text>
-</a>
-</g>
-</g>
-<!-- proc~resize&#45;&gt;proc~set_pixels -->
 <g id="proc~~resize~~CallsGraph_edge3" class="edge">
-<title>proc~resize&#45;&gt;proc~set_pixels</title>
-<path fill="none" stroke="#255000" d="M150.21,-67.51C162.86,-66.23 176.14,-64.89 189.23,-63.57"/>
-<polygon fill="#255000" stroke="#255000" points="189.59,-67.05 199.19,-62.56 188.89,-60.09 189.59,-67.05"/>
+<title>proc~resize&#45;&gt;proc~set_height</title>
+<path fill="none" stroke="#ff0000" d="M117.51,-68.2C129.11,-66.81 141.51,-65.33 153.73,-63.86"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="153.87,-67.37 163.38,-62.7 153.04,-60.42 153.87,-67.37"/>
 </g>
 <!-- proc~set_width -->
 <g id="proc~~resize~~CallsGraph_node5" class="node">
 <title>proc~set_width</title>
-<g id="a_proc~~resize~~CallsGraph_node5"><a xlink:href="../proc/set_width.html" xlink:title="pnm::format_pnm%set_width">
-<polygon fill="#d9534f" stroke="#d9534f" points="369.5,-24 200.5,-24 200.5,0 369.5,0 369.5,-24"/>
-<text text-anchor="middle" x="285" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pnm::format_pnm%set_width</text>
+<g id="a_proc~~resize~~CallsGraph_node5"><a xlink:href="../proc/set_width.html" xlink:title="format_pnm%set_width">
+<polygon fill="#d9534f" stroke="#d9534f" points="303.91,-24.27 167.89,-24.27 167.89,0 303.91,0 303.91,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="235.9" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">format_pnm%set_width</text>
 </a>
 </g>
 </g>
 <!-- proc~resize&#45;&gt;proc~set_width -->
 <g id="proc~~resize~~CallsGraph_edge4" class="edge">
 <title>proc~resize&#45;&gt;proc~set_width</title>
-<path fill="none" stroke="#255000" d="M104.08,-62.91C126.06,-53.77 157.58,-41.42 186,-33 194.03,-30.62 202.51,-28.39 210.99,-26.35"/>
-<polygon fill="#255000" stroke="#255000" points="211.96,-29.71 220.9,-24.02 210.37,-22.9 211.96,-29.71"/>
+<path fill="none" stroke="#ff0000" d="M84.6,-62.54C103.19,-53.5 129.39,-41.49 153.27,-33.13 158.57,-31.28 164.12,-29.51 169.72,-27.84"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="170.4,-31.28 179.05,-25.17 168.47,-24.55 170.4,-31.28"/>
 </g>
-<!-- proc~check_pixel_range -->
+<!-- proc~set_pixel_a -->
 <g id="proc~~resize~~CallsGraph_node6" class="node">
-<title>proc~check_pixel_range</title>
-<g id="a_proc~~resize~~CallsGraph_node6"><a xlink:href="../proc/check_pixel_range.html" xlink:title="pnm::format_pnm%check_pixel_range">
-<polygon fill="#d9534f" stroke="#d9534f" points="638,-66 420,-66 420,-42 638,-42 638,-66"/>
-<text text-anchor="middle" x="529" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pnm::format_pnm%check_pixel_range</text>
+<title>proc~set_pixel_a</title>
+<g id="a_proc~~resize~~CallsGraph_node6"><a xlink:href="../proc/set_pixel_a.html" xlink:title="format_pnm%set_pixel_a">
+<polygon fill="#d9534f" stroke="#d9534f" points="499.56,-171.27 354.54,-171.27 354.54,-147 499.56,-147 499.56,-171.27"/>
+<text xml:space="preserve" text-anchor="middle" x="427.05" y="-155.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">format_pnm%set_pixel_a</text>
 </a>
 </g>
 </g>
-<!-- proc~set_pixels&#45;&gt;proc~check_pixel_range -->
+<!-- none~set_pixels&#45;&gt;proc~set_pixel_a -->
 <g id="proc~~resize~~CallsGraph_edge5" class="edge">
-<title>proc~set_pixels&#45;&gt;proc~check_pixel_range</title>
-<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M370.64,-54C383.24,-54 396.42,-54 409.56,-54"/>
-<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="409.59,-57.5 419.59,-54 409.59,-50.5 409.59,-57.5"/>
+<title>none~set_pixels&#45;&gt;proc~set_pixel_a</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M305.46,-145.75C317.6,-147.09 330.36,-148.51 342.86,-149.9"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="342.4,-153.37 352.72,-150.99 343.17,-146.41 342.4,-153.37"/>
+</g>
+<!-- proc~set_pixel_b -->
+<g id="proc~~resize~~CallsGraph_node7" class="node">
+<title>proc~set_pixel_b</title>
+<g id="a_proc~~resize~~CallsGraph_node7"><a xlink:href="../proc/set_pixel_b.html" xlink:title="format_pnm%set_pixel_b">
+<polygon fill="#d9534f" stroke="#d9534f" points="499.56,-129.27 354.54,-129.27 354.54,-105 499.56,-105 499.56,-129.27"/>
+<text xml:space="preserve" text-anchor="middle" x="427.05" y="-113.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">format_pnm%set_pixel_b</text>
+</a>
+</g>
+</g>
+<!-- none~set_pixels&#45;&gt;proc~set_pixel_b -->
+<g id="proc~~resize~~CallsGraph_edge6" class="edge">
+<title>none~set_pixels&#45;&gt;proc~set_pixel_b</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M305.46,-130.52C317.6,-129.18 330.36,-127.76 342.86,-126.37"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="343.17,-129.86 352.72,-125.28 342.4,-122.9 343.17,-129.86"/>
+</g>
+<!-- proc~check_pixel_range -->
+<g id="proc~~resize~~CallsGraph_node8" class="node">
+<title>proc~check_pixel_range</title>
+<g id="a_proc~~resize~~CallsGraph_node8"><a xlink:href="../proc/check_pixel_range.html" xlink:title="format_pnm%check_pixel_range">
+<polygon fill="#d9534f" stroke="#d9534f" points="721.08,-171.27 535.56,-171.27 535.56,-147 721.08,-147 721.08,-171.27"/>
+<text xml:space="preserve" text-anchor="middle" x="628.32" y="-155.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">format_pnm%check_pixel_range</text>
+</a>
+</g>
+</g>
+<!-- proc~set_pixel_a&#45;&gt;proc~check_pixel_range -->
+<g id="proc~~resize~~CallsGraph_edge7" class="edge">
+<title>proc~set_pixel_a&#45;&gt;proc~check_pixel_range</title>
+<path fill="none" stroke="#ff0000" d="M499.99,-159.13C507.8,-159.13 515.85,-159.13 523.93,-159.13"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="523.85,-162.64 533.85,-159.14 523.85,-155.64 523.85,-162.64"/>
 </g>
 </g>
 </svg>
@@ -329,55 +377,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: Graph Key Pages: 1 -->
 <svg width="641pt" height="28pt"
- viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+ viewBox="0.00 0.00 641.00 28.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.873868 0.873868) rotate(0) translate(4 28.27)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 729.52,-28.27 729.52,4 -4,4"/>
 <!-- Subroutine -->
 <g id="node1" class="node">
 <title>Subroutine</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
-<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="69.27,-24.27 0,-24.27 0,0 69.27,0 69.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="34.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
 </g>
 <!-- Function -->
 <g id="node2" class="node">
 <title>Function</title>
-<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
-<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="143.89,-24.27 87.38,-24.27 87.38,0 143.89,0 143.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="115.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
 </g>
 <!-- Interface -->
 <g id="node3" class="node">
 <title>Interface</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
-<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="221.39,-24.27 161.88,-24.27 161.88,0 221.39,0 221.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="191.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
 </g>
 <!-- Type Bound Procedure -->
 <g id="node4" class="node">
 <title>Type Bound Procedure</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
-<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="368.27,-24.27 239,-24.27 239,0 368.27,0 368.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="303.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
 </g>
 <!-- Unknown Procedure Type -->
 <g id="node5" class="node">
 <title>Unknown Procedure Type</title>
-<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
-<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+<polygon fill="#777777" stroke="#777777" points="529.39,-24.27 385.88,-24.27 385.88,0 529.39,0 529.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="457.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
 </g>
 <!-- Program -->
 <g id="node6" class="node">
 <title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
-<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.89,-24.27 547.38,-24.27 547.38,0 603.89,0 603.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="575.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
 <g id="node7" class="node">
 <title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
-<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<polygon fill="none" stroke="black" points="725.52,-24.27 621.75,-24.27 621.75,0 725.52,0 725.52,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="673.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
@@ -403,34 +451,49 @@ large graphs.</div>
   <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: proc~~resize~~CalledByGraph Pages: 1 -->
-<svg id="procresizeCalledByGraph" width="267pt" height="32pt"
- viewBox="0.00 0.00 267.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~resize~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<svg id="procresizeCalledByGraph" width="233pt" height="74pt"
+ viewBox="0.00 0.00 233.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~resize~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70.27)">
 <title>proc~~resize~~CalledByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 263,-28 263,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-70.27 228.79,-70.27 228.79,4 -4,4"/>
 <!-- proc~resize -->
 <g id="proc~~resize~~CalledByGraph_node1" class="node">
 <title>proc~resize</title>
-<polygon fill="none" stroke="black" points="259,-24 109,-24 109,0 259,0 259,-24"/>
-<text text-anchor="middle" x="184" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">pnm::format_pnm%resize</text>
+<polygon fill="none" stroke="black" points="224.79,-45.27 107.52,-45.27 107.52,-21 224.79,-21 224.79,-45.27"/>
+<text xml:space="preserve" text-anchor="middle" x="166.15" y="-29.53" font-family="Helvetica,sans-Serif" font-size="10.50">format_pnm%resize</text>
 </g>
 <!-- program~demo_ppm -->
 <g id="proc~~resize~~CalledByGraph_node2" class="node">
 <title>program~demo_ppm</title>
 <g id="a_proc~~resize~~CalledByGraph_node2"><a xlink:href="../program/demo_ppm.html" xlink:title="demo_ppm">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="73,-24 0,-24 0,0 73,0 73,-24"/>
-<text text-anchor="middle" x="36.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo_ppm</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="71.52,-66.27 0,-66.27 0,-42 71.52,-42 71.52,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo_ppm</text>
 </a>
 </g>
 </g>
 <!-- program~demo_ppm&#45;&gt;proc~resize -->
 <g id="proc~~resize~~CalledByGraph_edge1" class="edge">
 <title>program~demo_ppm&#45;&gt;proc~resize</title>
-<path fill="none" stroke="#255000" d="M73.09,-12C80.98,-12 89.66,-12 98.58,-12"/>
-<polygon fill="#255000" stroke="#255000" points="98.73,-15.5 108.73,-12 98.73,-8.5 98.73,-15.5"/>
+<path fill="none" stroke="#ff0000" d="M71.84,-48.4C79.49,-47.15 87.82,-45.78 96.27,-44.4"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="96.59,-47.9 105.9,-42.83 95.46,-40.99 96.59,-47.9"/>
+</g>
+<!-- program~test25 -->
+<g id="proc~~resize~~CalledByGraph_node3" class="node">
+<title>program~test25</title>
+<g id="a_proc~~resize~~CalledByGraph_node3"><a xlink:href="../program/test25.html" xlink:title="test25">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-24.27 8.76,-24.27 8.76,0 62.76,0 62.76,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test25</text>
+</a>
+</g>
+</g>
+<!-- program~test25&#45;&gt;proc~resize -->
+<g id="proc~~resize~~CalledByGraph_edge2" class="edge">
+<title>program~test25&#45;&gt;proc~resize</title>
+<path fill="none" stroke="#ff0000" d="M63.05,-16.44C72.73,-18.02 84.19,-19.89 95.88,-21.8"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="95.18,-25.24 105.61,-23.4 96.31,-18.33 95.18,-25.24"/>
 </g>
 </g>
 </svg>
@@ -449,55 +512,55 @@ large graphs.</div>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: Graph Key Pages: 1 -->
 <svg width="641pt" height="28pt"
- viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+ viewBox="0.00 0.00 641.00 28.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.873868 0.873868) rotate(0) translate(4 28.27)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 729.52,-28.27 729.52,4 -4,4"/>
 <!-- Subroutine -->
 <g id="node1" class="node">
 <title>Subroutine</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
-<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="69.27,-24.27 0,-24.27 0,0 69.27,0 69.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="34.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
 </g>
 <!-- Function -->
 <g id="node2" class="node">
 <title>Function</title>
-<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
-<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="143.89,-24.27 87.38,-24.27 87.38,0 143.89,0 143.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="115.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
 </g>
 <!-- Interface -->
 <g id="node3" class="node">
 <title>Interface</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
-<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="221.39,-24.27 161.88,-24.27 161.88,0 221.39,0 221.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="191.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
 </g>
 <!-- Type Bound Procedure -->
 <g id="node4" class="node">
 <title>Type Bound Procedure</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
-<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="368.27,-24.27 239,-24.27 239,0 368.27,0 368.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="303.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
 </g>
 <!-- Unknown Procedure Type -->
 <g id="node5" class="node">
 <title>Unknown Procedure Type</title>
-<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
-<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+<polygon fill="#777777" stroke="#777777" points="529.39,-24.27 385.88,-24.27 385.88,0 529.39,0 529.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="457.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
 </g>
 <!-- Program -->
 <g id="node6" class="node">
 <title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
-<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.89,-24.27 547.38,-24.27 547.38,0 603.89,0 603.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="575.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
 <g id="node7" class="node">
 <title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
-<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<polygon fill="none" stroke="black" points="725.52,-24.27 621.75,-24.27 621.75,0 725.52,0 725.52,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="673.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
@@ -529,58 +592,58 @@ large graphs.</div>
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">elemental pure subroutine </span><span class="n">resize</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="w"> </span><span class="n">new_height</span><span class="p">,</span><span class="w"> </span><span class="n">new_width</span><span class="p">)</span>
-<span class="w">      </span><span class="k">class</span><span class="p">(</span><span class="n">format_pnm</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">this</span>
-<span class="w">      </span><span class="kt">integer</span><span class="p">,</span><span class="w">           </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">new_width</span><span class="p">,</span><span class="w"> </span><span class="n">new_height</span>
-<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="n">ik</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">resized_pixels</span>
-<span class="w">      </span><span class="kt">integer</span><span class="w">                                  </span><span class="kd">::</span><span class="w"> </span><span class="n">i_out</span><span class="p">,</span><span class="w"> </span><span class="n">j_out</span><span class="p">,</span><span class="w"> </span><span class="n">i_in</span><span class="p">,</span><span class="w"> </span><span class="n">j_in</span><span class="p">,</span><span class="w"> </span><span class="n">channel</span>
-<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w">                                 </span><span class="kd">::</span><span class="w"> </span><span class="n">width_scale</span><span class="p">,</span><span class="w"> </span><span class="n">height_scale</span>
+    <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">elemental pure subroutine </span><span class="n">resize</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="w"> </span><span class="n">new_height</span><span class="p">,</span><span class="w"> </span><span class="n">new_width</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">class</span><span class="p">(</span><span class="n">format_pnm</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">this</span><span class="w"></span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">,</span><span class="w">           </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">new_width</span><span class="p">,</span><span class="w"> </span><span class="n">new_height</span><span class="w"></span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="n">ik</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">resized_pixels</span><span class="w"></span>
+<span class="w">      </span><span class="kt">integer</span><span class="w">                                  </span><span class="kd">::</span><span class="w"> </span><span class="n">i_out</span><span class="p">,</span><span class="w"> </span><span class="n">j_out</span><span class="p">,</span><span class="w"> </span><span class="n">i_in</span><span class="p">,</span><span class="w"> </span><span class="n">j_in</span><span class="p">,</span><span class="w"> </span><span class="n">channel</span><span class="w"></span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w">                                 </span><span class="kd">::</span><span class="w"> </span><span class="n">width_scale</span><span class="p">,</span><span class="w"> </span><span class="n">height_scale</span><span class="w"></span>
 
-<span class="w">      </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">file_format</span><span class="p">)</span>
-<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;pbm&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;pgm&#39;</span><span class="p">)</span>
+<span class="w">      </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">file_format</span><span class="p">)</span><span class="w"></span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;pbm&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;pgm&#39;</span><span class="p">)</span><span class="w"></span>
 
-<span class="w">         </span><span class="k">allocate</span><span class="p">(</span><span class="n">resized_pixels</span><span class="p">(</span><span class="n">new_height</span><span class="p">,</span><span class="w"> </span><span class="n">new_width</span><span class="p">))</span>
+<span class="w">         </span><span class="k">allocate</span><span class="p">(</span><span class="n">resized_pixels</span><span class="p">(</span><span class="n">new_height</span><span class="p">,</span><span class="w"> </span><span class="n">new_width</span><span class="p">))</span><span class="w"></span>
 
-<span class="w">         </span><span class="n">width_scale</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">new_width</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span>
-<span class="w">         </span><span class="n">height_scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">new_height</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span>
+<span class="w">         </span><span class="n">width_scale</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">new_width</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">height_scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">new_height</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"></span>
 
-<span class="w">         </span><span class="k">do </span><span class="n">i_out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">new_height</span>
-<span class="w">            </span><span class="k">do </span><span class="n">j_out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">new_width</span>
-<span class="w">               </span><span class="n">i_in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">int</span><span class="p">((</span><span class="kt">real</span><span class="p">(</span><span class="n">i_out</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.5_rk</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">height_scale</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
-<span class="w">               </span><span class="n">j_in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="p">,</span><span class="w">  </span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">int</span><span class="p">((</span><span class="kt">real</span><span class="p">(</span><span class="n">j_out</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.5_rk</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">width_scale</span><span class="p">)</span><span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+<span class="w">         </span><span class="k">do </span><span class="n">i_out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">new_height</span><span class="w"></span>
+<span class="w">            </span><span class="k">do </span><span class="n">j_out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">new_width</span><span class="w"></span>
+<span class="w">               </span><span class="n">i_in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">int</span><span class="p">((</span><span class="kt">real</span><span class="p">(</span><span class="n">i_out</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.5_rk</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">height_scale</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="n">j_in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="p">,</span><span class="w">  </span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">int</span><span class="p">((</span><span class="kt">real</span><span class="p">(</span><span class="n">j_out</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.5_rk</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">width_scale</span><span class="p">)</span><span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
 
-<span class="w">               </span><span class="n">resized_pixels</span><span class="p">(</span><span class="n">i_out</span><span class="p">,</span><span class="w"> </span><span class="n">j_out</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">(</span><span class="n">i_in</span><span class="p">,</span><span class="w"> </span><span class="n">j_in</span><span class="p">)</span>
+<span class="w">               </span><span class="n">resized_pixels</span><span class="p">(</span><span class="n">i_out</span><span class="p">,</span><span class="w"> </span><span class="n">j_out</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">(</span><span class="n">i_in</span><span class="p">,</span><span class="w"> </span><span class="n">j_in</span><span class="p">)</span><span class="w"></span>
 <span class="w">            </span><span class="k">end do</span>
 <span class="k">         end do</span>
 
-<span class="k">       case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;ppm&#39;</span><span class="p">)</span>
+<span class="k">       case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;ppm&#39;</span><span class="p">)</span><span class="w"></span>
 
-<span class="w">         </span><span class="k">allocate</span><span class="p">(</span><span class="n">resized_pixels</span><span class="p">(</span><span class="n">new_height</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">new_width</span><span class="p">))</span>
+<span class="w">         </span><span class="k">allocate</span><span class="p">(</span><span class="n">resized_pixels</span><span class="p">(</span><span class="n">new_height</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">new_width</span><span class="p">))</span><span class="w"></span>
 
-<span class="w">         </span><span class="n">width_scale</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">new_width</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span>
-<span class="w">         </span><span class="n">height_scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">new_height</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span>
+<span class="w">         </span><span class="n">width_scale</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">new_width</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">height_scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">new_height</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"></span>
 
-<span class="w">         </span><span class="k">do </span><span class="n">i_out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">new_height</span>
-<span class="w">            </span><span class="k">do </span><span class="n">j_out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">new_width</span>
-<span class="w">               </span><span class="n">i_in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="p">,</span><span class="w">  </span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">int</span><span class="p">((</span><span class="kt">real</span><span class="p">(</span><span class="n">i_out</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.5_rk</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">height_scale</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
-<span class="w">               </span><span class="n">j_in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">int</span><span class="p">((</span><span class="kt">real</span><span class="p">(</span><span class="n">j_out</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.5_rk</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">width_scale</span><span class="p">)</span><span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+<span class="w">         </span><span class="k">do </span><span class="n">i_out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">new_height</span><span class="w"></span>
+<span class="w">            </span><span class="k">do </span><span class="n">j_out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">new_width</span><span class="w"></span>
+<span class="w">               </span><span class="n">i_in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="p">,</span><span class="w">  </span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">int</span><span class="p">((</span><span class="kt">real</span><span class="p">(</span><span class="n">i_out</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.5_rk</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">height_scale</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="n">j_in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">int</span><span class="p">((</span><span class="kt">real</span><span class="p">(</span><span class="n">j_out</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.5_rk</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">width_scale</span><span class="p">)</span><span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
 
-<span class="w">               </span><span class="k">do </span><span class="n">channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
-<span class="w">                  </span><span class="n">resized_pixels</span><span class="p">(</span><span class="n">i_out</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">j_out</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">(</span><span class="n">i_in</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">j_in</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">channel</span><span class="p">)</span>
+<span class="w">               </span><span class="k">do </span><span class="n">channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="w">                  </span><span class="n">resized_pixels</span><span class="p">(</span><span class="n">i_out</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">j_out</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">(</span><span class="n">i_in</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">j_in</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">channel</span><span class="p">)</span><span class="w"></span>
 <span class="w">               </span><span class="k">end do</span>
 <span class="k">            end do</span>
 <span class="k">         end do</span>
 
 <span class="k">      end select</span>
 
-<span class="k">      call </span><span class="n">this</span><span class="p">%</span><span class="n">set_height</span><span class="p">(</span><span class="n">new_height</span><span class="p">)</span>
-<span class="w">      </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">set_width</span><span class="p">(</span><span class="n">new_width</span><span class="p">)</span>
-<span class="w">      </span><span class="k">deallocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">)</span>
-<span class="w">      </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">allocate_pixels</span><span class="p">()</span>
-<span class="w">      </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">set_pixels</span><span class="p">(</span><span class="n">resized_pixels</span><span class="p">)</span>
+<span class="k">      call </span><span class="n">this</span><span class="p">%</span><span class="n">set_height</span><span class="p">(</span><span class="n">new_height</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">set_width</span><span class="p">(</span><span class="n">new_width</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">deallocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">allocate_pixels</span><span class="p">()</span><span class="w"></span>
+<span class="w">      </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">set_pixels</span><span class="p">(</span><span class="n">resized_pixels</span><span class="p">)</span><span class="w"></span>
 
-<span class="w">      </span><span class="k">deallocate</span><span class="p">(</span><span class="n">resized_pixels</span><span class="p">)</span>
-<span class="w">   </span><span class="k">end subroutine </span><span class="n">resize</span>
+<span class="w">      </span><span class="k">deallocate</span><span class="p">(</span><span class="n">resized_pixels</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">end subroutine </span><span class="n">resize</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -594,40 +657,21 @@ large graphs.</div>
     <footer>
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col"><p>ForImage was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+          <div class="col">
+            <p>
+              ForImage
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023-2025 BSD 3-Clause
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-01-12T20:08:26.519240             </p>
+ on 2025-08-20T19:15:23.986866+0000             </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-
-    <!-- MathJax JavaScript
-             ================================================== -->
-             <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({
-          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-          });
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-          <script src="../tipuesearch/tipuesearch_content.js"></script>
-          <script src="../tipuesearch/tipuesearch_set.js"></script>
-          <script src="../tipuesearch/tipuesearch.js"></script>
-
   </body>
 </html>

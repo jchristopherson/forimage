@@ -6,20 +6,35 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="Documentation for ForImage">
+      <meta name="description" content="A Fortran library for processing and editing images and managing colors">
     <meta name="author" content="Seyed Ali Ghasemi" >
     <link rel="icon" href="../favicon.png">
 
     <title>rotate &ndash; ForImage</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="../css/pygments.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
     <link href="../css/local.css" rel="stylesheet">
-      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="../css/pygments.css" rel="stylesheet">
     <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
@@ -29,7 +44,7 @@
     <div class="container-fluid mb-sm-4 mb-xl-2">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="../index.html">ForImage <small>0.3.0</small></a>
+          <a class="navbar-brand" href="../index.html">ForImage </a>
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
                   aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">
@@ -74,23 +89,23 @@
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
             <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Seyed Ali Ghasemi</li>
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> BSD 3-Clause</li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
-              <a data-bs-toggle="tooltip"
-                 data-bs-placement="bottom" data-html="true"
-                 title=" 4.5% of total for procedures.">69 statements</a>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 4.1% of total for procedures.">69 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/pnm.f90"> Source File</a>
+              <a href="../src/pnm.F90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/pnm.f90.html'>pnm.f90</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/pnm.f90.html'>pnm.F90</a></li>
                 <li class="breadcrumb-item"><a href='../module/pnm.html'>pnm</a></li>
             <li class="breadcrumb-item active" aria-current="page">rotate</li>
           </ol>
@@ -99,9 +114,11 @@
     </div>
   </div>
   <script>
-    $(function () {
-    $('[data-bs-toggle="tooltip"]').tooltip()
-    })
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
   </script>
 
   </div>
@@ -147,6 +164,7 @@
 </h2>
     
 
+    <p>Rotates the image by a specified angle. Supported angles are 90, 180, 270, -90, -180, -270.</p>
 
     <h3>Type Bound</h3>
     <p><a href='../type/format_pnm.html'>format_pnm</a></p>
@@ -164,7 +182,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-this~54"></span>
+              <span class="anchor" id="variable-this~46"></span>
               class(<a href='../type/format_pnm.html'>format_pnm</a>),
             </td>
 <td>intent(inout)</td>
@@ -204,94 +222,124 @@
   <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: proc~~rotate~~CallsGraph Pages: 1 -->
 <svg id="procrotateCallsGraph" width="641pt" height="157pt"
- viewBox="0.00 0.00 641.00 156.53" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~rotate~~CallsGraph" class="graph" transform="scale(1.01 1.01) rotate(0) translate(4 154)">
+ viewBox="0.00 0.00 641.00 157.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~rotate~~CallsGraph" class="graph" transform="scale(0.878287 0.878287) rotate(0) translate(4 175.27)">
 <title>proc~~rotate~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-154 643,-154 643,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-175.27 725.83,-175.27 725.83,4 -4,4"/>
 <!-- proc~rotate -->
 <g id="proc~~rotate~~CallsGraph_node1" class="node">
 <title>proc~rotate</title>
-<polygon fill="none" stroke="black" points="151,-87 0,-87 0,-63 151,-63 151,-87"/>
-<text text-anchor="middle" x="75.5" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50">pnm::format_pnm%rotate</text>
+<polygon fill="none" stroke="black" points="118.02,-87.27 0,-87.27 0,-63 118.02,-63 118.02,-87.27"/>
+<text xml:space="preserve" text-anchor="middle" x="59.01" y="-71.53" font-family="Helvetica,sans-Serif" font-size="10.50">format_pnm%rotate</text>
+</g>
+<!-- none~set_pixels -->
+<g id="proc~~rotate~~CallsGraph_node2" class="node">
+<title>none~set_pixels</title>
+<g id="a_proc~~rotate~~CallsGraph_node2"><a xlink:href="../type/format_pnm.html#boundprocedure-set_pixels" xlink:title="format_pnm%set_pixels">
+<polygon fill="#a7506f" stroke="#a7506f" points="305.79,-150.27 167.52,-150.27 167.52,-126 305.79,-126 305.79,-150.27"/>
+<text xml:space="preserve" text-anchor="middle" x="236.65" y="-134.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">format_pnm%set_pixels</text>
+</a>
+</g>
+</g>
+<!-- proc~rotate&#45;&gt;none~set_pixels -->
+<g id="proc~~rotate~~CallsGraph_edge1" class="edge">
+<title>proc~rotate&#45;&gt;none~set_pixels</title>
+<path fill="none" stroke="#ff0000" d="M85.08,-87.72C103.75,-96.76 130.06,-108.77 154.02,-117.13 159.32,-118.99 164.87,-120.76 170.47,-122.43"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="169.23,-125.71 179.8,-125.09 171.15,-118.98 169.23,-125.71"/>
 </g>
 <!-- proc~allocate_pixels -->
-<g id="proc~~rotate~~CallsGraph_node2" class="node">
+<g id="proc~~rotate~~CallsGraph_node3" class="node">
 <title>proc~allocate_pixels</title>
-<g id="a_proc~~rotate~~CallsGraph_node2"><a xlink:href="../proc/allocate_pixels.html" xlink:title="pnm::format_pnm%allocate_pixels">
-<polygon fill="#d9534f" stroke="#d9534f" points="385,-150 187,-150 187,-126 385,-126 385,-150"/>
-<text text-anchor="middle" x="286" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pnm::format_pnm%allocate_pixels</text>
+<g id="a_proc~~rotate~~CallsGraph_node3"><a xlink:href="../proc/allocate_pixels.html" xlink:title="format_pnm%allocate_pixels">
+<polygon fill="#d9534f" stroke="#d9534f" points="319.29,-108.27 154.02,-108.27 154.02,-84 319.29,-84 319.29,-108.27"/>
+<text xml:space="preserve" text-anchor="middle" x="236.65" y="-92.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">format_pnm%allocate_pixels</text>
 </a>
 </g>
 </g>
 <!-- proc~rotate&#45;&gt;proc~allocate_pixels -->
-<g id="proc~~rotate~~CallsGraph_edge1" class="edge">
+<g id="proc~~rotate~~CallsGraph_edge2" class="edge">
 <title>proc~rotate&#45;&gt;proc~allocate_pixels</title>
-<path fill="none" stroke="#255000" d="M104.71,-87.09C126.8,-96.22 158.46,-108.57 187,-117 195.04,-119.37 203.52,-121.6 211.99,-123.64"/>
-<polygon fill="#255000" stroke="#255000" points="211.37,-127.09 221.91,-125.96 212.97,-120.28 211.37,-127.09"/>
+<path fill="none" stroke="#ff0000" d="M118.5,-82.13C126.16,-83.04 134.16,-84 142.23,-84.96"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="141.8,-88.44 152.14,-86.15 142.63,-81.49 141.8,-88.44"/>
 </g>
 <!-- proc~set_height -->
-<g id="proc~~rotate~~CallsGraph_node3" class="node">
+<g id="proc~~rotate~~CallsGraph_node4" class="node">
 <title>proc~set_height</title>
-<g id="a_proc~~rotate~~CallsGraph_node3"><a xlink:href="../proc/set_height.html" xlink:title="pnm::format_pnm%set_height">
-<polygon fill="#d9534f" stroke="#d9534f" points="373,-108 199,-108 199,-84 373,-84 373,-108"/>
-<text text-anchor="middle" x="286" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pnm::format_pnm%set_height</text>
+<g id="a_proc~~rotate~~CallsGraph_node4"><a xlink:href="../proc/set_height.html" xlink:title="format_pnm%set_height">
+<polygon fill="#d9534f" stroke="#d9534f" points="307.29,-66.27 166.02,-66.27 166.02,-42 307.29,-42 307.29,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="236.65" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">format_pnm%set_height</text>
 </a>
 </g>
 </g>
 <!-- proc~rotate&#45;&gt;proc~set_height -->
-<g id="proc~~rotate~~CallsGraph_edge2" class="edge">
-<title>proc~rotate&#45;&gt;proc~set_height</title>
-<path fill="none" stroke="#255000" d="M151.18,-82.52C163.35,-83.75 176.11,-85.03 188.71,-86.3"/>
-<polygon fill="#255000" stroke="#255000" points="188.47,-89.8 198.77,-87.31 189.17,-82.83 188.47,-89.8"/>
-</g>
-<!-- proc~set_pixels -->
-<g id="proc~~rotate~~CallsGraph_node4" class="node">
-<title>proc~set_pixels</title>
-<g id="a_proc~~rotate~~CallsGraph_node4"><a xlink:href="../proc/set_pixels.html" xlink:title="pnm::format_pnm%set_pixels">
-<polygon fill="#d9534f" stroke="#d9534f" points="371.5,-66 200.5,-66 200.5,-42 371.5,-42 371.5,-66"/>
-<text text-anchor="middle" x="286" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pnm::format_pnm%set_pixels</text>
-</a>
-</g>
-</g>
-<!-- proc~rotate&#45;&gt;proc~set_pixels -->
 <g id="proc~~rotate~~CallsGraph_edge3" class="edge">
-<title>proc~rotate&#45;&gt;proc~set_pixels</title>
-<path fill="none" stroke="#255000" d="M151.18,-67.48C163.85,-66.2 177.15,-64.86 190.24,-63.54"/>
-<polygon fill="#255000" stroke="#255000" points="190.61,-67.03 200.2,-62.54 189.9,-60.06 190.61,-67.03"/>
+<title>proc~rotate&#45;&gt;proc~set_height</title>
+<path fill="none" stroke="#ff0000" d="M118.5,-68.14C130.03,-66.76 142.33,-65.29 154.47,-63.84"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="154.51,-67.36 164.03,-62.7 153.68,-60.41 154.51,-67.36"/>
 </g>
 <!-- proc~set_width -->
 <g id="proc~~rotate~~CallsGraph_node5" class="node">
 <title>proc~set_width</title>
-<g id="a_proc~~rotate~~CallsGraph_node5"><a xlink:href="../proc/set_width.html" xlink:title="pnm::format_pnm%set_width">
-<polygon fill="#d9534f" stroke="#d9534f" points="370.5,-24 201.5,-24 201.5,0 370.5,0 370.5,-24"/>
-<text text-anchor="middle" x="286" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pnm::format_pnm%set_width</text>
+<g id="a_proc~~rotate~~CallsGraph_node5"><a xlink:href="../proc/set_width.html" xlink:title="format_pnm%set_width">
+<polygon fill="#d9534f" stroke="#d9534f" points="304.66,-24.27 168.64,-24.27 168.64,0 304.66,0 304.66,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="236.65" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">format_pnm%set_width</text>
 </a>
 </g>
 </g>
 <!-- proc~rotate&#45;&gt;proc~set_width -->
 <g id="proc~~rotate~~CallsGraph_edge4" class="edge">
 <title>proc~rotate&#45;&gt;proc~set_width</title>
-<path fill="none" stroke="#255000" d="M104.71,-62.91C126.8,-53.78 158.46,-41.43 187,-33 195.04,-30.63 203.52,-28.4 211.99,-26.36"/>
-<polygon fill="#255000" stroke="#255000" points="212.97,-29.72 221.91,-24.04 211.37,-22.91 212.97,-29.72"/>
+<path fill="none" stroke="#ff0000" d="M85.08,-62.55C103.75,-53.51 130.06,-41.5 154.02,-33.13 159.32,-31.28 164.87,-29.51 170.47,-27.84"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="171.15,-31.29 179.8,-25.18 169.23,-24.56 171.15,-31.29"/>
 </g>
-<!-- proc~check_pixel_range -->
+<!-- proc~set_pixel_a -->
 <g id="proc~~rotate~~CallsGraph_node6" class="node">
-<title>proc~check_pixel_range</title>
-<g id="a_proc~~rotate~~CallsGraph_node6"><a xlink:href="../proc/check_pixel_range.html" xlink:title="pnm::format_pnm%check_pixel_range">
-<polygon fill="#d9534f" stroke="#d9534f" points="639,-66 421,-66 421,-42 639,-42 639,-66"/>
-<text text-anchor="middle" x="530" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pnm::format_pnm%check_pixel_range</text>
+<title>proc~set_pixel_a</title>
+<g id="a_proc~~rotate~~CallsGraph_node6"><a xlink:href="../proc/set_pixel_a.html" xlink:title="format_pnm%set_pixel_a">
+<polygon fill="#d9534f" stroke="#d9534f" points="500.31,-171.27 355.29,-171.27 355.29,-147 500.31,-147 500.31,-171.27"/>
+<text xml:space="preserve" text-anchor="middle" x="427.8" y="-155.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">format_pnm%set_pixel_a</text>
 </a>
 </g>
 </g>
-<!-- proc~set_pixels&#45;&gt;proc~check_pixel_range -->
+<!-- none~set_pixels&#45;&gt;proc~set_pixel_a -->
 <g id="proc~~rotate~~CallsGraph_edge5" class="edge">
-<title>proc~set_pixels&#45;&gt;proc~check_pixel_range</title>
-<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M371.64,-54C384.24,-54 397.42,-54 410.56,-54"/>
-<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="410.59,-57.5 420.59,-54 410.59,-50.5 410.59,-57.5"/>
+<title>none~set_pixels&#45;&gt;proc~set_pixel_a</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M306.21,-145.75C318.35,-147.09 331.11,-148.51 343.61,-149.9"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="343.15,-153.37 353.47,-150.99 343.92,-146.41 343.15,-153.37"/>
+</g>
+<!-- proc~set_pixel_b -->
+<g id="proc~~rotate~~CallsGraph_node7" class="node">
+<title>proc~set_pixel_b</title>
+<g id="a_proc~~rotate~~CallsGraph_node7"><a xlink:href="../proc/set_pixel_b.html" xlink:title="format_pnm%set_pixel_b">
+<polygon fill="#d9534f" stroke="#d9534f" points="500.31,-129.27 355.29,-129.27 355.29,-105 500.31,-105 500.31,-129.27"/>
+<text xml:space="preserve" text-anchor="middle" x="427.8" y="-113.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">format_pnm%set_pixel_b</text>
+</a>
+</g>
+</g>
+<!-- none~set_pixels&#45;&gt;proc~set_pixel_b -->
+<g id="proc~~rotate~~CallsGraph_edge6" class="edge">
+<title>none~set_pixels&#45;&gt;proc~set_pixel_b</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M306.21,-130.52C318.35,-129.18 331.11,-127.76 343.61,-126.37"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="343.92,-129.86 353.47,-125.28 343.15,-122.9 343.92,-129.86"/>
+</g>
+<!-- proc~check_pixel_range -->
+<g id="proc~~rotate~~CallsGraph_node8" class="node">
+<title>proc~check_pixel_range</title>
+<g id="a_proc~~rotate~~CallsGraph_node8"><a xlink:href="../proc/check_pixel_range.html" xlink:title="format_pnm%check_pixel_range">
+<polygon fill="#d9534f" stroke="#d9534f" points="721.83,-171.27 536.31,-171.27 536.31,-147 721.83,-147 721.83,-171.27"/>
+<text xml:space="preserve" text-anchor="middle" x="629.07" y="-155.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">format_pnm%check_pixel_range</text>
+</a>
+</g>
+</g>
+<!-- proc~set_pixel_a&#45;&gt;proc~check_pixel_range -->
+<g id="proc~~rotate~~CallsGraph_edge7" class="edge">
+<title>proc~set_pixel_a&#45;&gt;proc~check_pixel_range</title>
+<path fill="none" stroke="#ff0000" d="M500.74,-159.13C508.55,-159.13 516.6,-159.13 524.68,-159.13"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="524.6,-162.64 534.6,-159.14 524.6,-155.64 524.6,-162.64"/>
 </g>
 </g>
 </svg>
@@ -314,55 +362,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: Graph Key Pages: 1 -->
 <svg width="641pt" height="28pt"
- viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+ viewBox="0.00 0.00 641.00 28.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.873868 0.873868) rotate(0) translate(4 28.27)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 729.52,-28.27 729.52,4 -4,4"/>
 <!-- Subroutine -->
 <g id="node1" class="node">
 <title>Subroutine</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
-<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="69.27,-24.27 0,-24.27 0,0 69.27,0 69.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="34.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
 </g>
 <!-- Function -->
 <g id="node2" class="node">
 <title>Function</title>
-<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
-<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="143.89,-24.27 87.38,-24.27 87.38,0 143.89,0 143.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="115.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
 </g>
 <!-- Interface -->
 <g id="node3" class="node">
 <title>Interface</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
-<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="221.39,-24.27 161.88,-24.27 161.88,0 221.39,0 221.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="191.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
 </g>
 <!-- Type Bound Procedure -->
 <g id="node4" class="node">
 <title>Type Bound Procedure</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
-<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="368.27,-24.27 239,-24.27 239,0 368.27,0 368.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="303.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
 </g>
 <!-- Unknown Procedure Type -->
 <g id="node5" class="node">
 <title>Unknown Procedure Type</title>
-<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
-<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+<polygon fill="#777777" stroke="#777777" points="529.39,-24.27 385.88,-24.27 385.88,0 529.39,0 529.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="457.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
 </g>
 <!-- Program -->
 <g id="node6" class="node">
 <title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
-<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.89,-24.27 547.38,-24.27 547.38,0 603.89,0 603.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="575.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
 <g id="node7" class="node">
 <title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
-<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<polygon fill="none" stroke="black" points="725.52,-24.27 621.75,-24.27 621.75,0 725.52,0 725.52,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="673.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
@@ -388,34 +436,49 @@ large graphs.</div>
   <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: proc~~rotate~~CalledByGraph Pages: 1 -->
-<svg id="procrotateCalledByGraph" width="268pt" height="32pt"
- viewBox="0.00 0.00 268.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~rotate~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<svg id="procrotateCalledByGraph" width="234pt" height="74pt"
+ viewBox="0.00 0.00 234.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~rotate~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70.27)">
 <title>proc~~rotate~~CalledByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 264,-28 264,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-70.27 229.54,-70.27 229.54,4 -4,4"/>
 <!-- proc~rotate -->
 <g id="proc~~rotate~~CalledByGraph_node1" class="node">
 <title>proc~rotate</title>
-<polygon fill="none" stroke="black" points="260,-24 109,-24 109,0 260,0 260,-24"/>
-<text text-anchor="middle" x="184.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">pnm::format_pnm%rotate</text>
+<polygon fill="none" stroke="black" points="225.54,-45.27 107.52,-45.27 107.52,-21 225.54,-21 225.54,-45.27"/>
+<text xml:space="preserve" text-anchor="middle" x="166.53" y="-29.53" font-family="Helvetica,sans-Serif" font-size="10.50">format_pnm%rotate</text>
 </g>
 <!-- program~demo_ppm -->
 <g id="proc~~rotate~~CalledByGraph_node2" class="node">
 <title>program~demo_ppm</title>
 <g id="a_proc~~rotate~~CalledByGraph_node2"><a xlink:href="../program/demo_ppm.html" xlink:title="demo_ppm">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="73,-24 0,-24 0,0 73,0 73,-24"/>
-<text text-anchor="middle" x="36.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo_ppm</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="71.52,-66.27 0,-66.27 0,-42 71.52,-42 71.52,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo_ppm</text>
 </a>
 </g>
 </g>
 <!-- program~demo_ppm&#45;&gt;proc~rotate -->
 <g id="proc~~rotate~~CalledByGraph_edge1" class="edge">
 <title>program~demo_ppm&#45;&gt;proc~rotate</title>
-<path fill="none" stroke="#255000" d="M73.22,-12C81.13,-12 89.84,-12 98.79,-12"/>
-<polygon fill="#255000" stroke="#255000" points="98.97,-15.5 108.97,-12 98.97,-8.5 98.97,-15.5"/>
+<path fill="none" stroke="#ff0000" d="M71.95,-48.4C79.42,-47.18 87.56,-45.85 95.82,-44.5"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="96.3,-47.97 105.61,-42.91 95.18,-41.06 96.3,-47.97"/>
+</g>
+<!-- program~test22 -->
+<g id="proc~~rotate~~CalledByGraph_node3" class="node">
+<title>program~test22</title>
+<g id="a_proc~~rotate~~CalledByGraph_node3"><a xlink:href="../program/test22.html" xlink:title="test22">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-24.27 8.76,-24.27 8.76,0 62.76,0 62.76,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test22</text>
+</a>
+</g>
+</g>
+<!-- program~test22&#45;&gt;proc~rotate -->
+<g id="proc~~rotate~~CalledByGraph_edge2" class="edge">
+<title>program~test22&#45;&gt;proc~rotate</title>
+<path fill="none" stroke="#ff0000" d="M63.13,-16.44C72.78,-18.01 84.2,-19.87 95.85,-21.77"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="95.12,-25.2 105.55,-23.35 96.24,-18.29 95.12,-25.2"/>
 </g>
 </g>
 </svg>
@@ -434,55 +497,55 @@ large graphs.</div>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: Graph Key Pages: 1 -->
 <svg width="641pt" height="28pt"
- viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+ viewBox="0.00 0.00 641.00 28.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.873868 0.873868) rotate(0) translate(4 28.27)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 729.52,-28.27 729.52,4 -4,4"/>
 <!-- Subroutine -->
 <g id="node1" class="node">
 <title>Subroutine</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
-<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="69.27,-24.27 0,-24.27 0,0 69.27,0 69.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="34.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
 </g>
 <!-- Function -->
 <g id="node2" class="node">
 <title>Function</title>
-<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
-<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="143.89,-24.27 87.38,-24.27 87.38,0 143.89,0 143.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="115.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
 </g>
 <!-- Interface -->
 <g id="node3" class="node">
 <title>Interface</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
-<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="221.39,-24.27 161.88,-24.27 161.88,0 221.39,0 221.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="191.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
 </g>
 <!-- Type Bound Procedure -->
 <g id="node4" class="node">
 <title>Type Bound Procedure</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
-<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="368.27,-24.27 239,-24.27 239,0 368.27,0 368.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="303.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
 </g>
 <!-- Unknown Procedure Type -->
 <g id="node5" class="node">
 <title>Unknown Procedure Type</title>
-<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
-<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+<polygon fill="#777777" stroke="#777777" points="529.39,-24.27 385.88,-24.27 385.88,0 529.39,0 529.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="457.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
 </g>
 <!-- Program -->
 <g id="node6" class="node">
 <title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
-<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.89,-24.27 547.38,-24.27 547.38,0 603.89,0 603.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="575.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
 <g id="node7" class="node">
 <title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
-<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<polygon fill="none" stroke="black" points="725.52,-24.27 621.75,-24.27 621.75,0 725.52,0 725.52,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="673.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
@@ -514,95 +577,95 @@ large graphs.</div>
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">elemental pure subroutine </span><span class="n">rotate</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="w"> </span><span class="n">angle</span><span class="p">)</span>
-<span class="w">      </span><span class="k">class</span><span class="p">(</span><span class="n">format_pnm</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">this</span>
-<span class="w">      </span><span class="kt">integer</span><span class="p">,</span><span class="w">           </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">angle</span>
-<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="n">ik</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rotated_pixels</span>
-<span class="w">      </span><span class="kt">integer</span><span class="w">                                  </span><span class="kd">::</span><span class="w"> </span><span class="n">target_height</span><span class="p">,</span><span class="w"> </span><span class="n">target_width</span>
-<span class="w">      </span><span class="kt">integer</span><span class="w">                                  </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span>
+    <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">elemental pure subroutine </span><span class="n">rotate</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="w"> </span><span class="n">angle</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">class</span><span class="p">(</span><span class="n">format_pnm</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">this</span><span class="w"></span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">,</span><span class="w">           </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">angle</span><span class="w"></span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="n">ik</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rotated_pixels</span><span class="w"></span>
+<span class="w">      </span><span class="kt">integer</span><span class="w">                                  </span><span class="kd">::</span><span class="w"> </span><span class="n">target_height</span><span class="p">,</span><span class="w"> </span><span class="n">target_width</span><span class="w"></span>
+<span class="w">      </span><span class="kt">integer</span><span class="w">                                  </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"></span>
 
 <span class="w">      </span><span class="c">! Determine the target height and width based on the rotation angle</span>
-<span class="w">      </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
-<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="mi">270</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">270</span><span class="p">)</span>
-<span class="w">         </span><span class="n">target_height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">width</span>
-<span class="w">         </span><span class="n">target_width</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">height</span>
-<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">180</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">180</span><span class="p">)</span>
-<span class="w">         </span><span class="n">target_height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">height</span>
-<span class="w">         </span><span class="n">target_width</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">width</span>
-<span class="w">       </span><span class="k">case </span><span class="n">default</span>
-<span class="w">         </span><span class="k">error stop</span><span class="w"> </span><span class="s2">&quot;Invalid rotation angle. Valid angles are 90, 180, 270, -90, -180, -270.&quot;</span>
+<span class="w">      </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">angle</span><span class="p">)</span><span class="w"></span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="mi">270</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">270</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">target_height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="w"></span>
+<span class="w">         </span><span class="n">target_width</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="w"></span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">180</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">180</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">target_height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="w"></span>
+<span class="w">         </span><span class="n">target_width</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="w"></span>
+<span class="w">       </span><span class="k">case </span><span class="n">default</span><span class="w"></span>
+<span class="w">         </span><span class="k">error stop</span><span class="w"> </span><span class="s2">&quot;Invalid rotation angle. Valid angles are 90, 180, 270, -90, -180, -270.&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="k">end select</span>
 
-<span class="k">      select case</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">file_format</span><span class="p">)</span>
-<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;pbm&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;pgm&#39;</span><span class="p">)</span>
+<span class="k">      select case</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">file_format</span><span class="p">)</span><span class="w"></span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;pbm&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;pgm&#39;</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">         </span><span class="c">! Allocate memory for rotated_pixels array</span>
-<span class="w">         </span><span class="k">allocate</span><span class="p">(</span><span class="n">rotated_pixels</span><span class="p">(</span><span class="n">target_height</span><span class="p">,</span><span class="w"> </span><span class="n">target_width</span><span class="p">))</span>
+<span class="w">         </span><span class="k">allocate</span><span class="p">(</span><span class="n">rotated_pixels</span><span class="p">(</span><span class="n">target_height</span><span class="p">,</span><span class="w"> </span><span class="n">target_width</span><span class="p">))</span><span class="w"></span>
 
 <span class="w">         </span><span class="c">! Rotate pixels based on the specified angle</span>
-<span class="w">         </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
-<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">270</span><span class="p">)</span>
-<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">height</span>
-<span class="w">               </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">width</span>
-<span class="w">                  </span><span class="n">rotated_pixels</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span>
+<span class="w">         </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">angle</span><span class="p">)</span><span class="w"></span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">270</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="w"></span>
+<span class="w">               </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="w"></span>
+<span class="w">                  </span><span class="n">rotated_pixels</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"></span>
 <span class="w">               </span><span class="k">end do</span>
 <span class="k">            end do</span>
-<span class="k">          case</span><span class="w"> </span><span class="p">(</span><span class="mi">180</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">180</span><span class="p">)</span>
-<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">height</span>
-<span class="w">               </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">width</span>
-<span class="w">                  </span><span class="n">rotated_pixels</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="o">-</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span>
+<span class="k">          case</span><span class="w"> </span><span class="p">(</span><span class="mi">180</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">180</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="w"></span>
+<span class="w">               </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="w"></span>
+<span class="w">                  </span><span class="n">rotated_pixels</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="o">-</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"></span>
 <span class="w">               </span><span class="k">end do</span>
 <span class="k">            end do</span>
-<span class="k">          case</span><span class="w"> </span><span class="p">(</span><span class="mi">270</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">90</span><span class="p">)</span>
-<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">height</span>
-<span class="w">               </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">width</span>
-<span class="w">                  </span><span class="n">rotated_pixels</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="o">-</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span>
+<span class="k">          case</span><span class="w"> </span><span class="p">(</span><span class="mi">270</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">90</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="w"></span>
+<span class="w">               </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="w"></span>
+<span class="w">                  </span><span class="n">rotated_pixels</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="o">-</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"></span>
 <span class="w">               </span><span class="k">end do</span>
 <span class="k">            end do</span>
 <span class="k">         end select</span>
 
-<span class="k">       case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;ppm&#39;</span><span class="p">)</span>
+<span class="k">       case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;ppm&#39;</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">         </span><span class="c">! Allocate memory for rotated_pixels array</span>
-<span class="w">         </span><span class="k">allocate</span><span class="p">(</span><span class="n">rotated_pixels</span><span class="p">(</span><span class="n">target_height</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">target_width</span><span class="p">))</span>
+<span class="w">         </span><span class="k">allocate</span><span class="p">(</span><span class="n">rotated_pixels</span><span class="p">(</span><span class="n">target_height</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">target_width</span><span class="p">))</span><span class="w"></span>
 
 <span class="w">         </span><span class="c">! Rotate pixels based on the specified angle</span>
-<span class="w">         </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
-<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">270</span><span class="p">)</span>
-<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">height</span>
-<span class="w">               </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">width</span>
-<span class="w">                  </span><span class="n">rotated_pixels</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">j</span><span class="p">)</span>
+<span class="w">         </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">angle</span><span class="p">)</span><span class="w"></span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">270</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="w"></span>
+<span class="w">               </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="w"></span>
+<span class="w">                  </span><span class="n">rotated_pixels</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
 <span class="w">               </span><span class="k">end do</span>
 <span class="k">            end do</span>
-<span class="k">          case</span><span class="w"> </span><span class="p">(</span><span class="mi">180</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">180</span><span class="p">)</span>
-<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">height</span>
-<span class="w">               </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">width</span>
-<span class="w">                  </span><span class="n">rotated_pixels</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="o">-</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="o">-</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">j</span><span class="p">)</span>
+<span class="k">          case</span><span class="w"> </span><span class="p">(</span><span class="mi">180</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">180</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="w"></span>
+<span class="w">               </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="w"></span>
+<span class="w">                  </span><span class="n">rotated_pixels</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="o">-</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="o">-</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
 <span class="w">               </span><span class="k">end do</span>
 <span class="k">            end do</span>
-<span class="k">          case</span><span class="w"> </span><span class="p">(</span><span class="mi">270</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">90</span><span class="p">)</span>
-<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">height</span>
-<span class="w">               </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">width</span>
-<span class="w">                  </span><span class="n">rotated_pixels</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="o">-</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">j</span><span class="p">)</span>
+<span class="k">          case</span><span class="w"> </span><span class="p">(</span><span class="mi">270</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">90</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="w"></span>
+<span class="w">               </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="w"></span>
+<span class="w">                  </span><span class="n">rotated_pixels</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="o">-</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
 <span class="w">               </span><span class="k">end do</span>
 <span class="k">            end do</span>
 <span class="k">         end select</span>
 
-<span class="k">      end select</span>
+<span class="k">      end select</span><span class="w"></span>
 
 <span class="w">      </span><span class="c">! Update height and width of the image</span>
-<span class="w">      </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">set_height</span><span class="p">(</span><span class="n">target_height</span><span class="p">)</span>
-<span class="w">      </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">set_width</span><span class="p">(</span><span class="n">target_width</span><span class="p">)</span>
+<span class="w">      </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">set_height</span><span class="p">(</span><span class="n">target_height</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">set_width</span><span class="p">(</span><span class="n">target_width</span><span class="p">)</span><span class="w"></span>
 
-<span class="w">      </span><span class="k">deallocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">)</span>
-<span class="w">      </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">allocate_pixels</span><span class="p">()</span>
+<span class="w">      </span><span class="k">deallocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">pixels</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">allocate_pixels</span><span class="p">()</span><span class="w"></span>
 
 <span class="w">      </span><span class="c">! Update the original pixels with rotated pixels</span>
-<span class="w">      </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">set_pixels</span><span class="p">(</span><span class="n">rotated_pixels</span><span class="p">)</span>
+<span class="w">      </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">set_pixels</span><span class="p">(</span><span class="n">rotated_pixels</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">      </span><span class="c">! Deallocate rotated_pixels array</span>
-<span class="w">      </span><span class="k">deallocate</span><span class="p">(</span><span class="n">rotated_pixels</span><span class="p">)</span>
-<span class="w">   </span><span class="k">end subroutine </span><span class="n">rotate</span>
+<span class="w">      </span><span class="k">deallocate</span><span class="p">(</span><span class="n">rotated_pixels</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">end subroutine </span><span class="n">rotate</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -616,40 +679,21 @@ large graphs.</div>
     <footer>
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col"><p>ForImage was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+          <div class="col">
+            <p>
+              ForImage
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023-2025 BSD 3-Clause
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-01-12T20:08:26.519240             </p>
+ on 2025-08-20T19:15:23.986866+0000             </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-
-    <!-- MathJax JavaScript
-             ================================================== -->
-             <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({
-          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-          });
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-          <script src="../tipuesearch/tipuesearch_content.js"></script>
-          <script src="../tipuesearch/tipuesearch_set.js"></script>
-          <script src="../tipuesearch/tipuesearch.js"></script>
-
   </body>
 </html>

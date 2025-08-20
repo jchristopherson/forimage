@@ -6,20 +6,35 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="Documentation for ForImage">
+      <meta name="description" content="A Fortran library for processing and editing images and managing colors">
     <meta name="author" content="Seyed Ali Ghasemi" >
     <link rel="icon" href="../favicon.png">
 
     <title>aspect_ratio &ndash; ForImage</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="../css/pygments.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
     <link href="../css/local.css" rel="stylesheet">
-      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="../css/pygments.css" rel="stylesheet">
     <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
@@ -29,7 +44,7 @@
     <div class="container-fluid mb-sm-4 mb-xl-2">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="../index.html">ForImage <small>0.3.0</small></a>
+          <a class="navbar-brand" href="../index.html">ForImage </a>
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
                   aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">
@@ -74,23 +89,23 @@
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
             <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Seyed Ali Ghasemi</li>
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> BSD 3-Clause</li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
-              <a data-bs-toggle="tooltip"
-                 data-bs-placement="bottom" data-html="true"
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
                  title=" 0.3% of total for procedures.">5 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/pnm.f90"> Source File</a>
+              <a href="../src/pnm.F90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/pnm.f90.html'>pnm.f90</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/pnm.f90.html'>pnm.F90</a></li>
                 <li class="breadcrumb-item"><a href='../module/pnm.html'>pnm</a></li>
             <li class="breadcrumb-item active" aria-current="page">aspect_ratio</li>
           </ol>
@@ -99,9 +114,11 @@
     </div>
   </div>
   <script>
-    $(function () {
-    $('[data-bs-toggle="tooltip"]').tooltip()
-    })
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
   </script>
 
   </div>
@@ -147,6 +164,7 @@
 </h2>
     
 
+    <p>Calculates the aspect ratio of the image. Required for <code>print_info</code> method.</p>
 
 
     <h3>Arguments</h3>
@@ -162,7 +180,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-this~49"></span>
+              <span class="anchor" id="variable-this~41"></span>
               class(<a href='../type/format_pnm.html'>format_pnm</a>),
             </td>
 <td>intent(in)</td>
@@ -202,49 +220,394 @@
   <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: proc~~aspect_ratio~~CalledByGraph Pages: 1 -->
-<svg id="procaspect_ratioCalledByGraph" width="431pt" height="32pt"
- viewBox="0.00 0.00 431.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~aspect_ratio~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<svg id="procaspect_ratioCalledByGraph" width="365pt" height="998pt"
+ viewBox="0.00 0.00 365.00 998.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~aspect_ratio~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 994.27)">
 <title>proc~~aspect_ratio~~CalledByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 427,-28 427,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-994.27 361.06,-994.27 361.06,4 -4,4"/>
 <!-- proc~aspect_ratio -->
 <g id="proc~~aspect_ratio~~CalledByGraph_node1" class="node">
 <title>proc~aspect_ratio</title>
-<polygon fill="none" stroke="black" points="423,-24 314,-24 314,0 423,0 423,-24"/>
-<text text-anchor="middle" x="368.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">pnm::aspect_ratio</text>
+<polygon fill="none" stroke="black" points="357.06,-507.27 280.29,-507.27 280.29,-483 357.06,-483 357.06,-507.27"/>
+<text xml:space="preserve" text-anchor="middle" x="318.68" y="-491.53" font-family="Helvetica,sans-Serif" font-size="10.50">aspect_ratio</text>
 </g>
 <!-- proc~print_info -->
 <g id="proc~~aspect_ratio~~CalledByGraph_node2" class="node">
 <title>proc~print_info</title>
-<g id="a_proc~~aspect_ratio~~CalledByGraph_node2"><a xlink:href="../proc/print_info.html" xlink:title="pnm::format_pnm%print_info">
-<polygon fill="#d9534f" stroke="#d9534f" points="278,-24 109,-24 109,0 278,0 278,-24"/>
-<text text-anchor="middle" x="193.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pnm::format_pnm%print_info</text>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node2"><a xlink:href="../proc/print_info.html" xlink:title="format_pnm%print_info">
+<polygon fill="#d9534f" stroke="#d9534f" points="244.29,-507.27 107.52,-507.27 107.52,-483 244.29,-483 244.29,-507.27"/>
+<text xml:space="preserve" text-anchor="middle" x="175.91" y="-491.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">format_pnm%print_info</text>
 </a>
 </g>
 </g>
 <!-- proc~print_info&#45;&gt;proc~aspect_ratio -->
 <g id="proc~~aspect_ratio~~CalledByGraph_edge1" class="edge">
 <title>proc~print_info&#45;&gt;proc~aspect_ratio</title>
-<path fill="none" stroke="#255000" d="M278.21,-12C286.7,-12 295.23,-12 303.46,-12"/>
-<polygon fill="#255000" stroke="#255000" points="303.71,-15.5 313.71,-12 303.71,-8.5 303.71,-15.5"/>
+<path fill="none" stroke="#ff0000" d="M244.4,-495.13C252.56,-495.13 260.76,-495.13 268.58,-495.13"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="268.58,-498.64 278.58,-495.14 268.58,-491.64 268.58,-498.64"/>
 </g>
 <!-- program~demo_ppm -->
 <g id="proc~~aspect_ratio~~CalledByGraph_node3" class="node">
 <title>program~demo_ppm</title>
 <g id="a_proc~~aspect_ratio~~CalledByGraph_node3"><a xlink:href="../program/demo_ppm.html" xlink:title="demo_ppm">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="73,-24 0,-24 0,0 73,0 73,-24"/>
-<text text-anchor="middle" x="36.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo_ppm</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="71.52,-990.27 0,-990.27 0,-966 71.52,-966 71.52,-990.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-974.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo_ppm</text>
 </a>
 </g>
 </g>
 <!-- program~demo_ppm&#45;&gt;proc~print_info -->
 <g id="proc~~aspect_ratio~~CalledByGraph_edge2" class="edge">
 <title>program~demo_ppm&#45;&gt;proc~print_info</title>
-<path fill="none" stroke="#255000" d="M73.06,-12C80.92,-12 89.6,-12 98.59,-12"/>
-<polygon fill="#255000" stroke="#255000" points="98.84,-15.5 108.84,-12 98.84,-8.5 98.84,-15.5"/>
+<path fill="none" stroke="#ff0000" d="M63.04,-965.58C66.25,-963.15 69.21,-960.34 71.52,-957.13 123.69,-884.63 161.79,-602.23 172.11,-518.6"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="175.57,-519.2 173.3,-508.85 168.62,-518.35 175.57,-519.2"/>
+</g>
+<!-- program~test -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node4" class="node">
+<title>program~test</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node4"><a xlink:href="../program/test.html" xlink:title="test">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-948.27 8.76,-948.27 8.76,-924 62.76,-924 62.76,-948.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-932.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test</text>
+</a>
+</g>
+</g>
+<!-- program~test&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge3" class="edge">
+<title>program~test&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M62.97,-923.53C66.2,-921.11 69.18,-918.32 71.52,-915.13 164.95,-788.16 174.67,-586.99 175.14,-518.71"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="178.64,-519.06 175.14,-509.06 171.64,-519.06 178.64,-519.06"/>
+</g>
+<!-- program~test1 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node5" class="node">
+<title>program~test1</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node5"><a xlink:href="../program/test1.html" xlink:title="test1">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-906.27 8.76,-906.27 8.76,-882 62.76,-882 62.76,-906.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-890.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test1</text>
+</a>
+</g>
+</g>
+<!-- program~test1&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge4" class="edge">
+<title>program~test1&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M62.55,-881.74C65.92,-879.26 69.05,-876.4 71.52,-873.13 156.51,-760.68 171.65,-582.66 174.33,-518.86"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="177.82,-519.3 174.67,-509.19 170.82,-519.06 177.82,-519.3"/>
+</g>
+<!-- program~test10 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node6" class="node">
+<title>program~test10</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node6"><a xlink:href="../program/test10.html" xlink:title="test10">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-864.27 8.76,-864.27 8.76,-840 62.76,-840 62.76,-864.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-848.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test10</text>
+</a>
+</g>
+</g>
+<!-- program~test10&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge5" class="edge">
+<title>program~test10&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M62.46,-839.66C65.84,-837.2 69,-834.36 71.52,-831.13 148.15,-732.99 168.3,-577.86 173.33,-518.92"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="176.81,-519.31 174.09,-509.07 169.83,-518.77 176.81,-519.31"/>
+</g>
+<!-- program~test11 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node7" class="node">
+<title>program~test11</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node7"><a xlink:href="../program/test11.html" xlink:title="test11">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-822.27 8.76,-822.27 8.76,-798 62.76,-798 62.76,-822.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-806.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test11</text>
+</a>
+</g>
+</g>
+<!-- program~test11&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge6" class="edge">
+<title>program~test11&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M62.35,-797.57C65.74,-795.12 68.94,-792.31 71.52,-789.13 139.94,-705 164.6,-572.39 172.08,-518.79"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="175.53,-519.35 173.36,-508.98 168.59,-518.44 175.53,-519.35"/>
+</g>
+<!-- program~test12 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node8" class="node">
+<title>program~test12</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node8"><a xlink:href="../program/test12.html" xlink:title="test12">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-780.27 8.76,-780.27 8.76,-756 62.76,-756 62.76,-780.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-764.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test12</text>
+</a>
+</g>
+</g>
+<!-- program~test12&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge7" class="edge">
+<title>program~test12&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M61.85,-755.7C65.4,-753.21 68.77,-750.35 71.52,-747.13 131.8,-676.76 160.37,-566.49 170.46,-518.62"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="173.83,-519.58 172.38,-509.08 166.97,-518.19 173.83,-519.58"/>
+</g>
+<!-- program~test13 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node9" class="node">
+<title>program~test13</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node9"><a xlink:href="../program/test13.html" xlink:title="test13">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-738.27 8.76,-738.27 8.76,-714 62.76,-714 62.76,-738.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-722.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test13</text>
+</a>
+</g>
+</g>
+<!-- program~test13&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge8" class="edge">
+<title>program~test13&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M61.66,-713.54C65.23,-711.06 68.66,-708.25 71.52,-705.13 123.78,-648.18 155.46,-559.92 168.29,-518.32"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="171.59,-519.48 171.1,-508.89 164.89,-517.47 171.59,-519.48"/>
+</g>
+<!-- program~test14 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node10" class="node">
+<title>program~test14</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node10"><a xlink:href="../program/test14.html" xlink:title="test14">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-696.27 8.76,-696.27 8.76,-672 62.76,-672 62.76,-696.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-680.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test14</text>
+</a>
+</g>
+</g>
+<!-- program~test14&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge9" class="edge">
+<title>program~test14&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M61.04,-671.54C64.78,-669.03 68.42,-666.21 71.52,-663.13 115.87,-619.15 149.5,-552.57 165.18,-517.91"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="168.34,-519.41 169.18,-508.85 161.94,-516.58 168.34,-519.41"/>
+</g>
+<!-- program~test17 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node11" class="node">
+<title>program~test17</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node11"><a xlink:href="../program/test17.html" xlink:title="test17">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-654.27 8.76,-654.27 8.76,-630 62.76,-630 62.76,-654.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-638.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test17</text>
+</a>
+</g>
+</g>
+<!-- program~test17&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge10" class="edge">
+<title>program~test17&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M59.97,-629.64C63.99,-627.05 68,-624.18 71.52,-621.13 108.32,-589.27 142.35,-543.34 160.71,-516.63"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="163.4,-518.9 166.1,-508.66 157.6,-514.98 163.4,-518.9"/>
+</g>
+<!-- program~test18 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node12" class="node">
+<title>program~test18</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node12"><a xlink:href="../program/test18.html" xlink:title="test18">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-612.27 8.76,-612.27 8.76,-588 62.76,-588 62.76,-612.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-596.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test18</text>
+</a>
+</g>
+</g>
+<!-- program~test18&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge11" class="edge">
+<title>program~test18&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M58.38,-587.71C62.8,-584.99 67.37,-582.06 71.52,-579.13 100.39,-558.83 131.59,-532.88 152.07,-515.23"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="154.28,-517.95 159.54,-508.75 149.69,-512.66 154.28,-517.95"/>
+</g>
+<!-- program~test19 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node13" class="node">
+<title>program~test19</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node13"><a xlink:href="../program/test19.html" xlink:title="test19">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-570.27 8.76,-570.27 8.76,-546 62.76,-546 62.76,-570.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-554.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test19</text>
+</a>
+</g>
+</g>
+<!-- program~test19&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge12" class="edge">
+<title>program~test19&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M63.07,-546.14C83.98,-536.6 113.51,-523.14 136.97,-512.43"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="138.25,-515.7 145.9,-508.36 135.35,-509.33 138.25,-515.7"/>
+</g>
+<!-- program~test2 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node14" class="node">
+<title>program~test2</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node14"><a xlink:href="../program/test2.html" xlink:title="test2">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-528.27 8.76,-528.27 8.76,-504 62.76,-504 62.76,-528.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-512.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test2</text>
+</a>
+</g>
+</g>
+<!-- program~test2&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge13" class="edge">
+<title>program~test2&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M63.07,-512.14C72.62,-510.68 83.97,-508.96 95.72,-507.17"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="96.2,-510.64 105.56,-505.68 95.15,-503.72 96.2,-510.64"/>
+</g>
+<!-- program~test20 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node15" class="node">
+<title>program~test20</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node15"><a xlink:href="../program/test20.html" xlink:title="test20">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-486.27 8.76,-486.27 8.76,-462 62.76,-462 62.76,-486.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-470.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test20</text>
+</a>
+</g>
+</g>
+<!-- program~test20&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge14" class="edge">
+<title>program~test20&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M63.07,-478.13C72.62,-479.59 83.97,-481.31 95.72,-483.1"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="95.15,-486.55 105.56,-484.59 96.2,-479.63 95.15,-486.55"/>
+</g>
+<!-- program~test21 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node16" class="node">
+<title>program~test21</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node16"><a xlink:href="../program/test21.html" xlink:title="test21">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-444.27 8.76,-444.27 8.76,-420 62.76,-420 62.76,-444.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-428.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test21</text>
+</a>
+</g>
+</g>
+<!-- program~test21&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge15" class="edge">
+<title>program~test21&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M63.07,-444.13C83.98,-453.67 113.51,-467.13 136.97,-477.84"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="135.35,-480.94 145.9,-481.91 138.25,-474.57 135.35,-480.94"/>
+</g>
+<!-- program~test22 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node17" class="node">
+<title>program~test22</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node17"><a xlink:href="../program/test22.html" xlink:title="test22">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-402.27 8.76,-402.27 8.76,-378 62.76,-378 62.76,-402.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-386.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test22</text>
+</a>
+</g>
+</g>
+<!-- program~test22&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge16" class="edge">
+<title>program~test22&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M58.38,-402.56C62.8,-405.28 67.37,-408.21 71.52,-411.13 100.39,-431.44 131.59,-457.39 152.07,-475.04"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="149.69,-477.61 159.54,-481.52 154.28,-472.32 149.69,-477.61"/>
+</g>
+<!-- program~test23 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node18" class="node">
+<title>program~test23</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node18"><a xlink:href="../program/test23.html" xlink:title="test23">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-360.27 8.76,-360.27 8.76,-336 62.76,-336 62.76,-360.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-344.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test23</text>
+</a>
+</g>
+</g>
+<!-- program~test23&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge17" class="edge">
+<title>program~test23&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M59.97,-360.63C63.99,-363.22 68,-366.09 71.52,-369.13 108.32,-401 142.35,-446.93 160.71,-473.64"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="157.6,-475.29 166.1,-481.61 163.4,-471.37 157.6,-475.29"/>
+</g>
+<!-- program~test24 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node19" class="node">
+<title>program~test24</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node19"><a xlink:href="../program/test24.html" xlink:title="test24">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-318.27 8.76,-318.27 8.76,-294 62.76,-294 62.76,-318.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-302.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test24</text>
+</a>
+</g>
+</g>
+<!-- program~test24&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge18" class="edge">
+<title>program~test24&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M61.04,-318.73C64.78,-321.24 68.42,-324.06 71.52,-327.13 115.87,-371.12 149.5,-437.7 165.18,-472.36"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="161.94,-473.69 169.18,-481.42 168.34,-470.86 161.94,-473.69"/>
+</g>
+<!-- program~test25 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node20" class="node">
+<title>program~test25</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node20"><a xlink:href="../program/test25.html" xlink:title="test25">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-276.27 8.76,-276.27 8.76,-252 62.76,-252 62.76,-276.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-260.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test25</text>
+</a>
+</g>
+</g>
+<!-- program~test25&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge19" class="edge">
+<title>program~test25&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M61.66,-276.73C65.23,-279.21 68.66,-282.02 71.52,-285.13 123.78,-342.09 155.46,-430.35 168.29,-471.95"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="164.89,-472.8 171.1,-481.38 171.59,-470.79 164.89,-472.8"/>
+</g>
+<!-- program~test3 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node21" class="node">
+<title>program~test3</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node21"><a xlink:href="../program/test3.html" xlink:title="test3">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-234.27 8.76,-234.27 8.76,-210 62.76,-210 62.76,-234.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-218.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test3</text>
+</a>
+</g>
+</g>
+<!-- program~test3&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge20" class="edge">
+<title>program~test3&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M61.85,-234.57C65.4,-237.06 68.77,-239.92 71.52,-243.13 131.8,-313.51 160.37,-423.78 170.46,-471.65"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="166.97,-472.08 172.38,-481.19 173.83,-470.69 166.97,-472.08"/>
+</g>
+<!-- program~test4 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node22" class="node">
+<title>program~test4</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node22"><a xlink:href="../program/test4.html" xlink:title="test4">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-192.27 8.76,-192.27 8.76,-168 62.76,-168 62.76,-192.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-176.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test4</text>
+</a>
+</g>
+</g>
+<!-- program~test4&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge21" class="edge">
+<title>program~test4&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M62.35,-192.7C65.74,-195.15 68.94,-197.96 71.52,-201.13 139.94,-285.27 164.6,-417.88 172.08,-471.48"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="168.59,-471.83 173.36,-481.29 175.53,-470.92 168.59,-471.83"/>
+</g>
+<!-- program~test6 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node23" class="node">
+<title>program~test6</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node23"><a xlink:href="../program/test6.html" xlink:title="test6">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-150.27 8.76,-150.27 8.76,-126 62.76,-126 62.76,-150.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-134.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test6</text>
+</a>
+</g>
+</g>
+<!-- program~test6&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge22" class="edge">
+<title>program~test6&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M62.46,-150.61C65.84,-153.07 69,-155.91 71.52,-159.13 148.15,-257.28 168.3,-412.41 173.33,-471.35"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="169.83,-471.5 174.09,-481.2 176.81,-470.96 169.83,-471.5"/>
+</g>
+<!-- program~test7 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node24" class="node">
+<title>program~test7</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node24"><a xlink:href="../program/test7.html" xlink:title="test7">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-108.27 8.76,-108.27 8.76,-84 62.76,-84 62.76,-108.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-92.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test7</text>
+</a>
+</g>
+</g>
+<!-- program~test7&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge23" class="edge">
+<title>program~test7&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M62.55,-108.53C65.92,-111.01 69.05,-113.87 71.52,-117.14 156.51,-229.59 171.65,-407.61 174.33,-471.41"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="170.82,-471.21 174.67,-481.08 177.82,-470.97 170.82,-471.21"/>
+</g>
+<!-- program~test8 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node25" class="node">
+<title>program~test8</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node25"><a xlink:href="../program/test8.html" xlink:title="test8">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-66.27 8.76,-66.27 8.76,-42 62.76,-42 62.76,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test8</text>
+</a>
+</g>
+</g>
+<!-- program~test8&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge24" class="edge">
+<title>program~test8&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M62.97,-66.74C66.2,-69.16 69.18,-71.95 71.52,-75.14 164.95,-202.11 174.67,-403.28 175.14,-471.56"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="171.64,-471.21 175.14,-481.21 178.64,-471.21 171.64,-471.21"/>
+</g>
+<!-- program~test9 -->
+<g id="proc~~aspect_ratio~~CalledByGraph_node26" class="node">
+<title>program~test9</title>
+<g id="a_proc~~aspect_ratio~~CalledByGraph_node26"><a xlink:href="../program/test9.html" xlink:title="test9">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.76,-24.27 8.76,-24.27 8.76,0 62.76,0 62.76,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="35.76" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test9</text>
+</a>
+</g>
+</g>
+<!-- program~test9&#45;&gt;proc~print_info -->
+<g id="proc~~aspect_ratio~~CalledByGraph_edge25" class="edge">
+<title>program~test9&#45;&gt;proc~print_info</title>
+<path fill="none" stroke="#ff0000" d="M63.04,-24.69C66.25,-27.12 69.21,-29.93 71.52,-33.13 123.69,-105.64 161.79,-388.04 172.11,-471.67"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="168.62,-471.92 173.3,-481.42 175.57,-471.07 168.62,-471.92"/>
 </g>
 </g>
 </svg>
@@ -263,55 +626,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: Graph Key Pages: 1 -->
 <svg width="641pt" height="28pt"
- viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+ viewBox="0.00 0.00 641.00 28.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.873868 0.873868) rotate(0) translate(4 28.27)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 729.52,-28.27 729.52,4 -4,4"/>
 <!-- Subroutine -->
 <g id="node1" class="node">
 <title>Subroutine</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
-<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="69.27,-24.27 0,-24.27 0,0 69.27,0 69.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="34.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
 </g>
 <!-- Function -->
 <g id="node2" class="node">
 <title>Function</title>
-<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
-<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="143.89,-24.27 87.38,-24.27 87.38,0 143.89,0 143.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="115.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
 </g>
 <!-- Interface -->
 <g id="node3" class="node">
 <title>Interface</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
-<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="221.39,-24.27 161.88,-24.27 161.88,0 221.39,0 221.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="191.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
 </g>
 <!-- Type Bound Procedure -->
 <g id="node4" class="node">
 <title>Type Bound Procedure</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
-<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="368.27,-24.27 239,-24.27 239,0 368.27,0 368.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="303.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
 </g>
 <!-- Unknown Procedure Type -->
 <g id="node5" class="node">
 <title>Unknown Procedure Type</title>
-<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
-<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+<polygon fill="#777777" stroke="#777777" points="529.39,-24.27 385.88,-24.27 385.88,0 529.39,0 529.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="457.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
 </g>
 <!-- Program -->
 <g id="node6" class="node">
 <title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
-<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.89,-24.27 547.38,-24.27 547.38,0 603.89,0 603.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="575.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
 <g id="node7" class="node">
 <title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
-<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<polygon fill="none" stroke="black" points="725.52,-24.27 621.75,-24.27 621.75,0 725.52,0 725.52,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="673.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
@@ -343,11 +706,11 @@ large graphs.</div>
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">elemental pure subroutine </span><span class="n">aspect_ratio</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="w"> </span><span class="n">ratio</span><span class="p">)</span>
-<span class="w">      </span><span class="k">class</span><span class="p">(</span><span class="n">format_pnm</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">this</span>
-<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ratio</span>
-<span class="w">      </span><span class="n">ratio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span>
-<span class="w">   </span><span class="k">end subroutine </span><span class="n">aspect_ratio</span>
+    <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">elemental pure subroutine </span><span class="n">aspect_ratio</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="w"> </span><span class="n">ratio</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">class</span><span class="p">(</span><span class="n">format_pnm</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">this</span><span class="w"></span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ratio</span><span class="w"></span>
+<span class="w">      </span><span class="n">ratio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">rk</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">end subroutine </span><span class="n">aspect_ratio</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -361,40 +724,21 @@ large graphs.</div>
     <footer>
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col"><p>ForImage was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+          <div class="col">
+            <p>
+              ForImage
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023-2025 BSD 3-Clause
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-01-12T20:08:26.519240             </p>
+ on 2025-08-20T19:15:23.986866+0000             </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-
-    <!-- MathJax JavaScript
-             ================================================== -->
-             <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({
-          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-          });
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-          <script src="../tipuesearch/tipuesearch_content.js"></script>
-          <script src="../tipuesearch/tipuesearch_set.js"></script>
-          <script src="../tipuesearch/tipuesearch.js"></script>
-
   </body>
 </html>

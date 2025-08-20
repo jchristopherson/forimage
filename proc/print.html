@@ -6,20 +6,35 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="Documentation for ForImage">
+      <meta name="description" content="A Fortran library for processing and editing images and managing colors">
     <meta name="author" content="Seyed Ali Ghasemi" >
     <link rel="icon" href="../favicon.png">
 
     <title>print &ndash; ForImage</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="../css/pygments.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
     <link href="../css/local.css" rel="stylesheet">
-      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="../css/pygments.css" rel="stylesheet">
     <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
@@ -29,7 +44,7 @@
     <div class="container-fluid mb-sm-4 mb-xl-2">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="../index.html">ForImage <small>0.3.0</small></a>
+          <a class="navbar-brand" href="../index.html">ForImage </a>
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
                   aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">
@@ -74,23 +89,23 @@
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
             <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Seyed Ali Ghasemi</li>
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> BSD 3-Clause</li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
-              <a data-bs-toggle="tooltip"
-                 data-bs-placement="bottom" data-html="true"
-                 title=" 2.9% of total for procedures.">44 statements</a>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 2.6% of total for procedures.">44 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/forcolor.f90"> Source File</a>
+              <a href="../src/forcolor.F90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/forcolor.f90.html'>forcolor.f90</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/forcolor.f90.html'>forcolor.F90</a></li>
                 <li class="breadcrumb-item"><a href='../module/forcolor.html'>forcolor</a></li>
             <li class="breadcrumb-item active" aria-current="page">print</li>
           </ol>
@@ -99,9 +114,11 @@
     </div>
   </div>
   <script>
-    $(function () {
-    $('[data-bs-toggle="tooltip"]').tooltip()
-    })
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
   </script>
 
   </div>
@@ -164,7 +181,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-this~12"></span>
+              <span class="anchor" id="variable-this"></span>
               class(<a href='../type/color.html'>color</a>),
             </td>
 <td>intent(inout)</td>
@@ -204,139 +221,139 @@
   <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: proc~~print~~CallsGraph Pages: 1 -->
-<svg id="procprintCallsGraph" width="338pt" height="326pt"
- viewBox="0.00 0.00 338.00 326.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~print~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 322)">
+<svg id="procprintCallsGraph" width="238pt" height="326pt"
+ viewBox="0.00 0.00 238.00 326.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~print~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 322.27)">
 <title>proc~~print~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-322 334,-322 334,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-322.27 234.04,-322.27 234.04,4 -4,4"/>
 <!-- proc~print -->
 <g id="proc~~print~~CallsGraph_node1" class="node">
 <title>proc~print</title>
-<polygon fill="none" stroke="black" points="123,-171 0,-171 0,-147 123,-147 123,-171"/>
-<text text-anchor="middle" x="61.5" y="-156.6" font-family="Helvetica,sans-Serif" font-size="10.50">forcolor::color%print</text>
+<polygon fill="none" stroke="black" points="73.02,-171.27 0,-171.27 0,-147 73.02,-147 73.02,-171.27"/>
+<text xml:space="preserve" text-anchor="middle" x="36.51" y="-155.53" font-family="Helvetica,sans-Serif" font-size="10.50">color%print</text>
 </g>
 <!-- proc~print_cmyk -->
 <g id="proc~~print~~CallsGraph_node2" class="node">
 <title>proc~print_cmyk</title>
-<g id="a_proc~~print~~CallsGraph_node2"><a xlink:href="../proc/print_cmyk.html" xlink:title="forcolor::color%print_cmyk">
-<polygon fill="#d9534f" stroke="#d9534f" points="323,-318 166,-318 166,-294 323,-294 323,-318"/>
-<text text-anchor="middle" x="244.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%print_cmyk</text>
+<g id="a_proc~~print~~CallsGraph_node2"><a xlink:href="../proc/print_cmyk.html" xlink:title="color%print_cmyk">
+<polygon fill="#d9534f" stroke="#d9534f" points="222.91,-318.27 116.14,-318.27 116.14,-294 222.91,-294 222.91,-318.27"/>
+<text xml:space="preserve" text-anchor="middle" x="169.53" y="-302.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%print_cmyk</text>
 </a>
 </g>
 </g>
 <!-- proc~print&#45;&gt;proc~print_cmyk -->
 <g id="proc~~print~~CallsGraph_edge1" class="edge">
 <title>proc~print&#45;&gt;proc~print_cmyk</title>
-<path fill="none" stroke="#255000" d="M68.28,-171.25C80.93,-196.67 113.61,-255.23 159,-285 161.63,-286.73 164.4,-288.31 167.25,-289.77"/>
-<polygon fill="#255000" stroke="#255000" points="166.08,-293.08 176.64,-293.98 168.95,-286.69 166.08,-293.08"/>
+<path fill="none" stroke="#ff0000" d="M41.22,-171.44C49.38,-196.44 71.22,-253.49 109.02,-285.13 110.13,-286.06 111.29,-286.95 112.48,-287.81"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="110.52,-290.71 120.9,-292.83 114.1,-284.7 110.52,-290.71"/>
 </g>
 <!-- proc~print_decimal -->
 <g id="proc~~print~~CallsGraph_node3" class="node">
 <title>proc~print_decimal</title>
-<g id="a_proc~~print~~CallsGraph_node3"><a xlink:href="../proc/print_decimal.html" xlink:title="forcolor::color%print_decimal">
-<polygon fill="#d9534f" stroke="#d9534f" points="330,-276 159,-276 159,-252 330,-252 330,-276"/>
-<text text-anchor="middle" x="244.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%print_decimal</text>
+<g id="a_proc~~print~~CallsGraph_node3"><a xlink:href="../proc/print_decimal.html" xlink:title="color%print_decimal">
+<polygon fill="#d9534f" stroke="#d9534f" points="230.04,-276.27 109.02,-276.27 109.02,-252 230.04,-252 230.04,-276.27"/>
+<text xml:space="preserve" text-anchor="middle" x="169.53" y="-260.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%print_decimal</text>
 </a>
 </g>
 </g>
 <!-- proc~print&#45;&gt;proc~print_decimal -->
 <g id="proc~~print~~CallsGraph_edge2" class="edge">
 <title>proc~print&#45;&gt;proc~print_decimal</title>
-<path fill="none" stroke="#255000" d="M72.77,-171.02C89.13,-189.37 122.94,-224.23 159,-243 162.77,-244.96 166.73,-246.75 170.8,-248.37"/>
-<polygon fill="#255000" stroke="#255000" points="169.84,-251.75 180.43,-251.87 172.23,-245.17 169.84,-251.75"/>
+<path fill="none" stroke="#ff0000" d="M44.97,-171.48C56.54,-189.64 80.46,-223.49 109.02,-243.13 110.78,-244.35 112.62,-245.49 114.51,-246.58"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="112.47,-249.47 122.98,-250.85 115.63,-243.22 112.47,-249.47"/>
 </g>
 <!-- proc~print_hex -->
 <g id="proc~~print~~CallsGraph_node4" class="node">
 <title>proc~print_hex</title>
-<g id="a_proc~~print~~CallsGraph_node4"><a xlink:href="../proc/print_hex.html" xlink:title="forcolor::color%print_hex">
-<polygon fill="#d9534f" stroke="#d9534f" points="318,-234 171,-234 171,-210 318,-210 318,-234"/>
-<text text-anchor="middle" x="244.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%print_hex</text>
+<g id="a_proc~~print~~CallsGraph_node4"><a xlink:href="../proc/print_hex.html" xlink:title="color%print_hex">
+<polygon fill="#d9534f" stroke="#d9534f" points="218.04,-234.27 121.02,-234.27 121.02,-210 218.04,-210 218.04,-234.27"/>
+<text xml:space="preserve" text-anchor="middle" x="169.53" y="-218.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%print_hex</text>
 </a>
 </g>
 </g>
 <!-- proc~print&#45;&gt;proc~print_hex -->
 <g id="proc~~print~~CallsGraph_edge3" class="edge">
 <title>proc~print&#45;&gt;proc~print_hex</title>
-<path fill="none" stroke="#255000" d="M87.04,-171.04C106.28,-180.15 133.91,-192.49 159,-201 165.44,-203.19 172.23,-205.25 179.05,-207.17"/>
-<polygon fill="#255000" stroke="#255000" points="178.45,-210.64 189.02,-209.88 180.29,-203.88 178.45,-210.64"/>
+<path fill="none" stroke="#ff0000" d="M56.69,-171.77C70.79,-180.71 90.61,-192.58 109.02,-201.13 112.15,-202.59 115.41,-204 118.72,-205.37"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="117.37,-208.6 127.96,-208.97 119.91,-202.07 117.37,-208.6"/>
 </g>
 <!-- proc~print_hsl -->
 <g id="proc~~print~~CallsGraph_node5" class="node">
 <title>proc~print_hsl</title>
-<g id="a_proc~~print~~CallsGraph_node5"><a xlink:href="../proc/print_hsl.html" xlink:title="forcolor::color%print_hsl">
-<polygon fill="#d9534f" stroke="#d9534f" points="316,-192 173,-192 173,-168 316,-168 316,-192"/>
-<text text-anchor="middle" x="244.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%print_hsl</text>
+<g id="a_proc~~print~~CallsGraph_node5"><a xlink:href="../proc/print_hsl.html" xlink:title="color%print_hsl">
+<polygon fill="#d9534f" stroke="#d9534f" points="216.16,-192.27 122.89,-192.27 122.89,-168 216.16,-168 216.16,-192.27"/>
+<text xml:space="preserve" text-anchor="middle" x="169.53" y="-176.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%print_hsl</text>
 </a>
 </g>
 </g>
 <!-- proc~print&#45;&gt;proc~print_hsl -->
 <g id="proc~~print~~CallsGraph_edge4" class="edge">
 <title>proc~print&#45;&gt;proc~print_hsl</title>
-<path fill="none" stroke="#255000" d="M123.02,-166.02C135.72,-167.49 149.3,-169.07 162.6,-170.61"/>
-<polygon fill="#255000" stroke="#255000" points="162.36,-174.11 172.69,-171.79 163.16,-167.16 162.36,-174.11"/>
+<path fill="none" stroke="#ff0000" d="M73.31,-164.87C85.03,-166.75 98.36,-168.89 111.26,-170.96"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="110.51,-174.38 120.93,-172.51 111.61,-167.47 110.51,-174.38"/>
 </g>
 <!-- proc~print_hsv -->
 <g id="proc~~print~~CallsGraph_node6" class="node">
 <title>proc~print_hsv</title>
-<g id="a_proc~~print~~CallsGraph_node6"><a xlink:href="../proc/print_hsv.html" xlink:title="forcolor::color%print_hsv">
-<polygon fill="#d9534f" stroke="#d9534f" points="317.5,-150 171.5,-150 171.5,-126 317.5,-126 317.5,-150"/>
-<text text-anchor="middle" x="244.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%print_hsv</text>
+<g id="a_proc~~print~~CallsGraph_node6"><a xlink:href="../proc/print_hsv.html" xlink:title="color%print_hsv">
+<polygon fill="#d9534f" stroke="#d9534f" points="217.66,-150.27 121.39,-150.27 121.39,-126 217.66,-126 217.66,-150.27"/>
+<text xml:space="preserve" text-anchor="middle" x="169.53" y="-134.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%print_hsv</text>
 </a>
 </g>
 </g>
 <!-- proc~print&#45;&gt;proc~print_hsv -->
 <g id="proc~~print~~CallsGraph_edge5" class="edge">
 <title>proc~print&#45;&gt;proc~print_hsv</title>
-<path fill="none" stroke="#255000" d="M123.02,-151.98C135.27,-150.56 148.34,-149.04 161.19,-147.55"/>
-<polygon fill="#255000" stroke="#255000" points="161.89,-150.99 171.42,-146.36 161.09,-144.04 161.89,-150.99"/>
+<path fill="none" stroke="#ff0000" d="M73.31,-153.4C84.57,-151.59 97.3,-149.55 109.72,-147.56"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="110.16,-151.04 119.48,-146 109.05,-144.12 110.16,-151.04"/>
 </g>
 <!-- proc~print_name -->
 <g id="proc~~print~~CallsGraph_node7" class="node">
 <title>proc~print_name</title>
-<g id="a_proc~~print~~CallsGraph_node7"><a xlink:href="../proc/print_name.html" xlink:title="forcolor::color%print_name">
-<polygon fill="#d9534f" stroke="#d9534f" points="324,-108 165,-108 165,-84 324,-84 324,-108"/>
-<text text-anchor="middle" x="244.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%print_name</text>
+<g id="a_proc~~print~~CallsGraph_node7"><a xlink:href="../proc/print_name.html" xlink:title="color%print_name">
+<polygon fill="#d9534f" stroke="#d9534f" points="224.04,-108.27 115.02,-108.27 115.02,-84 224.04,-84 224.04,-108.27"/>
+<text xml:space="preserve" text-anchor="middle" x="169.53" y="-92.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%print_name</text>
 </a>
 </g>
 </g>
 <!-- proc~print&#45;&gt;proc~print_name -->
 <g id="proc~~print~~CallsGraph_edge6" class="edge">
 <title>proc~print&#45;&gt;proc~print_name</title>
-<path fill="none" stroke="#255000" d="M87.04,-146.96C106.28,-137.85 133.91,-125.51 159,-117 165.44,-114.81 172.23,-112.75 179.05,-110.83"/>
-<polygon fill="#255000" stroke="#255000" points="180.29,-114.12 189.02,-108.12 178.45,-107.36 180.29,-114.12"/>
+<path fill="none" stroke="#ff0000" d="M56.69,-146.5C70.79,-137.56 90.61,-125.69 109.02,-117.14 112.15,-115.68 115.41,-114.27 118.72,-112.9"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="119.91,-116.2 127.96,-109.3 117.37,-109.67 119.91,-116.2"/>
 </g>
 <!-- proc~print_rgb -->
 <g id="proc~~print~~CallsGraph_node8" class="node">
 <title>proc~print_rgb</title>
-<g id="a_proc~~print~~CallsGraph_node8"><a xlink:href="../proc/print_rgb.html" xlink:title="forcolor::color%print_rgb">
-<polygon fill="#d9534f" stroke="#d9534f" points="317.5,-66 171.5,-66 171.5,-42 317.5,-42 317.5,-66"/>
-<text text-anchor="middle" x="244.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%print_rgb</text>
+<g id="a_proc~~print~~CallsGraph_node8"><a xlink:href="../proc/print_rgb.html" xlink:title="color%print_rgb">
+<polygon fill="#d9534f" stroke="#d9534f" points="217.66,-66.27 121.39,-66.27 121.39,-42 217.66,-42 217.66,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="169.53" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%print_rgb</text>
 </a>
 </g>
 </g>
 <!-- proc~print&#45;&gt;proc~print_rgb -->
 <g id="proc~~print~~CallsGraph_edge7" class="edge">
 <title>proc~print&#45;&gt;proc~print_rgb</title>
-<path fill="none" stroke="#255000" d="M72.77,-146.98C89.13,-128.63 122.94,-93.77 159,-75 162.77,-73.04 166.73,-71.25 170.8,-69.63"/>
-<polygon fill="#255000" stroke="#255000" points="172.23,-72.83 180.43,-66.13 169.84,-66.25 172.23,-72.83"/>
+<path fill="none" stroke="#ff0000" d="M44.97,-146.79C56.54,-128.63 80.46,-94.78 109.02,-75.14 110.78,-73.92 112.62,-72.78 114.51,-71.69"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="115.63,-75.05 122.98,-67.42 112.47,-68.8 115.63,-75.05"/>
 </g>
 <!-- proc~print_xyz -->
 <g id="proc~~print~~CallsGraph_node9" class="node">
 <title>proc~print_xyz</title>
-<g id="a_proc~~print~~CallsGraph_node9"><a xlink:href="../proc/print_xyz.html" xlink:title="forcolor::color%print_xyz">
-<polygon fill="#d9534f" stroke="#d9534f" points="317,-24 172,-24 172,0 317,0 317,-24"/>
-<text text-anchor="middle" x="244.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%print_xyz</text>
+<g id="a_proc~~print~~CallsGraph_node9"><a xlink:href="../proc/print_xyz.html" xlink:title="color%print_xyz">
+<polygon fill="#d9534f" stroke="#d9534f" points="217.29,-24.27 121.77,-24.27 121.77,0 217.29,0 217.29,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="169.53" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%print_xyz</text>
 </a>
 </g>
 </g>
 <!-- proc~print&#45;&gt;proc~print_xyz -->
 <g id="proc~~print~~CallsGraph_edge8" class="edge">
 <title>proc~print&#45;&gt;proc~print_xyz</title>
-<path fill="none" stroke="#255000" d="M68.28,-146.75C80.93,-121.33 113.61,-62.77 159,-33 161.63,-31.27 164.4,-29.69 167.25,-28.23"/>
-<polygon fill="#255000" stroke="#255000" points="168.95,-31.31 176.64,-24.02 166.08,-24.92 168.95,-31.31"/>
+<path fill="none" stroke="#ff0000" d="M41.22,-146.83C49.38,-121.83 71.22,-64.78 109.02,-33.13 110.13,-32.21 111.29,-31.32 112.48,-30.46"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="114.1,-33.57 120.9,-25.44 110.52,-27.56 114.1,-33.57"/>
 </g>
 </g>
 </svg>
@@ -355,55 +372,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: Graph Key Pages: 1 -->
 <svg width="641pt" height="28pt"
- viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+ viewBox="0.00 0.00 641.00 28.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.873868 0.873868) rotate(0) translate(4 28.27)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 729.52,-28.27 729.52,4 -4,4"/>
 <!-- Subroutine -->
 <g id="node1" class="node">
 <title>Subroutine</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
-<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="69.27,-24.27 0,-24.27 0,0 69.27,0 69.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="34.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
 </g>
 <!-- Function -->
 <g id="node2" class="node">
 <title>Function</title>
-<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
-<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="143.89,-24.27 87.38,-24.27 87.38,0 143.89,0 143.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="115.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
 </g>
 <!-- Interface -->
 <g id="node3" class="node">
 <title>Interface</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
-<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="221.39,-24.27 161.88,-24.27 161.88,0 221.39,0 221.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="191.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
 </g>
 <!-- Type Bound Procedure -->
 <g id="node4" class="node">
 <title>Type Bound Procedure</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
-<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="368.27,-24.27 239,-24.27 239,0 368.27,0 368.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="303.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
 </g>
 <!-- Unknown Procedure Type -->
 <g id="node5" class="node">
 <title>Unknown Procedure Type</title>
-<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
-<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+<polygon fill="#777777" stroke="#777777" points="529.39,-24.27 385.88,-24.27 385.88,0 529.39,0 529.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="457.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
 </g>
 <!-- Program -->
 <g id="node6" class="node">
 <title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
-<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.89,-24.27 547.38,-24.27 547.38,0 603.89,0 603.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="575.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
 <g id="node7" class="node">
 <title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
-<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<polygon fill="none" stroke="black" points="725.52,-24.27 621.75,-24.27 621.75,0 725.52,0 725.52,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="673.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
@@ -435,56 +452,56 @@ large graphs.</div>
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">elemental impure subroutine print</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="p">)</span>
-<span class="w">      </span><span class="k">class</span><span class="p">(</span><span class="n">color</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">this</span>
-<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">option</span>
+    <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">elemental impure subroutine print</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">class</span><span class="p">(</span><span class="n">color</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">this</span><span class="w"></span>
+<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">option</span><span class="w"></span>
 
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">option</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
 
-<span class="k">         select case</span><span class="w"> </span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="n">option</span><span class="p">))</span>
-<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;rgb&#39;</span><span class="p">)</span>
-<span class="w">            </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_rgb</span><span class="p">()</span>
-<span class="w">            </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&#39;</span>
-<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">)</span>
-<span class="w">            </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_hex</span><span class="p">()</span>
-<span class="w">            </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&#39;</span>
-<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;decimal&#39;</span><span class="p">)</span>
-<span class="w">            </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_decimal</span><span class="p">()</span>
-<span class="w">            </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&#39;</span>
-<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;cmyk&#39;</span><span class="p">)</span>
-<span class="w">            </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_cmyk</span><span class="p">()</span>
-<span class="w">            </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&#39;</span>
-<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;hsv&#39;</span><span class="p">)</span>
-<span class="w">            </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_hsv</span><span class="p">()</span>
-<span class="w">            </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&#39;</span>
-<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;hsl&#39;</span><span class="p">)</span>
-<span class="w">            </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_hsl</span><span class="p">()</span>
-<span class="w">            </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&#39;</span>
-<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
-<span class="w">            </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_name</span><span class="p">()</span>
-<span class="w">            </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&#39;</span>
-<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;xyz&#39;</span><span class="p">)</span>
-<span class="w">            </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_xyz</span><span class="p">()</span>
-<span class="w">            </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&#39;</span>
-<span class="w">          </span><span class="k">case </span><span class="n">default</span>
-<span class="w">            </span><span class="k">error stop</span><span class="w"> </span><span class="s1">&#39;error: unknown option&#39;</span>
+<span class="k">         select case</span><span class="w"> </span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="n">option</span><span class="p">))</span><span class="w"></span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;rgb&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_rgb</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_hex</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;decimal&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_decimal</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;cmyk&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_cmyk</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;hsv&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_hsv</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;hsl&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_hsl</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_name</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;xyz&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_xyz</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="w">          </span><span class="k">case </span><span class="n">default</span><span class="w"></span>
+<span class="w">            </span><span class="k">error stop</span><span class="w"> </span><span class="s1">&#39;error: unknown option&#39;</span><span class="w"></span>
 <span class="w">         </span><span class="k">end select</span>
 
 <span class="k">      else</span>
 
-<span class="k">         call </span><span class="n">this</span><span class="p">%</span><span class="n">print_name</span><span class="p">()</span>
-<span class="w">         </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_rgb</span><span class="p">()</span>
-<span class="w">         </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_hex</span><span class="p">()</span>
-<span class="w">         </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_decimal</span><span class="p">()</span>
-<span class="w">         </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_cmyk</span><span class="p">()</span>
-<span class="w">         </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_hsv</span><span class="p">()</span>
-<span class="w">         </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_hsl</span><span class="p">()</span>
-<span class="w">         </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_xyz</span><span class="p">()</span>
-<span class="w">         </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&#39;</span>
+<span class="k">         call </span><span class="n">this</span><span class="p">%</span><span class="n">print_name</span><span class="p">()</span><span class="w"></span>
+<span class="w">         </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_rgb</span><span class="p">()</span><span class="w"></span>
+<span class="w">         </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_hex</span><span class="p">()</span><span class="w"></span>
+<span class="w">         </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_decimal</span><span class="p">()</span><span class="w"></span>
+<span class="w">         </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_cmyk</span><span class="p">()</span><span class="w"></span>
+<span class="w">         </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_hsv</span><span class="p">()</span><span class="w"></span>
+<span class="w">         </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_hsl</span><span class="p">()</span><span class="w"></span>
+<span class="w">         </span><span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">print_xyz</span><span class="p">()</span><span class="w"></span>
+<span class="w">         </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="w"></span>
 
 <span class="w">      </span><span class="k">end if</span>
 
-<span class="k">   end subroutine print</span>
+<span class="k">   end subroutine print</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -498,40 +515,21 @@ large graphs.</div>
     <footer>
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col"><p>ForImage was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+          <div class="col">
+            <p>
+              ForImage
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023-2025 BSD 3-Clause
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-01-12T20:08:26.519240             </p>
+ on 2025-08-20T19:15:23.986866+0000             </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-
-    <!-- MathJax JavaScript
-             ================================================== -->
-             <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({
-          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-          });
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-          <script src="../tipuesearch/tipuesearch_content.js"></script>
-          <script src="../tipuesearch/tipuesearch_set.js"></script>
-          <script src="../tipuesearch/tipuesearch.js"></script>
-
   </body>
 </html>

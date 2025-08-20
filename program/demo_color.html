@@ -6,20 +6,35 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="Documentation for ForImage">
+      <meta name="description" content="A Fortran library for processing and editing images and managing colors">
     <meta name="author" content="Seyed Ali Ghasemi" >
     <link rel="icon" href="../favicon.png">
 
     <title>demo_color &ndash; ForImage</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="../css/pygments.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
     <link href="../css/local.css" rel="stylesheet">
-      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="../css/pygments.css" rel="stylesheet">
     <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
@@ -29,7 +44,7 @@
     <div class="container-fluid mb-sm-4 mb-xl-2">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="../index.html">ForImage <small>0.3.0</small></a>
+          <a class="navbar-brand" href="../index.html">ForImage </a>
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
                   aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">
@@ -72,11 +87,11 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> BSD 3-Clause</li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
-              <a data-bs-toggle="tooltip"
-                 data-bs-placement="bottom" data-html="true"
-                 title="49.2% of total for programs.">90 statements</a>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="10.6% of total for programs.">90 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -96,9 +111,11 @@
     </div>
   </div>
   <script>
-    $(function () {
-    $('[data-bs-toggle="tooltip"]').tooltip()
-    })
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
   </script>
 
   </div>
@@ -115,26 +132,26 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../program/demo_color.html#variable-custom_color">custom_color</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-nearest_color~2">nearest_color</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-r~20">r</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-g~20">g</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-b~20">b</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-hex~8">hex</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-decimal~8">decimal</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-c~10">c</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-m~10">m</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-y~13">y</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-k~10">k</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-h~13">h</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-s~12">s</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-v~8">v</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-hl~4">hl</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-sl~4">sl</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-vl~4">vl</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-xyz_x~4">xyz_x</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-xyz_y~4">xyz_y</a>
-            <a class="list-group-item" href="../program/demo_color.html#variable-xyz_z~4">xyz_z</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-b~23">b</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-c~14">c</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-custom_color~3">custom_color</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-decimal~10">decimal</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-g~23">g</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-h~15">h</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-hex~10">hex</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-hl~6">hl</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-k~12">k</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-m~12">m</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-nearest_color~3">nearest_color</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-r~23">r</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-s~14">s</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-sl~6">sl</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-v~10">v</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-vl~6">vl</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-xyz_x~6">xyz_x</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-xyz_y~6">xyz_y</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-xyz_z~6">xyz_z</a>
+            <a class="list-group-item" href="../program/demo_color.html#variable-y~15">y</a>
         </div>
       </div>
     </div>
@@ -183,124 +200,127 @@
               <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: program~~demo_color~~UsesGraph Pages: 1 -->
-<svg id="programdemo_colorUsesGraph" width="641pt" height="115pt"
- viewBox="0.00 0.00 641.00 114.83" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="program~~demo_color~~UsesGraph" class="graph" transform="scale(1.02 1.02) rotate(0) translate(4 113.52)">
+<svg id="programdemo_colorUsesGraph" width="641pt" height="116pt"
+ viewBox="0.00 0.00 641.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~demo_color~~UsesGraph" class="graph" transform="scale(0.983385 0.983385) rotate(0) translate(4 113.5)">
 <title>program~~demo_color~~UsesGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-113.52 652,-113.52 652,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-113.5 647.83,-113.5 647.83,4 -4,4"/>
 <!-- program~demo_color -->
 <g id="program~~demo_color~~UsesGraph_node1" class="node">
 <title>program~demo_color</title>
-<polygon fill="none" stroke="black" points="648,-60.17 572,-60.17 572,-36.17 648,-36.17 648,-60.17"/>
-<text text-anchor="middle" x="610" y="-45.77" font-family="Helvetica,sans-Serif" font-size="10.50">demo_color</text>
+<polygon fill="none" stroke="black" points="643.83,-60.31 569.31,-60.31 569.31,-36.04 643.83,-36.04 643.83,-60.31"/>
+<text xml:space="preserve" text-anchor="middle" x="606.57" y="-44.58" font-family="Helvetica,sans-Serif" font-size="10.50">demo_color</text>
 </g>
 <!-- module~forimage -->
 <g id="program~~demo_color~~UsesGraph_node2" class="node">
 <title>module~forimage</title>
 <g id="a_program~~demo_color~~UsesGraph_node2"><a xlink:href="../module/forimage.html" xlink:title="forimage">
-<polygon fill="#337ab7" stroke="#337ab7" points="536,-60.17 475,-60.17 475,-36.17 536,-36.17 536,-60.17"/>
-<text text-anchor="middle" x="505.5" y="-45.77" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forimage</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="533.31,-60.31 473.04,-60.31 473.04,-36.04 533.31,-36.04 533.31,-60.31"/>
+<text xml:space="preserve" text-anchor="middle" x="503.17" y="-44.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forimage</text>
 </a>
 </g>
 </g>
 <!-- program~demo_color&#45;&gt;module~forimage -->
 <g id="program~~demo_color~~UsesGraph_edge1" class="edge">
 <title>program~demo_color&#45;&gt;module~forimage</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M572,-48.17C563.6,-48.17 554.64,-48.17 546.14,-48.17"/>
-<polygon fill="#255000" stroke="#255000" points="546.06,-44.67 536.06,-48.17 546.06,-51.67 546.06,-44.67"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M568.96,-48.18C561.19,-48.18 552.93,-48.18 545.01,-48.18"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="545.25,-44.68 535.25,-48.18 545.25,-51.68 545.25,-44.68"/>
 </g>
 <!-- module~forcolor -->
 <g id="program~~demo_color~~UsesGraph_node3" class="node">
 <title>module~forcolor</title>
 <g id="a_program~~demo_color~~UsesGraph_node3"><a xlink:href="../module/forcolor.html" xlink:title="forcolor">
-<polygon fill="#337ab7" stroke="#337ab7" points="439,-81.17 385,-81.17 385,-57.17 439,-57.17 439,-81.17"/>
-<text text-anchor="middle" x="412" y="-66.77" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="437.04,-81.31 383.04,-81.31 383.04,-57.04 437.04,-57.04 437.04,-81.31"/>
+<text xml:space="preserve" text-anchor="middle" x="410.04" y="-65.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor</text>
 </a>
 </g>
 </g>
 <!-- module~forimage&#45;&gt;module~forcolor -->
 <g id="program~~demo_color~~UsesGraph_edge2" class="edge">
 <title>module~forimage&#45;&gt;module~forcolor</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M474.79,-54.98C466.54,-56.88 457.49,-58.95 448.93,-60.92"/>
-<polygon fill="#255000" stroke="#255000" points="448.13,-57.51 439.17,-63.16 449.7,-64.33 448.13,-57.51"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M472.59,-54.99C464.88,-56.77 456.49,-58.7 448.44,-60.56"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="447.84,-57.1 438.88,-62.76 449.41,-63.93 447.84,-57.1"/>
 </g>
 <!-- module~forimage_parameters -->
 <g id="program~~demo_color~~UsesGraph_node4" class="node">
 <title>module~forimage_parameters</title>
 <g id="a_program~~demo_color~~UsesGraph_node4"><a xlink:href="../module/forimage_parameters.html" xlink:title="forimage_parameters">
-<polygon fill="#337ab7" stroke="#337ab7" points="259,-101.17 130,-101.17 130,-77.17 259,-77.17 259,-101.17"/>
-<text text-anchor="middle" x="194.5" y="-86.77" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forimage_parameters</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="257.04,-101.31 129.27,-101.31 129.27,-77.04 257.04,-77.04 257.04,-101.31"/>
+<text xml:space="preserve" text-anchor="middle" x="193.15" y="-85.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forimage_parameters</text>
 </a>
 </g>
 </g>
 <!-- module~forimage&#45;&gt;module~forimage_parameters -->
 <g id="program~~demo_color~~UsesGraph_edge3" class="edge">
 <title>module~forimage&#45;&gt;module~forimage_parameters</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M489.59,-60.27C476.9,-69.91 457.79,-82.96 439,-90.17 390.22,-108.88 375.22,-107.52 323,-109.17"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M486.84,-60.67C474.24,-70.27 455.5,-83.07 437.04,-90.18 388.29,-108.95 373.26,-107.55 321.04,-109.18"/>
 </g>
 <!-- module~lut -->
 <g id="program~~demo_color~~UsesGraph_node5" class="node">
 <title>module~lut</title>
 <g id="a_program~~demo_color~~UsesGraph_node5"><a xlink:href="../module/lut.html" xlink:title="lut">
-<polygon fill="#337ab7" stroke="#337ab7" points="439,-39.17 385,-39.17 385,-15.17 439,-15.17 439,-39.17"/>
-<text text-anchor="middle" x="412" y="-24.77" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lut</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="437.04,-39.31 383.04,-39.31 383.04,-15.04 437.04,-15.04 437.04,-39.31"/>
+<text xml:space="preserve" text-anchor="middle" x="410.04" y="-23.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lut</text>
 </a>
 </g>
 </g>
 <!-- module~forimage&#45;&gt;module~lut -->
 <g id="program~~demo_color~~UsesGraph_edge4" class="edge">
 <title>module~forimage&#45;&gt;module~lut</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M474.79,-41.35C466.54,-39.45 457.49,-37.38 448.93,-35.41"/>
-<polygon fill="#255000" stroke="#255000" points="449.7,-32 439.17,-33.17 448.13,-38.82 449.7,-32"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M472.59,-41.36C464.88,-39.58 456.49,-37.65 448.44,-35.79"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="449.41,-32.43 438.88,-33.59 447.84,-39.25 449.41,-32.43"/>
 </g>
 <!-- module~pnm -->
 <g id="program~~demo_color~~UsesGraph_node6" class="node">
 <title>module~pnm</title>
 <g id="a_program~~demo_color~~UsesGraph_node6"><a xlink:href="../module/pnm.html" xlink:title="pnm">
-<polygon fill="#337ab7" stroke="#337ab7" points="349,-81.17 295,-81.17 295,-57.17 349,-57.17 349,-81.17"/>
-<text text-anchor="middle" x="322" y="-66.77" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pnm</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="347.04,-81.31 293.04,-81.31 293.04,-57.04 347.04,-57.04 347.04,-81.31"/>
+<text xml:space="preserve" text-anchor="middle" x="320.04" y="-65.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pnm</text>
 </a>
 </g>
 </g>
 <!-- module~forimage&#45;&gt;module~pnm -->
 <g id="program~~demo_color~~UsesGraph_edge5" class="edge">
 <title>module~forimage&#45;&gt;module~pnm</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M490.61,-35.86C478.1,-25.66 458.7,-11.94 439,-6.17 415.97,0.58 407.14,3.11 385,-6.17 364.41,-14.79 347.2,-33.95 336.18,-48.89"/>
-<polygon fill="#255000" stroke="#255000" points="333.31,-46.9 330.43,-57.09 339.04,-50.92 333.31,-46.9"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M488.13,-35.67C475.69,-25.5 456.53,-11.91 437.04,-6.18 414.02,0.6 405.18,3.1 383.04,-6.18 363.07,-14.54 346.28,-32.82 335.23,-47.55"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="332.63,-45.16 329.7,-55.34 338.34,-49.21 332.63,-45.16"/>
 </g>
 <!-- module~forcolor&#45;&gt;module~forimage_parameters -->
 <g id="program~~demo_color~~UsesGraph_edge6" class="edge">
 <title>module~forcolor&#45;&gt;module~forimage_parameters</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M394.8,-81.25C377.85,-92.71 350.01,-108.31 323,-109.17"/>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M321,-109.17C298.83,-109.87 274.71,-106.93 253.6,-103.11"/>
-<polygon fill="#255000" stroke="#255000" points="253.98,-99.62 243.5,-101.17 252.66,-106.49 253.98,-99.62"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M392.2,-81.69C375.2,-93.12 347.71,-108.34 321.04,-109.18"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M319.04,-109.18C298.4,-109.82 276.06,-107.29 256.07,-103.83"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="256.87,-100.42 246.4,-102.04 255.6,-107.3 256.87,-100.42"/>
 </g>
 <!-- module~forcolor&#45;&gt;module~pnm -->
 <g id="program~~demo_color~~UsesGraph_edge7" class="edge">
 <title>module~forcolor&#45;&gt;module~pnm</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M384.6,-69.17C376.61,-69.17 367.69,-69.17 359.18,-69.17"/>
-<polygon fill="#255000" stroke="#255000" points="359.08,-65.67 349.08,-69.17 359.08,-72.67 359.08,-65.67"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M382.64,-69.18C375.15,-69.18 366.86,-69.18 358.84,-69.18"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="358.94,-65.68 348.94,-69.18 358.94,-72.68 358.94,-65.68"/>
 </g>
 <!-- iso_fortran_env -->
 <g id="program~~demo_color~~UsesGraph_node7" class="node">
 <title>iso_fortran_env</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="94,-101.17 0,-101.17 0,-77.17 94,-77.17 94,-101.17"/>
-<text text-anchor="middle" x="47" y="-86.77" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+<g id="a_program~~demo_color~~UsesGraph_node7"><a xlink:href="http://fortranwiki.org/fortran/show/iso_fortran_env" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="93.27,-101.31 0,-101.31 0,-77.04 93.27,-77.04 93.27,-101.31"/>
+<text xml:space="preserve" text-anchor="middle" x="46.63" y="-85.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
 </g>
 <!-- module~forimage_parameters&#45;&gt;iso_fortran_env -->
 <g id="program~~demo_color~~UsesGraph_edge8" class="edge">
 <title>module~forimage_parameters&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M129.68,-89.17C121.31,-89.17 112.77,-89.17 104.53,-89.17"/>
-<polygon fill="transparent" stroke="transparent" points="104.28,-85.67 94.28,-89.17 104.28,-92.67 104.28,-85.67"/>
+<path fill="none" stroke="#7fff00" stroke-dasharray="5,2" d="M129.19,-89.18C121.11,-89.18 112.88,-89.18 104.9,-89.18"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="104.96,-85.68 94.96,-89.18 104.96,-92.68 104.96,-85.68"/>
 </g>
 <!-- module~pnm&#45;&gt;module~forimage_parameters -->
 <g id="program~~demo_color~~UsesGraph_edge9" class="edge">
 <title>module~pnm&#45;&gt;module~forimage_parameters</title>
-<path fill="none" stroke="#127025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M295,-73.31C287.25,-74.55 278.34,-75.96 269.11,-77.44"/>
-<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="268.33,-74.01 259.01,-79.05 269.44,-80.93 268.33,-74.01"/>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M292.56,-73.42C285.34,-74.57 277.15,-75.88 268.64,-77.25"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="268.16,-73.78 258.84,-78.82 269.27,-80.69 268.16,-73.78"/>
 </g>
 </g>
 </svg>
@@ -323,49 +343,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: Graph Key Pages: 1 -->
-<svg width="518pt" height="32pt"
- viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<svg width="511pt" height="32pt"
+ viewBox="0.00 0.00 511.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28.27)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 506.88,-28.27 506.88,4 -4,4"/>
 <!-- Module -->
 <g id="node1" class="node">
 <title>Module</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
-<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24.27 0,-24.27 0,0 54,0 54,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
 </g>
 <!-- Submodule -->
 <g id="node2" class="node">
 <title>Submodule</title>
-<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
-<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="144.13,-24.27 71.87,-24.27 71.87,0 144.13,0 144.13,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="108" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
 </g>
 <!-- Subroutine -->
 <g id="node3" class="node">
 <title>Subroutine</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
-<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="231.63,-24.27 162.37,-24.27 162.37,0 231.63,0 231.63,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="197" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
 </g>
 <!-- Function -->
 <g id="node4" class="node">
 <title>Function</title>
-<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
-<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="306.26,-24.27 249.74,-24.27 249.74,0 306.26,0 306.26,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="278" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
 </g>
 <!-- Program -->
 <g id="node5" class="node">
 <title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
-<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="381.26,-24.27 324.74,-24.27 324.74,0 381.26,0 381.26,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="353" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
 <g id="node6" class="node">
 <title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
-<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<polygon fill="none" stroke="black" points="502.88,-24.27 399.12,-24.27 399.12,0 502.88,0 502.88,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="451" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
@@ -395,595 +415,595 @@ large graphs.</div>
   <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: program~~demo_color~~CallsGraph Pages: 1 -->
-<svg id="programdemo_colorCallsGraph" width="641pt" height="613pt"
- viewBox="0.00 0.00 641.00 612.89" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="program~~demo_color~~CallsGraph" class="graph" transform="scale(1.42 1.42) rotate(0) translate(4 868)">
+<svg id="programdemo_colorCallsGraph" width="641pt" height="786pt"
+ viewBox="0.00 0.00 641.00 786.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~demo_color~~CallsGraph" class="graph" transform="scale(0.901104 0.901104) rotate(0) translate(4 868.27)">
 <title>program~~demo_color~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-868 908,-868 908,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-868.27 707.35,-868.27 707.35,4 -4,4"/>
 <!-- program~demo_color -->
 <g id="program~~demo_color~~CallsGraph_node1" class="node">
 <title>program~demo_color</title>
-<polygon fill="none" stroke="black" points="76,-509 0,-509 0,-485 76,-485 76,-509"/>
-<text text-anchor="middle" x="38" y="-494.6" font-family="Helvetica,sans-Serif" font-size="10.50">demo_color</text>
+<polygon fill="none" stroke="black" points="74.52,-509.27 0,-509.27 0,-485 74.52,-485 74.52,-509.27"/>
+<text xml:space="preserve" text-anchor="middle" x="37.26" y="-493.53" font-family="Helvetica,sans-Serif" font-size="10.50">demo_color</text>
 </g>
 <!-- proc~convert -->
 <g id="program~~demo_color~~CallsGraph_node2" class="node">
 <title>proc~convert</title>
-<g id="a_program~~demo_color~~CallsGraph_node2"><a xlink:href="../proc/convert.html" xlink:title="forcolor::color%convert">
-<polygon fill="#d9534f" stroke="#d9534f" points="700,-612 561,-612 561,-588 700,-588 700,-612"/>
-<text text-anchor="middle" x="630.5" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%convert</text>
+<g id="a_program~~demo_color~~CallsGraph_node2"><a xlink:href="../proc/convert.html" xlink:title="color%convert">
+<polygon fill="#d9534f" stroke="#d9534f" points="549.33,-612.27 460.56,-612.27 460.56,-588 549.33,-588 549.33,-612.27"/>
+<text xml:space="preserve" text-anchor="middle" x="504.94" y="-596.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%convert</text>
 </a>
 </g>
 </g>
 <!-- program~demo_color&#45;&gt;proc~convert -->
 <g id="program~~demo_color~~CallsGraph_edge1" class="edge">
 <title>program~demo_color&#45;&gt;proc~convert</title>
-<path fill="none" stroke="#255000" d="M45.29,-509.24C55.99,-528.58 79.75,-565.58 112,-581 259.77,-651.66 459.3,-631.37 562.09,-613.8"/>
-<polygon fill="#255000" stroke="#255000" points="562.79,-617.23 572.03,-612.05 561.58,-610.33 562.79,-617.23"/>
+<path fill="none" stroke="#ff0000" d="M44.64,-509.64C55.3,-529 78.71,-565.6 110.52,-581.13 220.77,-634.98 369.74,-622.68 448.99,-610.51"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="449.35,-613.99 458.67,-608.96 448.25,-607.08 449.35,-613.99"/>
 </g>
 <!-- proc~find_nearest -->
 <g id="program~~demo_color~~CallsGraph_node3" class="node">
 <title>proc~find_nearest</title>
-<g id="a_program~~demo_color~~CallsGraph_node3"><a xlink:href="../proc/find_nearest.html" xlink:title="forcolor::color%find_nearest">
-<polygon fill="#d9534f" stroke="#d9534f" points="300.5,-488 137.5,-488 137.5,-464 300.5,-464 300.5,-488"/>
-<text text-anchor="middle" x="219" y="-473.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%find_nearest</text>
+<g id="a_program~~demo_color~~CallsGraph_node3"><a xlink:href="../proc/find_nearest.html" xlink:title="color%find_nearest">
+<polygon fill="#d9534f" stroke="#d9534f" points="249.54,-488.27 136.02,-488.27 136.02,-464 249.54,-464 249.54,-488.27"/>
+<text xml:space="preserve" text-anchor="middle" x="192.78" y="-472.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%find_nearest</text>
 </a>
 </g>
 </g>
 <!-- program~demo_color&#45;&gt;proc~find_nearest -->
 <g id="program~~demo_color~~CallsGraph_edge2" class="edge">
 <title>program~demo_color&#45;&gt;proc~find_nearest</title>
-<path fill="none" stroke="#255000" d="M76.09,-492.65C91.12,-490.89 109.2,-488.76 127.35,-486.64"/>
-<polygon fill="#255000" stroke="#255000" points="127.89,-490.1 137.41,-485.45 127.07,-483.14 127.89,-490.1"/>
+<path fill="none" stroke="#ff0000" d="M74.64,-492.16C89.55,-490.12 107.31,-487.69 124.42,-485.35"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="124.61,-488.86 134.05,-484.03 123.66,-481.92 124.61,-488.86"/>
 </g>
 <!-- proc~get -->
 <g id="program~~demo_color~~CallsGraph_node4" class="node">
 <title>proc~get</title>
-<g id="a_program~~demo_color~~CallsGraph_node4"><a xlink:href="../proc/get.html" xlink:title="forcolor::color%get">
-<polygon fill="#d9534f" stroke="#d9534f" points="276.5,-381 161.5,-381 161.5,-357 276.5,-357 276.5,-381"/>
-<text text-anchor="middle" x="219" y="-366.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%get</text>
+<g id="a_program~~demo_color~~CallsGraph_node4"><a xlink:href="../proc/get.html" xlink:title="color%get">
+<polygon fill="#d9534f" stroke="#d9534f" points="225.54,-381.27 160.02,-381.27 160.02,-357 225.54,-357 225.54,-381.27"/>
+<text xml:space="preserve" text-anchor="middle" x="192.78" y="-365.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%get</text>
 </a>
 </g>
 </g>
 <!-- program~demo_color&#45;&gt;proc~get -->
 <g id="program~~demo_color~~CallsGraph_edge3" class="edge">
 <title>program~demo_color&#45;&gt;proc~get</title>
-<path fill="none" stroke="#255000" d="M55.84,-484.96C87.42,-462.37 155.7,-413.55 192.79,-387.03"/>
-<polygon fill="#255000" stroke="#255000" points="194.98,-389.77 201.07,-381.1 190.9,-384.07 194.98,-389.77"/>
+<path fill="none" stroke="#ff0000" d="M53.26,-484.63C80.04,-462.3 136.27,-415.42 168.24,-388.76"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="170.34,-391.56 175.78,-382.47 165.86,-386.19 170.34,-391.56"/>
 </g>
 <!-- proc~print_available_colors -->
 <g id="program~~demo_color~~CallsGraph_node5" class="node">
 <title>proc~print_available_colors</title>
-<g id="a_program~~demo_color~~CallsGraph_node5"><a xlink:href="../proc/print_available_colors.html" xlink:title="forcolor::color%print_available_colors">
-<polygon fill="#d9534f" stroke="#d9534f" points="326,-572 112,-572 112,-548 326,-548 326,-572"/>
-<text text-anchor="middle" x="219" y="-557.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%print_available_colors</text>
+<g id="a_program~~demo_color~~CallsGraph_node5"><a xlink:href="../proc/print_available_colors.html" xlink:title="color%print_available_colors">
+<polygon fill="#d9534f" stroke="#d9534f" points="275.04,-572.27 110.52,-572.27 110.52,-548 275.04,-548 275.04,-572.27"/>
+<text xml:space="preserve" text-anchor="middle" x="192.78" y="-556.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%print_available_colors</text>
 </a>
 </g>
 </g>
 <!-- program~demo_color&#45;&gt;proc~print_available_colors -->
 <g id="program~~demo_color~~CallsGraph_edge4" class="edge">
 <title>program~demo_color&#45;&gt;proc~print_available_colors</title>
-<path fill="none" stroke="#255000" d="M56.2,-509.06C70.51,-518.55 91.74,-531.4 112,-539 118.31,-541.37 124.94,-543.49 131.68,-545.38"/>
-<polygon fill="#255000" stroke="#255000" points="131.03,-548.82 141.59,-547.98 132.81,-542.05 131.03,-548.82"/>
+<path fill="none" stroke="#ff0000" d="M56.55,-509.66C70.74,-518.9 91.19,-531.2 110.52,-539.13 114.84,-540.91 119.36,-542.57 123.95,-544.12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="122.71,-547.39 133.3,-547.06 124.81,-540.72 122.71,-547.39"/>
 </g>
 <!-- proc~save_available_colors -->
 <g id="program~~demo_color~~CallsGraph_node6" class="node">
 <title>proc~save_available_colors</title>
-<g id="a_program~~demo_color~~CallsGraph_node6"><a xlink:href="../proc/save_available_colors.html" xlink:title="forcolor::color%save_available_colors">
-<polygon fill="#d9534f" stroke="#d9534f" points="326,-530 112,-530 112,-506 326,-506 326,-530"/>
-<text text-anchor="middle" x="219" y="-515.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%save_available_colors</text>
+<g id="a_program~~demo_color~~CallsGraph_node6"><a xlink:href="../proc/save_available_colors.html" xlink:title="color%save_available_colors">
+<polygon fill="#d9534f" stroke="#d9534f" points="275.04,-530.27 110.52,-530.27 110.52,-506 275.04,-506 275.04,-530.27"/>
+<text xml:space="preserve" text-anchor="middle" x="192.78" y="-514.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%save_available_colors</text>
 </a>
 </g>
 </g>
 <!-- program~demo_color&#45;&gt;proc~save_available_colors -->
 <g id="program~~demo_color~~CallsGraph_edge5" class="edge">
 <title>program~demo_color&#45;&gt;proc~save_available_colors</title>
-<path fill="none" stroke="#255000" d="M76.09,-501.35C85.01,-502.4 95.01,-503.57 105.46,-504.8"/>
-<polygon fill="#255000" stroke="#255000" points="105.25,-508.3 115.59,-505.99 106.07,-501.34 105.25,-508.3"/>
+<path fill="none" stroke="#ff0000" d="M74.64,-502.11C82.16,-503.14 90.41,-504.27 98.93,-505.43"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="98.37,-508.89 108.75,-506.78 99.32,-501.95 98.37,-508.89"/>
 </g>
-<!-- proc~set~2 -->
+<!-- proc~set -->
 <g id="program~~demo_color~~CallsGraph_node7" class="node">
-<title>proc~set~2</title>
-<g id="a_program~~demo_color~~CallsGraph_node7"><a xlink:href="../proc/set~2.html" xlink:title="forcolor::color%set">
-<polygon fill="#d9534f" stroke="#d9534f" points="687.5,-192 573.5,-192 573.5,-168 687.5,-168 687.5,-192"/>
-<text text-anchor="middle" x="630.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%set</text>
+<title>proc~set</title>
+<g id="a_program~~demo_color~~CallsGraph_node7"><a xlink:href="../proc/set.html" xlink:title="color%set">
+<polygon fill="#d9534f" stroke="#d9534f" points="536.95,-192.27 472.93,-192.27 472.93,-168 536.95,-168 536.95,-192.27"/>
+<text xml:space="preserve" text-anchor="middle" x="504.94" y="-176.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%set</text>
 </a>
 </g>
 </g>
-<!-- program~demo_color&#45;&gt;proc~set~2 -->
+<!-- program~demo_color&#45;&gt;proc~set -->
 <g id="program~~demo_color~~CallsGraph_edge6" class="edge">
-<title>program~demo_color&#45;&gt;proc~set~2</title>
-<path fill="none" stroke="#255000" d="M42.51,-484.96C50.88,-457.94 74.13,-391.41 112,-348 200,-247.12 233.95,-219.03 362,-180 428.29,-159.8 508.18,-163.15 563.3,-169.45"/>
-<polygon fill="#255000" stroke="#255000" points="562.94,-172.94 573.29,-170.66 563.78,-165.99 562.94,-172.94"/>
+<title>program~demo_color&#45;&gt;proc~set</title>
+<path fill="none" stroke="#ff0000" d="M42.32,-484.57C51.43,-457.61 75.51,-393.02 110.52,-348.13 182.03,-256.46 201.77,-219.86 311.04,-180.13 360.31,-162.22 421.46,-166.22 461.53,-172.02"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="460.84,-175.46 471.26,-173.54 461.92,-168.54 460.84,-175.46"/>
 </g>
 <!-- proc~cmyk_to_rgb -->
 <g id="program~~demo_color~~CallsGraph_node8" class="node">
 <title>proc~cmyk_to_rgb</title>
-<g id="a_program~~demo_color~~CallsGraph_node8"><a xlink:href="../proc/cmyk_to_rgb.html" xlink:title="forcolor::cmyk_to_rgb">
-<polygon fill="#d9534f" stroke="#d9534f" points="884.5,-864 755.5,-864 755.5,-840 884.5,-840 884.5,-864"/>
-<text text-anchor="middle" x="820" y="-849.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::cmyk_to_rgb</text>
+<g id="a_program~~demo_color~~CallsGraph_node8"><a xlink:href="../proc/cmyk_to_rgb.html" xlink:title="cmyk_to_rgb">
+<polygon fill="#d9534f" stroke="#d9534f" points="683.85,-864.27 604.83,-864.27 604.83,-840 683.85,-840 683.85,-864.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-848.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">cmyk_to_rgb</text>
 </a>
 </g>
 </g>
 <!-- proc~convert&#45;&gt;proc~cmyk_to_rgb -->
 <g id="program~~demo_color~~CallsGraph_edge7" class="edge">
 <title>proc~convert&#45;&gt;proc~cmyk_to_rgb</title>
-<path fill="none" stroke="#255000" d="M633.27,-612.27C639.5,-650.87 664.1,-770.82 736,-831 739.12,-833.61 742.51,-835.9 746.1,-837.91"/>
-<polygon fill="#255000" stroke="#255000" points="744.8,-841.17 755.33,-842.36 747.84,-834.87 744.8,-841.17"/>
+<path fill="none" stroke="#ff0000" d="M506.59,-612.58C509.22,-650.69 522.28,-767.05 585.33,-831.13 588.08,-833.93 591.23,-836.36 594.61,-838.46"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="592.75,-841.44 603.25,-842.89 595.95,-835.21 592.75,-841.44"/>
 </g>
 <!-- proc~decimal_to_rgb -->
 <g id="program~~demo_color~~CallsGraph_node9" class="node">
 <title>proc~decimal_to_rgb</title>
-<g id="a_program~~demo_color~~CallsGraph_node9"><a xlink:href="../proc/decimal_to_rgb.html" xlink:title="forcolor::decimal_to_rgb">
-<polygon fill="#d9534f" stroke="#d9534f" points="891.5,-822 748.5,-822 748.5,-798 891.5,-798 891.5,-822"/>
-<text text-anchor="middle" x="820" y="-807.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::decimal_to_rgb</text>
+<g id="a_program~~demo_color~~CallsGraph_node9"><a xlink:href="../proc/decimal_to_rgb.html" xlink:title="decimal_to_rgb">
+<polygon fill="#d9534f" stroke="#d9534f" points="690.97,-822.27 597.7,-822.27 597.7,-798 690.97,-798 690.97,-822.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-806.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">decimal_to_rgb</text>
 </a>
 </g>
 </g>
 <!-- proc~convert&#45;&gt;proc~decimal_to_rgb -->
 <g id="program~~demo_color~~CallsGraph_edge8" class="edge">
 <title>proc~convert&#45;&gt;proc~decimal_to_rgb</title>
-<path fill="none" stroke="#255000" d="M634.63,-612.42C643.85,-646.37 674.24,-741.38 736,-789 737.87,-790.44 739.82,-791.78 741.84,-793.03"/>
-<polygon fill="#255000" stroke="#255000" points="740.62,-796.34 751.09,-797.94 743.9,-790.16 740.62,-796.34"/>
+<path fill="none" stroke="#ff0000" d="M507.69,-612.68C512.99,-646.13 531.94,-738.37 585.33,-789.13 586.22,-789.98 587.15,-790.8 588.11,-791.58"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="585.95,-794.35 596.22,-796.94 589.81,-788.51 585.95,-794.35"/>
 </g>
 <!-- proc~hex_to_rgb -->
 <g id="program~~demo_color~~CallsGraph_node18" class="node">
 <title>proc~hex_to_rgb</title>
-<g id="a_program~~demo_color~~CallsGraph_node18"><a xlink:href="../proc/hex_to_rgb.html" xlink:title="forcolor::hex_to_rgb">
-<polygon fill="#d9534f" stroke="#d9534f" points="879.5,-780 760.5,-780 760.5,-756 879.5,-756 879.5,-780"/>
-<text text-anchor="middle" x="820" y="-765.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::hex_to_rgb</text>
+<g id="a_program~~demo_color~~CallsGraph_node18"><a xlink:href="../proc/hex_to_rgb.html" xlink:title="hex_to_rgb">
+<polygon fill="#d9534f" stroke="#d9534f" points="678.97,-780.27 609.7,-780.27 609.7,-756 678.97,-756 678.97,-780.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-764.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hex_to_rgb</text>
 </a>
 </g>
 </g>
 <!-- proc~convert&#45;&gt;proc~hex_to_rgb -->
 <g id="program~~demo_color~~CallsGraph_edge9" class="edge">
 <title>proc~convert&#45;&gt;proc~hex_to_rgb</title>
-<path fill="none" stroke="#255000" d="M636.52,-612.09C648.92,-640.4 683.81,-711.27 736,-747 740.6,-750.15 745.63,-752.83 750.87,-755.1"/>
-<polygon fill="#255000" stroke="#255000" points="749.89,-758.47 760.48,-758.78 752.39,-751.94 749.89,-758.47"/>
+<path fill="none" stroke="#ff0000" d="M509.37,-612.72C517.66,-640.84 541.39,-709.26 585.33,-747.13 589.42,-750.66 594.16,-753.62 599.12,-756.09"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="597.53,-759.22 608.11,-759.91 600.27,-752.77 597.53,-759.22"/>
 </g>
 <!-- proc~hsl_to_rgb -->
 <g id="program~~demo_color~~CallsGraph_node19" class="node">
 <title>proc~hsl_to_rgb</title>
-<g id="a_program~~demo_color~~CallsGraph_node19"><a xlink:href="../proc/hsl_to_rgb.html" xlink:title="forcolor::hsl_to_rgb">
-<polygon fill="#d9534f" stroke="#d9534f" points="877.5,-738 762.5,-738 762.5,-714 877.5,-714 877.5,-738"/>
-<text text-anchor="middle" x="820" y="-723.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::hsl_to_rgb</text>
+<g id="a_program~~demo_color~~CallsGraph_node19"><a xlink:href="../proc/hsl_to_rgb.html" xlink:title="hsl_to_rgb">
+<polygon fill="#d9534f" stroke="#d9534f" points="677.1,-738.27 611.58,-738.27 611.58,-714 677.1,-714 677.1,-738.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-722.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hsl_to_rgb</text>
 </a>
 </g>
 </g>
 <!-- proc~convert&#45;&gt;proc~hsl_to_rgb -->
 <g id="program~~demo_color~~CallsGraph_edge10" class="edge">
 <title>proc~convert&#45;&gt;proc~hsl_to_rgb</title>
-<path fill="none" stroke="#255000" d="M640.03,-612.17C656.15,-634.2 693.32,-680.69 736,-705 741.21,-707.97 746.84,-710.52 752.63,-712.72"/>
-<polygon fill="#255000" stroke="#255000" points="751.89,-716.16 762.48,-716.09 754.15,-709.54 751.89,-716.16"/>
+<path fill="none" stroke="#ff0000" d="M512.27,-612.68C523.86,-634.49 550.57,-679.5 585.33,-705.13 590.01,-708.58 595.3,-711.51 600.75,-713.99"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="599.29,-717.17 609.88,-717.64 601.9,-710.68 599.29,-717.17"/>
 </g>
 <!-- proc~hsv_to_rgb -->
 <g id="program~~demo_color~~CallsGraph_node20" class="node">
 <title>proc~hsv_to_rgb</title>
-<g id="a_program~~demo_color~~CallsGraph_node20"><a xlink:href="../proc/hsv_to_rgb.html" xlink:title="forcolor::hsv_to_rgb">
-<polygon fill="#d9534f" stroke="#d9534f" points="879,-696 761,-696 761,-672 879,-672 879,-696"/>
-<text text-anchor="middle" x="820" y="-681.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::hsv_to_rgb</text>
+<g id="a_program~~demo_color~~CallsGraph_node20"><a xlink:href="../proc/hsv_to_rgb.html" xlink:title="hsv_to_rgb">
+<polygon fill="#d9534f" stroke="#d9534f" points="678.6,-696.27 610.08,-696.27 610.08,-672 678.6,-672 678.6,-696.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-680.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hsv_to_rgb</text>
 </a>
 </g>
 </g>
 <!-- proc~convert&#45;&gt;proc~hsv_to_rgb -->
 <g id="program~~demo_color~~CallsGraph_edge11" class="edge">
 <title>proc~convert&#45;&gt;proc~hsv_to_rgb</title>
-<path fill="none" stroke="#255000" d="M648.06,-612.11C668,-626.18 702.96,-649.22 736,-663 741.14,-665.15 746.56,-667.11 752.06,-668.91"/>
-<polygon fill="#255000" stroke="#255000" points="751.43,-672.38 762.02,-671.96 753.48,-665.68 751.43,-672.38"/>
+<path fill="none" stroke="#ff0000" d="M519.02,-612.74C534.02,-626.64 559.83,-648.9 585.33,-663.13 589.71,-665.58 594.43,-667.83 599.21,-669.88"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="597.7,-673.05 608.29,-673.48 600.29,-666.54 597.7,-673.05"/>
 </g>
 <!-- proc~rgb_to_cmyk -->
 <g id="program~~demo_color~~CallsGraph_node22" class="node">
 <title>proc~rgb_to_cmyk</title>
-<g id="a_program~~demo_color~~CallsGraph_node22"><a xlink:href="../proc/rgb_to_cmyk.html" xlink:title="forcolor::rgb_to_cmyk">
-<polygon fill="#d9534f" stroke="#d9534f" points="884.5,-654 755.5,-654 755.5,-630 884.5,-630 884.5,-654"/>
-<text text-anchor="middle" x="820" y="-639.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::rgb_to_cmyk</text>
+<g id="a_program~~demo_color~~CallsGraph_node22"><a xlink:href="../proc/rgb_to_cmyk.html" xlink:title="rgb_to_cmyk">
+<polygon fill="#d9534f" stroke="#d9534f" points="683.85,-654.27 604.83,-654.27 604.83,-630 683.85,-630 683.85,-654.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-638.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">rgb_to_cmyk</text>
 </a>
 </g>
 </g>
 <!-- proc~convert&#45;&gt;proc~rgb_to_cmyk -->
 <g id="program~~demo_color~~CallsGraph_edge12" class="edge">
 <title>proc~convert&#45;&gt;proc~rgb_to_cmyk</title>
-<path fill="none" stroke="#255000" d="M685.23,-612.04C707.1,-616.93 732.55,-622.63 755.34,-627.74"/>
-<polygon fill="#255000" stroke="#255000" points="754.74,-631.19 765.26,-629.96 756.27,-624.36 754.74,-631.19"/>
+<path fill="none" stroke="#ff0000" d="M547.17,-612.74C561.8,-617.21 578.42,-622.29 593.68,-626.95"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="592.47,-630.24 603.05,-629.82 594.51,-623.55 592.47,-630.24"/>
 </g>
 <!-- proc~rgb_to_decimal -->
 <g id="program~~demo_color~~CallsGraph_node23" class="node">
 <title>proc~rgb_to_decimal</title>
-<g id="a_program~~demo_color~~CallsGraph_node23"><a xlink:href="../proc/rgb_to_decimal.html" xlink:title="forcolor::rgb_to_decimal">
-<polygon fill="#d9534f" stroke="#d9534f" points="891.5,-612 748.5,-612 748.5,-588 891.5,-588 891.5,-612"/>
-<text text-anchor="middle" x="820" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::rgb_to_decimal</text>
+<g id="a_program~~demo_color~~CallsGraph_node23"><a xlink:href="../proc/rgb_to_decimal.html" xlink:title="rgb_to_decimal">
+<polygon fill="#d9534f" stroke="#d9534f" points="690.97,-612.27 597.7,-612.27 597.7,-588 690.97,-588 690.97,-612.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-596.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">rgb_to_decimal</text>
 </a>
 </g>
 </g>
 <!-- proc~convert&#45;&gt;proc~rgb_to_decimal -->
 <g id="program~~demo_color~~CallsGraph_edge13" class="edge">
 <title>proc~convert&#45;&gt;proc~rgb_to_decimal</title>
-<path fill="none" stroke="#255000" d="M700.25,-600C712.62,-600 725.62,-600 738.29,-600"/>
-<polygon fill="#255000" stroke="#255000" points="738.37,-603.5 748.37,-600 738.37,-596.5 738.37,-603.5"/>
+<path fill="none" stroke="#ff0000" d="M549.8,-600.13C561.34,-600.13 573.97,-600.13 586.11,-600.13"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="586.03,-603.64 596.03,-600.14 586.03,-596.64 586.03,-603.64"/>
 </g>
 <!-- proc~rgb_to_hex -->
 <g id="program~~demo_color~~CallsGraph_node24" class="node">
 <title>proc~rgb_to_hex</title>
-<g id="a_program~~demo_color~~CallsGraph_node24"><a xlink:href="../proc/rgb_to_hex.html" xlink:title="forcolor::rgb_to_hex">
-<polygon fill="#d9534f" stroke="#d9534f" points="879.5,-570 760.5,-570 760.5,-546 879.5,-546 879.5,-570"/>
-<text text-anchor="middle" x="820" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::rgb_to_hex</text>
+<g id="a_program~~demo_color~~CallsGraph_node24"><a xlink:href="../proc/rgb_to_hex.html" xlink:title="rgb_to_hex">
+<polygon fill="#d9534f" stroke="#d9534f" points="678.97,-570.27 609.7,-570.27 609.7,-546 678.97,-546 678.97,-570.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-554.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">rgb_to_hex</text>
 </a>
 </g>
 </g>
 <!-- proc~convert&#45;&gt;proc~rgb_to_hex -->
 <g id="program~~demo_color~~CallsGraph_edge14" class="edge">
 <title>proc~convert&#45;&gt;proc~rgb_to_hex</title>
-<path fill="none" stroke="#255000" d="M685.23,-587.96C707.1,-583.07 732.55,-577.37 755.34,-572.26"/>
-<polygon fill="#255000" stroke="#255000" points="756.27,-575.64 765.26,-570.04 754.74,-568.81 756.27,-575.64"/>
+<path fill="none" stroke="#ff0000" d="M547.17,-587.53C563.51,-582.54 582.33,-576.78 598.97,-571.7"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="599.55,-575.18 608.09,-568.91 597.5,-568.49 599.55,-575.18"/>
 </g>
 <!-- proc~rgb_to_hsl -->
 <g id="program~~demo_color~~CallsGraph_node25" class="node">
 <title>proc~rgb_to_hsl</title>
-<g id="a_program~~demo_color~~CallsGraph_node25"><a xlink:href="../proc/rgb_to_hsl.html" xlink:title="forcolor::rgb_to_hsl">
-<polygon fill="#d9534f" stroke="#d9534f" points="877.5,-528 762.5,-528 762.5,-504 877.5,-504 877.5,-528"/>
-<text text-anchor="middle" x="820" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::rgb_to_hsl</text>
+<g id="a_program~~demo_color~~CallsGraph_node25"><a xlink:href="../proc/rgb_to_hsl.html" xlink:title="rgb_to_hsl">
+<polygon fill="#d9534f" stroke="#d9534f" points="677.1,-528.27 611.58,-528.27 611.58,-504 677.1,-504 677.1,-528.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-512.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">rgb_to_hsl</text>
 </a>
 </g>
 </g>
 <!-- proc~convert&#45;&gt;proc~rgb_to_hsl -->
 <g id="program~~demo_color~~CallsGraph_edge15" class="edge">
 <title>proc~convert&#45;&gt;proc~rgb_to_hsl</title>
-<path fill="none" stroke="#255000" d="M648.06,-587.89C668,-573.82 702.96,-550.78 736,-537 741.36,-534.76 747.02,-532.72 752.76,-530.86"/>
-<polygon fill="#255000" stroke="#255000" points="753.91,-534.17 762.46,-527.92 751.87,-527.48 753.91,-534.17"/>
+<path fill="none" stroke="#ff0000" d="M519.02,-587.53C534.02,-573.63 559.83,-551.37 585.33,-537.13 590.11,-534.47 595.28,-532.03 600.51,-529.84"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="601.75,-533.11 609.8,-526.23 599.21,-526.59 601.75,-533.11"/>
 </g>
 <!-- proc~rgb_to_hsv -->
 <g id="program~~demo_color~~CallsGraph_node26" class="node">
 <title>proc~rgb_to_hsv</title>
-<g id="a_program~~demo_color~~CallsGraph_node26"><a xlink:href="../proc/rgb_to_hsv.html" xlink:title="forcolor::rgb_to_hsv">
-<polygon fill="#d9534f" stroke="#d9534f" points="879,-486 761,-486 761,-462 879,-462 879,-486"/>
-<text text-anchor="middle" x="820" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::rgb_to_hsv</text>
+<g id="a_program~~demo_color~~CallsGraph_node26"><a xlink:href="../proc/rgb_to_hsv.html" xlink:title="rgb_to_hsv">
+<polygon fill="#d9534f" stroke="#d9534f" points="678.6,-486.27 610.08,-486.27 610.08,-462 678.6,-462 678.6,-486.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-470.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">rgb_to_hsv</text>
 </a>
 </g>
 </g>
 <!-- proc~convert&#45;&gt;proc~rgb_to_hsv -->
 <g id="program~~demo_color~~CallsGraph_edge16" class="edge">
 <title>proc~convert&#45;&gt;proc~rgb_to_hsv</title>
-<path fill="none" stroke="#255000" d="M640.03,-587.83C656.15,-565.8 693.32,-519.31 736,-495 740.76,-492.29 745.88,-489.92 751.14,-487.86"/>
-<polygon fill="#255000" stroke="#255000" points="752.47,-491.1 760.73,-484.46 750.14,-484.5 752.47,-491.1"/>
+<path fill="none" stroke="#ff0000" d="M512.27,-587.59C523.86,-565.78 550.57,-520.77 585.33,-495.13 589.63,-491.96 594.46,-489.23 599.44,-486.89"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="600.48,-490.25 608.38,-483.18 597.8,-483.78 600.48,-490.25"/>
 </g>
 <!-- proc~rgb_to_xyz -->
 <g id="program~~demo_color~~CallsGraph_node27" class="node">
 <title>proc~rgb_to_xyz</title>
-<g id="a_program~~demo_color~~CallsGraph_node27"><a xlink:href="../proc/rgb_to_xyz.html" xlink:title="forcolor::rgb_to_xyz">
-<polygon fill="#d9534f" stroke="#d9534f" points="879,-444 761,-444 761,-420 879,-420 879,-444"/>
-<text text-anchor="middle" x="820" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::rgb_to_xyz</text>
+<g id="a_program~~demo_color~~CallsGraph_node27"><a xlink:href="../proc/rgb_to_xyz.html" xlink:title="rgb_to_xyz">
+<polygon fill="#d9534f" stroke="#d9534f" points="678.22,-444.27 610.45,-444.27 610.45,-420 678.22,-420 678.22,-444.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-428.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">rgb_to_xyz</text>
 </a>
 </g>
 </g>
 <!-- proc~convert&#45;&gt;proc~rgb_to_xyz -->
 <g id="program~~demo_color~~CallsGraph_edge17" class="edge">
 <title>proc~convert&#45;&gt;proc~rgb_to_xyz</title>
-<path fill="none" stroke="#255000" d="M636.52,-587.91C648.92,-559.6 683.81,-488.73 736,-453 740.79,-449.72 746.06,-446.95 751.54,-444.61"/>
-<polygon fill="#255000" stroke="#255000" points="752.79,-447.88 760.91,-441.08 750.32,-441.33 752.79,-447.88"/>
+<path fill="none" stroke="#ff0000" d="M509.37,-587.55C517.66,-559.43 541.39,-491.01 585.33,-453.13 589.63,-449.43 594.64,-446.35 599.87,-443.81"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="600.82,-447.21 608.71,-440.13 598.13,-440.75 600.82,-447.21"/>
 </g>
 <!-- proc~xyz_to_rgb -->
 <g id="program~~demo_color~~CallsGraph_node37" class="node">
 <title>proc~xyz_to_rgb</title>
-<g id="a_program~~demo_color~~CallsGraph_node37"><a xlink:href="../proc/xyz_to_rgb.html" xlink:title="forcolor::xyz_to_rgb">
-<polygon fill="#d9534f" stroke="#d9534f" points="879,-402 761,-402 761,-378 879,-378 879,-402"/>
-<text text-anchor="middle" x="820" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::xyz_to_rgb</text>
+<g id="a_program~~demo_color~~CallsGraph_node37"><a xlink:href="../proc/xyz_to_rgb.html" xlink:title="xyz_to_rgb">
+<polygon fill="#d9534f" stroke="#d9534f" points="678.22,-402.27 610.45,-402.27 610.45,-378 678.22,-378 678.22,-402.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-386.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xyz_to_rgb</text>
 </a>
 </g>
 </g>
 <!-- proc~convert&#45;&gt;proc~xyz_to_rgb -->
 <g id="program~~demo_color~~CallsGraph_edge18" class="edge">
 <title>proc~convert&#45;&gt;proc~xyz_to_rgb</title>
-<path fill="none" stroke="#255000" d="M636.68,-587.86C653.03,-550.03 704.38,-435.38 736,-411 740.68,-407.4 745.9,-404.4 751.39,-401.92"/>
-<polygon fill="#255000" stroke="#255000" points="752.8,-405.13 760.82,-398.21 750.23,-398.61 752.8,-405.13"/>
+<path fill="none" stroke="#ff0000" d="M507.69,-587.59C512.99,-554.14 531.94,-461.9 585.33,-411.13 589.49,-407.18 594.46,-403.96 599.7,-401.34"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="600.75,-404.69 608.61,-397.59 598.04,-398.24 600.75,-404.69"/>
 </g>
 <!-- proc~get_rgb -->
 <g id="program~~demo_color~~CallsGraph_node16" class="node">
 <title>proc~get_rgb</title>
-<g id="a_program~~demo_color~~CallsGraph_node16"><a xlink:href="../proc/get_rgb.html" xlink:title="forcolor::color%get_rgb">
-<polygon fill="#d9534f" stroke="#d9534f" points="513,-507 374,-507 374,-483 513,-483 513,-507"/>
-<text text-anchor="middle" x="443.5" y="-492.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%get_rgb</text>
+<g id="a_program~~demo_color~~CallsGraph_node16"><a xlink:href="../proc/get_rgb.html" xlink:title="color%get_rgb">
+<polygon fill="#d9534f" stroke="#d9534f" points="412.18,-507.27 323.41,-507.27 323.41,-483 412.18,-483 412.18,-507.27"/>
+<text xml:space="preserve" text-anchor="middle" x="367.8" y="-491.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%get_rgb</text>
 </a>
 </g>
 </g>
 <!-- proc~find_nearest&#45;&gt;proc~get_rgb -->
 <g id="program~~demo_color~~CallsGraph_edge19" class="edge">
 <title>proc~find_nearest&#45;&gt;proc~get_rgb</title>
-<path fill="none" stroke="transparent" d="M300.64,-482.89C321.18,-484.64 343.22,-486.52 363.66,-488.27"/>
-<polygon fill="transparent" stroke="transparent" points="363.61,-491.78 373.87,-489.14 364.2,-484.8 363.61,-491.78"/>
+<path fill="none" stroke="#ffff00" d="M249.95,-482.3C269.75,-484.48 291.97,-486.92 311.68,-489.08"/>
+<polygon fill="#ffff00" stroke="#ffff00" points="311.13,-492.54 321.45,-490.16 311.9,-485.58 311.13,-492.54"/>
 </g>
 <!-- proc~initialize_colors -->
 <g id="program~~demo_color~~CallsGraph_node21" class="node">
 <title>proc~initialize_colors</title>
-<g id="a_program~~demo_color~~CallsGraph_node21"><a xlink:href="../proc/initialize_colors.html" xlink:title="forcolor::initialize_colors">
-<polygon fill="#d9534f" stroke="#d9534f" points="515,-549 372,-549 372,-525 515,-525 515,-549"/>
-<text text-anchor="middle" x="443.5" y="-534.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::initialize_colors</text>
+<g id="a_program~~demo_color~~CallsGraph_node21"><a xlink:href="../proc/initialize_colors.html" xlink:title="initialize_colors">
+<polygon fill="#d9534f" stroke="#d9534f" points="414.43,-549.27 321.16,-549.27 321.16,-525 414.43,-525 414.43,-549.27"/>
+<text xml:space="preserve" text-anchor="middle" x="367.8" y="-533.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">initialize_colors</text>
 </a>
 </g>
 </g>
 <!-- proc~find_nearest&#45;&gt;proc~initialize_colors -->
 <g id="program~~demo_color~~CallsGraph_edge20" class="edge">
 <title>proc~find_nearest&#45;&gt;proc~initialize_colors</title>
-<path fill="none" stroke="transparent" d="M295.15,-488.07C305.65,-490.56 316.19,-493.52 326,-497 343.05,-503.04 345.14,-509.45 362,-516 367.52,-518.14 373.34,-520.14 379.21,-521.98"/>
-<polygon fill="transparent" stroke="transparent" points="378.54,-525.43 389.12,-524.93 380.53,-518.72 378.54,-525.43"/>
+<path fill="none" stroke="#ffff00" d="M249.4,-488.67C258.09,-491.15 266.89,-493.98 275.04,-497.13 291.91,-503.66 294.54,-508.71 311.04,-516.13 314.19,-517.55 317.47,-518.96 320.79,-520.33"/>
+<polygon fill="#ffff00" stroke="#ffff00" points="319.44,-523.56 330.02,-524.02 322.03,-517.06 319.44,-523.56"/>
 </g>
 <!-- proc~get_cmyk -->
 <g id="program~~demo_color~~CallsGraph_node10" class="node">
 <title>proc~get_cmyk</title>
-<g id="a_program~~demo_color~~CallsGraph_node10"><a xlink:href="../proc/get_cmyk.html" xlink:title="forcolor::color%get_cmyk">
-<polygon fill="#d9534f" stroke="#d9534f" points="518,-465 369,-465 369,-441 518,-441 518,-465"/>
-<text text-anchor="middle" x="443.5" y="-450.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%get_cmyk</text>
+<g id="a_program~~demo_color~~CallsGraph_node10"><a xlink:href="../proc/get_cmyk.html" xlink:title="color%get_cmyk">
+<polygon fill="#d9534f" stroke="#d9534f" points="417.43,-465.27 318.16,-465.27 318.16,-441 417.43,-441 417.43,-465.27"/>
+<text xml:space="preserve" text-anchor="middle" x="367.8" y="-449.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%get_cmyk</text>
 </a>
 </g>
 </g>
 <!-- proc~get&#45;&gt;proc~get_cmyk -->
 <g id="program~~demo_color~~CallsGraph_edge21" class="edge">
 <title>proc~get&#45;&gt;proc~get_cmyk</title>
-<path fill="none" stroke="#025500" d="M243.89,-381.04C271.73,-394.72 319.36,-417.09 362,-432 368.23,-434.18 374.8,-436.25 381.39,-438.18"/>
-<polygon fill="#025500" stroke="#025500" points="380.45,-441.55 391.02,-440.9 382.35,-434.81 380.45,-441.55"/>
+<path fill="none" stroke="#00ff00" d="M214.96,-381.62C238.12,-395.01 276.54,-416.45 311.04,-432.13 314.14,-433.54 317.37,-434.94 320.64,-436.3"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="319.12,-439.46 329.71,-439.94 321.73,-432.97 319.12,-439.46"/>
 </g>
 <!-- proc~get_decimal -->
 <g id="program~~demo_color~~CallsGraph_node11" class="node">
 <title>proc~get_decimal</title>
-<g id="a_program~~demo_color~~CallsGraph_node11"><a xlink:href="../proc/get_decimal.html" xlink:title="forcolor::color%get_decimal">
-<polygon fill="#d9534f" stroke="#d9534f" points="525,-423 362,-423 362,-399 525,-399 525,-423"/>
-<text text-anchor="middle" x="443.5" y="-408.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%get_decimal</text>
+<g id="a_program~~demo_color~~CallsGraph_node11"><a xlink:href="../proc/get_decimal.html" xlink:title="color%get_decimal">
+<polygon fill="#d9534f" stroke="#d9534f" points="424.56,-423.27 311.04,-423.27 311.04,-399 424.56,-399 424.56,-423.27"/>
+<text xml:space="preserve" text-anchor="middle" x="367.8" y="-407.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%get_decimal</text>
 </a>
 </g>
 </g>
 <!-- proc~get&#45;&gt;proc~get_decimal -->
 <g id="program~~demo_color~~CallsGraph_edge22" class="edge">
 <title>proc~get&#45;&gt;proc~get_decimal</title>
-<path fill="none" stroke="#025500" d="M276.72,-379.71C304.72,-384.99 338.83,-391.43 368.82,-397.09"/>
-<polygon fill="#025500" stroke="#025500" points="368.34,-400.56 378.81,-398.98 369.64,-393.68 368.34,-400.56"/>
+<path fill="none" stroke="#00ff00" d="M225.92,-376.94C247.72,-382.23 277.28,-389.4 303.69,-395.81"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="302.77,-399.19 313.31,-398.15 304.42,-392.39 302.77,-399.19"/>
 </g>
 <!-- proc~get_hex -->
 <g id="program~~demo_color~~CallsGraph_node12" class="node">
 <title>proc~get_hex</title>
-<g id="a_program~~demo_color~~CallsGraph_node12"><a xlink:href="../proc/get_hex.html" xlink:title="forcolor::color%get_hex">
-<polygon fill="#d9534f" stroke="#d9534f" points="513,-381 374,-381 374,-357 513,-357 513,-381"/>
-<text text-anchor="middle" x="443.5" y="-366.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%get_hex</text>
+<g id="a_program~~demo_color~~CallsGraph_node12"><a xlink:href="../proc/get_hex.html" xlink:title="color%get_hex">
+<polygon fill="#d9534f" stroke="#d9534f" points="412.56,-381.27 323.04,-381.27 323.04,-357 412.56,-357 412.56,-381.27"/>
+<text xml:space="preserve" text-anchor="middle" x="367.8" y="-365.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%get_hex</text>
 </a>
 </g>
 </g>
 <!-- proc~get&#45;&gt;proc~get_hex -->
 <g id="program~~demo_color~~CallsGraph_edge23" class="edge">
 <title>proc~get&#45;&gt;proc~get_hex</title>
-<path fill="none" stroke="#025500" d="M276.72,-369C303.21,-369 335.18,-369 363.95,-369"/>
-<polygon fill="#025500" stroke="#025500" points="363.98,-372.5 373.98,-369 363.98,-365.5 363.98,-372.5"/>
+<path fill="none" stroke="#00ff00" d="M225.92,-369.13C249.88,-369.13 283.21,-369.13 311.43,-369.13"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="311.25,-372.64 321.25,-369.14 311.25,-365.64 311.25,-372.64"/>
 </g>
 <!-- proc~get_hsl -->
 <g id="program~~demo_color~~CallsGraph_node13" class="node">
 <title>proc~get_hsl</title>
-<g id="a_program~~demo_color~~CallsGraph_node13"><a xlink:href="../proc/get_hsl.html" xlink:title="forcolor::color%get_hsl">
-<polygon fill="#d9534f" stroke="#d9534f" points="511.5,-339 375.5,-339 375.5,-315 511.5,-315 511.5,-339"/>
-<text text-anchor="middle" x="443.5" y="-324.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%get_hsl</text>
+<g id="a_program~~demo_color~~CallsGraph_node13"><a xlink:href="../proc/get_hsl.html" xlink:title="color%get_hsl">
+<polygon fill="#d9534f" stroke="#d9534f" points="410.68,-339.27 324.91,-339.27 324.91,-315 410.68,-315 410.68,-339.27"/>
+<text xml:space="preserve" text-anchor="middle" x="367.8" y="-323.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%get_hsl</text>
 </a>
 </g>
 </g>
 <!-- proc~get&#45;&gt;proc~get_hsl -->
 <g id="program~~demo_color~~CallsGraph_edge24" class="edge">
 <title>proc~get&#45;&gt;proc~get_hsl</title>
-<path fill="none" stroke="#025500" d="M276.72,-358.29C304.72,-353.01 338.83,-346.57 368.82,-340.91"/>
-<polygon fill="#025500" stroke="#025500" points="369.64,-344.32 378.81,-339.02 368.34,-337.44 369.64,-344.32"/>
+<path fill="none" stroke="#00ff00" d="M225.92,-361.33C250.51,-355.36 284.95,-347 313.62,-340.04"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="314.34,-343.47 323.23,-337.71 312.69,-336.67 314.34,-343.47"/>
 </g>
 <!-- proc~get_hsv -->
 <g id="program~~demo_color~~CallsGraph_node14" class="node">
 <title>proc~get_hsv</title>
-<g id="a_program~~demo_color~~CallsGraph_node14"><a xlink:href="../proc/get_hsv.html" xlink:title="forcolor::color%get_hsv">
-<polygon fill="#d9534f" stroke="#d9534f" points="513,-297 374,-297 374,-273 513,-273 513,-297"/>
-<text text-anchor="middle" x="443.5" y="-282.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%get_hsv</text>
+<g id="a_program~~demo_color~~CallsGraph_node14"><a xlink:href="../proc/get_hsv.html" xlink:title="color%get_hsv">
+<polygon fill="#d9534f" stroke="#d9534f" points="412.18,-297.27 323.41,-297.27 323.41,-273 412.18,-273 412.18,-297.27"/>
+<text xml:space="preserve" text-anchor="middle" x="367.8" y="-281.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%get_hsv</text>
 </a>
 </g>
 </g>
 <!-- proc~get&#45;&gt;proc~get_hsv -->
 <g id="program~~demo_color~~CallsGraph_edge25" class="edge">
 <title>proc~get&#45;&gt;proc~get_hsv</title>
-<path fill="none" stroke="#025500" d="M243.89,-356.96C271.73,-343.28 319.36,-320.91 362,-306 368.23,-303.82 374.8,-301.75 381.39,-299.82"/>
-<polygon fill="#025500" stroke="#025500" points="382.35,-303.19 391.02,-297.1 380.45,-296.45 382.35,-303.19"/>
+<path fill="none" stroke="#00ff00" d="M214.96,-356.65C238.12,-343.26 276.54,-321.82 311.04,-306.13 314.14,-304.73 317.37,-303.33 320.64,-301.97"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="321.73,-305.3 329.71,-298.33 319.12,-298.81 321.73,-305.3"/>
 </g>
 <!-- proc~get_name -->
 <g id="program~~demo_color~~CallsGraph_node15" class="node">
 <title>proc~get_name</title>
-<g id="a_program~~demo_color~~CallsGraph_node15"><a xlink:href="../proc/get_name.html" xlink:title="forcolor::color%get_name">
-<polygon fill="#d9534f" stroke="#d9534f" points="519,-255 368,-255 368,-231 519,-231 519,-255"/>
-<text text-anchor="middle" x="443.5" y="-240.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%get_name</text>
+<g id="a_program~~demo_color~~CallsGraph_node15"><a xlink:href="../proc/get_name.html" xlink:title="color%get_name">
+<polygon fill="#d9534f" stroke="#d9534f" points="418.56,-255.27 317.04,-255.27 317.04,-231 418.56,-231 418.56,-255.27"/>
+<text xml:space="preserve" text-anchor="middle" x="367.8" y="-239.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%get_name</text>
 </a>
 </g>
 </g>
 <!-- proc~get&#45;&gt;proc~get_name -->
 <g id="program~~demo_color~~CallsGraph_edge26" class="edge">
 <title>proc~get&#45;&gt;proc~get_name</title>
-<path fill="none" stroke="#025500" d="M232.97,-356.67C256.68,-334.79 309.44,-289.13 362,-264 366.33,-261.93 370.9,-260.04 375.56,-258.32"/>
-<polygon fill="#025500" stroke="#025500" points="376.89,-261.57 385.23,-255.04 374.64,-254.94 376.89,-261.57"/>
+<path fill="none" stroke="#00ff00" d="M204.6,-356.83C224.01,-335.39 266.88,-290.92 311.04,-264.13 313.16,-262.85 315.37,-261.62 317.64,-260.45"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="318.89,-263.73 326.46,-256.32 315.92,-257.39 318.89,-263.73"/>
 </g>
 <!-- proc~get&#45;&gt;proc~get_rgb -->
 <g id="program~~demo_color~~CallsGraph_edge27" class="edge">
 <title>proc~get&#45;&gt;proc~get_rgb</title>
-<path fill="none" stroke="#025500" d="M232.97,-381.33C256.68,-403.21 309.44,-448.87 362,-474 366.33,-476.07 370.9,-477.96 375.56,-479.68"/>
-<polygon fill="#025500" stroke="#025500" points="374.64,-483.06 385.23,-482.96 376.89,-476.43 374.64,-483.06"/>
+<path fill="none" stroke="#00ff00" d="M204.6,-381.44C224.01,-402.88 266.88,-447.35 311.04,-474.13 313.16,-475.42 315.37,-476.65 317.64,-477.82"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="315.92,-480.88 326.46,-481.95 318.89,-474.54 315.92,-480.88"/>
 </g>
 <!-- proc~get_xyz -->
 <g id="program~~demo_color~~CallsGraph_node17" class="node">
 <title>proc~get_xyz</title>
-<g id="a_program~~demo_color~~CallsGraph_node17"><a xlink:href="../proc/get_xyz.html" xlink:title="forcolor::color%get_xyz">
-<polygon fill="#d9534f" stroke="#d9534f" points="512.5,-213 374.5,-213 374.5,-189 512.5,-189 512.5,-213"/>
-<text text-anchor="middle" x="443.5" y="-198.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%get_xyz</text>
+<g id="a_program~~demo_color~~CallsGraph_node17"><a xlink:href="../proc/get_xyz.html" xlink:title="color%get_xyz">
+<polygon fill="#d9534f" stroke="#d9534f" points="411.81,-213.27 323.79,-213.27 323.79,-189 411.81,-189 411.81,-213.27"/>
+<text xml:space="preserve" text-anchor="middle" x="367.8" y="-197.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%get_xyz</text>
 </a>
 </g>
 </g>
 <!-- proc~get&#45;&gt;proc~get_xyz -->
 <g id="program~~demo_color~~CallsGraph_edge28" class="edge">
 <title>proc~get&#45;&gt;proc~get_xyz</title>
-<path fill="none" stroke="#025500" d="M228.03,-356.97C247.48,-328.78 300.12,-258.17 362,-222 365.18,-220.14 368.52,-218.44 371.97,-216.9"/>
-<polygon fill="#025500" stroke="#025500" points="373.32,-220.12 381.28,-213.13 370.7,-213.63 373.32,-220.12"/>
+<path fill="none" stroke="#00ff00" d="M200.58,-356.62C216.37,-328.66 258.24,-260.54 311.04,-222.13 312.56,-221.03 314.15,-219.97 315.79,-218.96"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="317.08,-222.24 324.25,-214.44 313.78,-216.07 317.08,-222.24"/>
 </g>
 <!-- proc~print_available_colors&#45;&gt;proc~initialize_colors -->
 <g id="program~~demo_color~~CallsGraph_edge29" class="edge">
 <title>proc~print_available_colors&#45;&gt;proc~initialize_colors</title>
-<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M326.04,-549.04C338.07,-547.8 350.18,-546.54 361.82,-545.34"/>
-<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="362.31,-548.81 371.9,-544.3 361.59,-541.84 362.31,-548.81"/>
+<path fill="none" stroke="#00ffff" d="M275.48,-549.27C287.04,-547.74 298.71,-546.19 309.67,-544.73"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="309.85,-548.24 319.3,-543.45 308.92,-541.3 309.85,-548.24"/>
 </g>
 <!-- proc~save_available_colors&#45;&gt;proc~initialize_colors -->
 <g id="program~~demo_color~~CallsGraph_edge30" class="edge">
 <title>proc~save_available_colors&#45;&gt;proc~initialize_colors</title>
-<path fill="none" stroke="#002505" d="M326.04,-527.05C338.07,-528.08 350.18,-529.12 361.82,-530.11"/>
-<polygon fill="#002505" stroke="#002505" points="361.64,-533.61 371.9,-530.97 362.23,-526.63 361.64,-533.61"/>
+<path fill="none" stroke="#0000ff" d="M275.48,-527.11C287.04,-528.38 298.71,-529.66 309.67,-530.86"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="308.97,-534.31 319.29,-531.92 309.74,-527.35 308.97,-534.31"/>
 </g>
 <!-- proc~set_by_name -->
 <g id="program~~demo_color~~CallsGraph_node28" class="node">
 <title>proc~set_by_name</title>
-<g id="a_program~~demo_color~~CallsGraph_node28"><a xlink:href="../proc/set_by_name.html" xlink:title="forcolor::color%set_by_name">
-<polygon fill="#d9534f" stroke="#d9534f" points="904,-360 736,-360 736,-336 904,-336 904,-360"/>
-<text text-anchor="middle" x="820" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%set_by_name</text>
+<g id="a_program~~demo_color~~CallsGraph_node28"><a xlink:href="../proc/set_by_name.html" xlink:title="color%set_by_name">
+<polygon fill="#d9534f" stroke="#d9534f" points="703.35,-360.27 585.33,-360.27 585.33,-336 703.35,-336 703.35,-360.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-344.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%set_by_name</text>
 </a>
 </g>
 </g>
-<!-- proc~set~2&#45;&gt;proc~set_by_name -->
+<!-- proc~set&#45;&gt;proc~set_by_name -->
 <g id="program~~demo_color~~CallsGraph_edge31" class="edge">
-<title>proc~set~2&#45;&gt;proc~set_by_name</title>
-<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M636.52,-192.09C648.92,-220.4 683.81,-291.27 736,-327 738.41,-328.65 740.95,-330.18 743.57,-331.58"/>
-<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="742.23,-334.82 752.77,-335.9 745.21,-328.48 742.23,-334.82"/>
+<title>proc~set&#45;&gt;proc~set_by_name</title>
+<path fill="none" stroke="#ff00ff" d="M509.37,-192.72C517.66,-220.84 541.39,-289.26 585.33,-327.13 586.4,-328.06 587.52,-328.94 588.67,-329.79"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="586.46,-332.54 596.81,-334.78 590.11,-326.57 586.46,-332.54"/>
 </g>
 <!-- proc~set_cmyk -->
 <g id="program~~demo_color~~CallsGraph_node29" class="node">
 <title>proc~set_cmyk</title>
-<g id="a_program~~demo_color~~CallsGraph_node29"><a xlink:href="../proc/set_cmyk.html" xlink:title="forcolor::color%set_cmyk">
-<polygon fill="#d9534f" stroke="#d9534f" points="894,-318 746,-318 746,-294 894,-294 894,-318"/>
-<text text-anchor="middle" x="820" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%set_cmyk</text>
+<g id="a_program~~demo_color~~CallsGraph_node29"><a xlink:href="../proc/set_cmyk.html" xlink:title="color%set_cmyk">
+<polygon fill="#d9534f" stroke="#d9534f" points="693.22,-318.27 595.45,-318.27 595.45,-294 693.22,-294 693.22,-318.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-302.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%set_cmyk</text>
 </a>
 </g>
 </g>
-<!-- proc~set~2&#45;&gt;proc~set_cmyk -->
+<!-- proc~set&#45;&gt;proc~set_cmyk -->
 <g id="program~~demo_color~~CallsGraph_edge32" class="edge">
-<title>proc~set~2&#45;&gt;proc~set_cmyk</title>
-<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M640.03,-192.17C656.15,-214.2 693.32,-260.69 736,-285 739.29,-286.88 742.75,-288.59 746.32,-290.15"/>
-<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="745.35,-293.53 755.94,-293.93 747.91,-287.01 745.35,-293.53"/>
+<title>proc~set&#45;&gt;proc~set_cmyk</title>
+<path fill="none" stroke="#ff00ff" d="M512.27,-192.68C523.86,-214.49 550.57,-259.5 585.33,-285.13 586.84,-286.25 588.42,-287.31 590.04,-288.32"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="587.98,-291.18 598.44,-292.82 591.29,-285.01 587.98,-291.18"/>
 </g>
 <!-- proc~set_decimal -->
 <g id="program~~demo_color~~CallsGraph_node30" class="node">
 <title>proc~set_decimal</title>
-<g id="a_program~~demo_color~~CallsGraph_node30"><a xlink:href="../proc/set_decimal.html" xlink:title="forcolor::color%set_decimal">
-<polygon fill="#d9534f" stroke="#d9534f" points="901,-276 739,-276 739,-252 901,-252 901,-276"/>
-<text text-anchor="middle" x="820" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%set_decimal</text>
+<g id="a_program~~demo_color~~CallsGraph_node30"><a xlink:href="../proc/set_decimal.html" xlink:title="color%set_decimal">
+<polygon fill="#d9534f" stroke="#d9534f" points="700.35,-276.27 588.33,-276.27 588.33,-252 700.35,-252 700.35,-276.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-260.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%set_decimal</text>
 </a>
 </g>
 </g>
-<!-- proc~set~2&#45;&gt;proc~set_decimal -->
+<!-- proc~set&#45;&gt;proc~set_decimal -->
 <g id="program~~demo_color~~CallsGraph_edge33" class="edge">
-<title>proc~set~2&#45;&gt;proc~set_decimal</title>
-<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M648.06,-192.11C668,-206.18 702.96,-229.22 736,-243 741.14,-245.15 746.56,-247.11 752.06,-248.91"/>
-<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="751.43,-252.38 762.02,-251.96 753.48,-245.68 751.43,-252.38"/>
+<title>proc~set&#45;&gt;proc~set_decimal</title>
+<path fill="none" stroke="#ff00ff" d="M519.02,-192.74C534.02,-206.64 559.83,-228.9 585.33,-243.13 587.79,-244.51 590.35,-245.82 592.97,-247.06"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="591.31,-250.16 601.88,-250.96 594.12,-243.75 591.31,-250.16"/>
 </g>
 <!-- proc~set_hex -->
 <g id="program~~demo_color~~CallsGraph_node31" class="node">
 <title>proc~set_hex</title>
-<g id="a_program~~demo_color~~CallsGraph_node31"><a xlink:href="../proc/set_hex.html" xlink:title="forcolor::color%set_hex">
-<polygon fill="#d9534f" stroke="#d9534f" points="889,-234 751,-234 751,-210 889,-210 889,-234"/>
-<text text-anchor="middle" x="820" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%set_hex</text>
+<g id="a_program~~demo_color~~CallsGraph_node31"><a xlink:href="../proc/set_hex.html" xlink:title="color%set_hex">
+<polygon fill="#d9534f" stroke="#d9534f" points="688.35,-234.27 600.33,-234.27 600.33,-210 688.35,-210 688.35,-234.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-218.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%set_hex</text>
 </a>
 </g>
 </g>
-<!-- proc~set~2&#45;&gt;proc~set_hex -->
+<!-- proc~set&#45;&gt;proc~set_hex -->
 <g id="program~~demo_color~~CallsGraph_edge34" class="edge">
-<title>proc~set~2&#45;&gt;proc~set_hex</title>
-<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M685.23,-192.04C707.1,-196.93 732.55,-202.63 755.34,-207.74"/>
-<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="754.74,-211.19 765.26,-209.96 756.27,-204.36 754.74,-211.19"/>
+<title>proc~set&#45;&gt;proc~set_hex</title>
+<path fill="none" stroke="#ff00ff" d="M537.12,-189.67C553.13,-194.56 573.06,-200.65 591.31,-206.23"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="590.09,-209.52 600.67,-209.09 592.13,-202.82 590.09,-209.52"/>
 </g>
 <!-- proc~set_hsl -->
 <g id="program~~demo_color~~CallsGraph_node32" class="node">
 <title>proc~set_hsl</title>
-<g id="a_program~~demo_color~~CallsGraph_node32"><a xlink:href="../proc/set_hsl.html" xlink:title="forcolor::color%set_hsl">
-<polygon fill="#d9534f" stroke="#d9534f" points="887,-192 753,-192 753,-168 887,-168 887,-192"/>
-<text text-anchor="middle" x="820" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%set_hsl</text>
+<g id="a_program~~demo_color~~CallsGraph_node32"><a xlink:href="../proc/set_hsl.html" xlink:title="color%set_hsl">
+<polygon fill="#d9534f" stroke="#d9534f" points="686.47,-192.27 602.2,-192.27 602.2,-168 686.47,-168 686.47,-192.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-176.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%set_hsl</text>
 </a>
 </g>
 </g>
-<!-- proc~set~2&#45;&gt;proc~set_hsl -->
+<!-- proc~set&#45;&gt;proc~set_hsl -->
 <g id="program~~demo_color~~CallsGraph_edge35" class="edge">
-<title>proc~set~2&#45;&gt;proc~set_hsl</title>
-<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M687.5,-180C704.8,-180 724.16,-180 742.59,-180"/>
-<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="742.72,-183.5 752.72,-180 742.72,-176.5 742.72,-183.5"/>
+<title>proc~set&#45;&gt;proc~set_hsl</title>
+<path fill="none" stroke="#ff00ff" d="M537.12,-180.13C552.91,-180.13 572.52,-180.13 590.58,-180.13"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="590.35,-183.64 600.35,-180.14 590.35,-176.64 590.35,-183.64"/>
 </g>
 <!-- proc~set_hsv -->
 <g id="program~~demo_color~~CallsGraph_node33" class="node">
 <title>proc~set_hsv</title>
-<g id="a_program~~demo_color~~CallsGraph_node33"><a xlink:href="../proc/set_hsv.html" xlink:title="forcolor::color%set_hsv">
-<polygon fill="#d9534f" stroke="#d9534f" points="888.5,-150 751.5,-150 751.5,-126 888.5,-126 888.5,-150"/>
-<text text-anchor="middle" x="820" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%set_hsv</text>
+<g id="a_program~~demo_color~~CallsGraph_node33"><a xlink:href="../proc/set_hsv.html" xlink:title="color%set_hsv">
+<polygon fill="#d9534f" stroke="#d9534f" points="687.97,-150.27 600.7,-150.27 600.7,-126 687.97,-126 687.97,-150.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-134.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%set_hsv</text>
 </a>
 </g>
 </g>
-<!-- proc~set~2&#45;&gt;proc~set_hsv -->
+<!-- proc~set&#45;&gt;proc~set_hsv -->
 <g id="program~~demo_color~~CallsGraph_edge36" class="edge">
-<title>proc~set~2&#45;&gt;proc~set_hsv</title>
-<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M685.23,-167.96C707.1,-163.07 732.55,-157.37 755.34,-152.26"/>
-<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="756.27,-155.64 765.26,-150.04 754.74,-148.81 756.27,-155.64"/>
+<title>proc~set&#45;&gt;proc~set_hsv</title>
+<path fill="none" stroke="#ff00ff" d="M537.12,-170.6C553.13,-165.71 573.06,-159.62 591.31,-154.04"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="592.13,-157.45 600.67,-151.18 590.09,-150.75 592.13,-157.45"/>
 </g>
 <!-- proc~set_name -->
 <g id="program~~demo_color~~CallsGraph_node34" class="node">
 <title>proc~set_name</title>
-<g id="a_program~~demo_color~~CallsGraph_node34"><a xlink:href="../proc/set_name.html" xlink:title="forcolor::color%set_name">
-<polygon fill="#d9534f" stroke="#d9534f" points="895,-108 745,-108 745,-84 895,-84 895,-108"/>
-<text text-anchor="middle" x="820" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%set_name</text>
+<g id="a_program~~demo_color~~CallsGraph_node34"><a xlink:href="../proc/set_name.html" xlink:title="color%set_name">
+<polygon fill="#d9534f" stroke="#d9534f" points="694.35,-108.27 594.33,-108.27 594.33,-84 694.35,-84 694.35,-108.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-92.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%set_name</text>
 </a>
 </g>
 </g>
-<!-- proc~set~2&#45;&gt;proc~set_name -->
+<!-- proc~set&#45;&gt;proc~set_name -->
 <g id="program~~demo_color~~CallsGraph_edge37" class="edge">
-<title>proc~set~2&#45;&gt;proc~set_name</title>
-<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M648.06,-167.89C668,-153.82 702.96,-130.78 736,-117 741.14,-114.85 746.56,-112.89 752.06,-111.09"/>
-<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="753.48,-114.32 762.02,-108.04 751.43,-107.62 753.48,-114.32"/>
+<title>proc~set&#45;&gt;proc~set_name</title>
+<path fill="none" stroke="#ff00ff" d="M519.02,-167.53C534.02,-153.63 559.83,-131.37 585.33,-117.13 587.79,-115.76 590.35,-114.45 592.97,-113.21"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="594.12,-116.52 601.88,-109.31 591.31,-110.11 594.12,-116.52"/>
 </g>
 <!-- proc~set_rgb -->
 <g id="program~~demo_color~~CallsGraph_node35" class="node">
 <title>proc~set_rgb</title>
-<g id="a_program~~demo_color~~CallsGraph_node35"><a xlink:href="../proc/set_rgb.html" xlink:title="forcolor::color%set_rgb">
-<polygon fill="#d9534f" stroke="#d9534f" points="888.5,-66 751.5,-66 751.5,-42 888.5,-42 888.5,-66"/>
-<text text-anchor="middle" x="820" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%set_rgb</text>
+<g id="a_program~~demo_color~~CallsGraph_node35"><a xlink:href="../proc/set_rgb.html" xlink:title="color%set_rgb">
+<polygon fill="#d9534f" stroke="#d9534f" points="687.97,-66.27 600.7,-66.27 600.7,-42 687.97,-42 687.97,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%set_rgb</text>
 </a>
 </g>
 </g>
-<!-- proc~set~2&#45;&gt;proc~set_rgb -->
+<!-- proc~set&#45;&gt;proc~set_rgb -->
 <g id="program~~demo_color~~CallsGraph_edge38" class="edge">
-<title>proc~set~2&#45;&gt;proc~set_rgb</title>
-<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M640.03,-167.83C656.15,-145.8 693.32,-99.31 736,-75 739.29,-73.12 742.75,-71.41 746.32,-69.85"/>
-<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="747.91,-72.99 755.94,-66.07 745.35,-66.47 747.91,-72.99"/>
+<title>proc~set&#45;&gt;proc~set_rgb</title>
+<path fill="none" stroke="#ff00ff" d="M512.27,-167.59C523.86,-145.78 550.57,-100.77 585.33,-75.13 586.9,-73.98 588.54,-72.88 590.23,-71.83"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="591.85,-74.94 599.04,-67.16 588.57,-68.76 591.85,-74.94"/>
 </g>
 <!-- proc~set_xyz -->
 <g id="program~~demo_color~~CallsGraph_node36" class="node">
 <title>proc~set_xyz</title>
-<g id="a_program~~demo_color~~CallsGraph_node36"><a xlink:href="../proc/set_xyz.html" xlink:title="forcolor::color%set_xyz">
-<polygon fill="#d9534f" stroke="#d9534f" points="888,-24 752,-24 752,0 888,0 888,-24"/>
-<text text-anchor="middle" x="820" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolor::color%set_xyz</text>
+<g id="a_program~~demo_color~~CallsGraph_node36"><a xlink:href="../proc/set_xyz.html" xlink:title="color%set_xyz">
+<polygon fill="#d9534f" stroke="#d9534f" points="687.6,-24.27 601.08,-24.27 601.08,0 687.6,0 687.6,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="644.34" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">color%set_xyz</text>
 </a>
 </g>
 </g>
-<!-- proc~set~2&#45;&gt;proc~set_xyz -->
+<!-- proc~set&#45;&gt;proc~set_xyz -->
 <g id="program~~demo_color~~CallsGraph_edge39" class="edge">
-<title>proc~set~2&#45;&gt;proc~set_xyz</title>
-<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M636.52,-167.91C648.92,-139.6 683.81,-68.73 736,-33 738.41,-31.35 740.95,-29.82 743.57,-28.42"/>
-<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="745.21,-31.52 752.77,-24.1 742.23,-25.18 745.21,-31.52"/>
+<title>proc~set&#45;&gt;proc~set_xyz</title>
+<path fill="none" stroke="#ff00ff" d="M509.37,-167.55C517.66,-139.43 541.39,-71.01 585.33,-33.13 587.03,-31.67 588.85,-30.3 590.74,-29.02"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="592.44,-32.08 599.44,-24.13 589.01,-25.98 592.44,-32.08"/>
 </g>
 <!-- proc~initialize_colors&#45;&gt;proc~convert -->
 <g id="program~~demo_color~~CallsGraph_edge40" class="edge">
 <title>proc~initialize_colors&#45;&gt;proc~convert</title>
-<path fill="none" stroke="#025515" stroke-opacity="0.011765" d="M480.17,-549.15C509.95,-559.29 552.57,-573.8 584.66,-584.73"/>
-<polygon fill="#025515" fill-opacity="0.011765" stroke="#025515" stroke-opacity="0.011765" points="583.66,-588.09 594.25,-588 585.92,-581.46 583.66,-588.09"/>
+<path fill="none" stroke="#00ff99" d="M395.82,-549.73C416.17,-559.22 444.3,-572.33 466.77,-582.81"/>
+<polygon fill="#00ff99" stroke="#00ff99" points="465.05,-585.87 475.6,-586.92 468.01,-579.52 465.05,-585.87"/>
 </g>
-<!-- proc~initialize_colors&#45;&gt;proc~set~2 -->
+<!-- proc~initialize_colors&#45;&gt;proc~set -->
 <g id="program~~demo_color~~CallsGraph_edge41" class="edge">
-<title>proc~initialize_colors&#45;&gt;proc~set~2</title>
-<path fill="none" stroke="#025515" stroke-opacity="0.011765" d="M512.72,-524.87C517.18,-522.42 521.34,-519.49 525,-516 548.64,-493.43 605.81,-273.7 623.91,-202.29"/>
-<polygon fill="#025515" fill-opacity="0.011765" stroke="#025515" stroke-opacity="0.011765" points="627.41,-202.71 626.46,-192.16 620.62,-201 627.41,-202.71"/>
+<title>proc~initialize_colors&#45;&gt;proc~set</title>
+<path fill="none" stroke="#00ff99" d="M414.27,-524.65C418.1,-522.29 421.62,-519.48 424.56,-516.13 445.61,-492.2 486.48,-276.1 499.71,-203.67"/>
+<polygon fill="#00ff99" stroke="#00ff99" points="503.1,-204.56 501.44,-194.1 496.21,-203.31 503.1,-204.56"/>
 </g>
 <!-- proc~set_by_name&#45;&gt;proc~initialize_colors -->
 <g id="program~~demo_color~~CallsGraph_edge42" class="edge">
 <title>proc~set_by_name&#45;&gt;proc~initialize_colors</title>
-<path fill="none" stroke="#002505" d="M760.04,-360.1C751.8,-362.6 743.57,-365.54 736,-369 632.02,-416.45 628.8,-468.16 525,-516 520.44,-518.1 515.64,-520.02 510.75,-521.76"/>
-<polygon fill="#002505" stroke="#002505" points="509.64,-518.44 501.25,-524.91 511.84,-525.08 509.64,-518.44"/>
+<path fill="none" stroke="#0000ff" d="M602.15,-360.75C596.33,-363.18 590.55,-365.98 585.33,-369.13 502.49,-419.25 507.08,-465.49 424.56,-516.13 422.56,-517.36 420.48,-518.53 418.35,-519.65"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="417,-516.42 409.46,-523.86 420,-522.75 417,-516.42"/>
 </g>
 </g>
 </svg>
@@ -1006,55 +1026,55 @@ large graphs.</div>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: Graph Key Pages: 1 -->
 <svg width="641pt" height="28pt"
- viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+ viewBox="0.00 0.00 641.00 28.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.873868 0.873868) rotate(0) translate(4 28.27)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 729.52,-28.27 729.52,4 -4,4"/>
 <!-- Subroutine -->
 <g id="node1" class="node">
 <title>Subroutine</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
-<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="69.27,-24.27 0,-24.27 0,0 69.27,0 69.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="34.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
 </g>
 <!-- Function -->
 <g id="node2" class="node">
 <title>Function</title>
-<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
-<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="143.89,-24.27 87.38,-24.27 87.38,0 143.89,0 143.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="115.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
 </g>
 <!-- Interface -->
 <g id="node3" class="node">
 <title>Interface</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
-<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="221.39,-24.27 161.88,-24.27 161.88,0 221.39,0 221.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="191.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
 </g>
 <!-- Type Bound Procedure -->
 <g id="node4" class="node">
 <title>Type Bound Procedure</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
-<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="368.27,-24.27 239,-24.27 239,0 368.27,0 368.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="303.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
 </g>
 <!-- Unknown Procedure Type -->
 <g id="node5" class="node">
 <title>Unknown Procedure Type</title>
-<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
-<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+<polygon fill="#777777" stroke="#777777" points="529.39,-24.27 385.88,-24.27 385.88,0 529.39,0 529.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="457.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
 </g>
 <!-- Program -->
 <g id="node6" class="node">
 <title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
-<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.89,-24.27 547.38,-24.27 547.38,0 603.89,0 603.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="575.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
 <g id="node7" class="node">
 <title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
-<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<polygon fill="none" stroke="black" points="725.52,-24.27 621.75,-24.27 621.75,0 725.52,0 725.52,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="673.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
@@ -1088,71 +1108,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-custom_color"></span>
-              type(<a href='../type/color.html'>color</a>)
-            </td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>custom_color</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-nearest_color~2"></span>
-              type(<a href='../type/color.html'>color</a>)
-            </td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>nearest_color</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-r~20"></span>
-              integer(kind=ik)
-            </td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>r</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-g~20"></span>
-              integer(kind=ik)
-            </td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>g</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-b~20"></span>
+              <span class="anchor" id="variable-b~23"></span>
               integer(kind=ik)
             </td>
             <td>
@@ -1168,39 +1124,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-hex~8"></span>
-              character(len=7)
-            </td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>hex</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-decimal~8"></span>
-              integer(kind=ik)
-            </td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>decimal</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-c~10"></span>
+              <span class="anchor" id="variable-c~14"></span>
               integer(kind=ik)
             </td>
             <td>
@@ -1216,14 +1140,14 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-m~10"></span>
-              integer(kind=ik)
+              <span class="anchor" id="variable-custom_color~3"></span>
+              type(<a href='../type/color.html'>color</a>)
             </td>
             <td>
               
             </td>
             <td>::</td>
-            <td><strong>m</strong></td>
+            <td><strong>custom_color</strong></td>
                 <td></td>
                 <td></td>
             <td>
@@ -1232,14 +1156,14 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-y~13"></span>
+              <span class="anchor" id="variable-decimal~10"></span>
               integer(kind=ik)
             </td>
             <td>
               
             </td>
             <td>::</td>
-            <td><strong>y</strong></td>
+            <td><strong>decimal</strong></td>
                 <td></td>
                 <td></td>
             <td>
@@ -1248,14 +1172,14 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-k~10"></span>
+              <span class="anchor" id="variable-g~23"></span>
               integer(kind=ik)
             </td>
             <td>
               
             </td>
             <td>::</td>
-            <td><strong>k</strong></td>
+            <td><strong>g</strong></td>
                 <td></td>
                 <td></td>
             <td>
@@ -1264,7 +1188,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-h~13"></span>
+              <span class="anchor" id="variable-h~15"></span>
               real(kind=rk)
             </td>
             <td>
@@ -1280,14 +1204,14 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-s~12"></span>
-              real(kind=rk)
+              <span class="anchor" id="variable-hex~10"></span>
+              character(len=7)
             </td>
             <td>
               
             </td>
             <td>::</td>
-            <td><strong>s</strong></td>
+            <td><strong>hex</strong></td>
                 <td></td>
                 <td></td>
             <td>
@@ -1296,23 +1220,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-v~8"></span>
-              real(kind=rk)
-            </td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>v</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-hl~4"></span>
+              <span class="anchor" id="variable-hl~6"></span>
               real(kind=rk)
             </td>
             <td>
@@ -1328,7 +1236,87 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-sl~4"></span>
+              <span class="anchor" id="variable-k~12"></span>
+              integer(kind=ik)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~12"></span>
+              integer(kind=ik)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nearest_color~3"></span>
+              type(<a href='../type/color.html'>color</a>)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nearest_color</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r~23"></span>
+              integer(kind=ik)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>r</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-s~14"></span>
+              real(kind=rk)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>s</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sl~6"></span>
               real(kind=rk)
             </td>
             <td>
@@ -1344,7 +1332,23 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-vl~4"></span>
+              <span class="anchor" id="variable-v~10"></span>
+              real(kind=rk)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>v</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vl~6"></span>
               real(kind=rk)
             </td>
             <td>
@@ -1360,7 +1364,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-xyz_x~4"></span>
+              <span class="anchor" id="variable-xyz_x~6"></span>
               real(kind=rk)
             </td>
             <td>
@@ -1376,7 +1380,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-xyz_y~4"></span>
+              <span class="anchor" id="variable-xyz_y~6"></span>
               real(kind=rk)
             </td>
             <td>
@@ -1392,7 +1396,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-xyz_z~4"></span>
+              <span class="anchor" id="variable-xyz_z~6"></span>
               real(kind=rk)
             </td>
             <td>
@@ -1400,6 +1404,22 @@ large graphs.</div>
             </td>
             <td>::</td>
             <td><strong>xyz_z</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y~15"></span>
+              integer(kind=ik)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>y</strong></td>
                 <td></td>
                 <td></td>
             <td>
@@ -1422,188 +1442,188 @@ large graphs.</div>
 
     <section>
     <h2 id="src">Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">demo_color</span>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">demo_color</span><span class="w"></span>
 
-<span class="w">   </span><span class="k">use </span><span class="n">forimage</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">rk</span><span class="p">,</span><span class="w"> </span><span class="n">ik</span><span class="p">,</span><span class="w"> </span><span class="n">color</span>
+<span class="w">   </span><span class="k">use </span><span class="n">forimage</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">rk</span><span class="p">,</span><span class="w"> </span><span class="n">ik</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="w"></span>
 <span class="w">   </span><span class="k">implicit none</span>
 
-<span class="k">   type</span><span class="p">(</span><span class="n">color</span><span class="p">)</span><span class="w">      </span><span class="kd">::</span><span class="w"> </span><span class="n">custom_color</span><span class="p">,</span><span class="w"> </span><span class="n">nearest_color</span>
-<span class="w">   </span><span class="kt">integer</span><span class="p">(</span><span class="n">ik</span><span class="p">)</span><span class="w">      </span><span class="kd">::</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span>
-<span class="w">   </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">hex</span>
-<span class="w">   </span><span class="kt">integer</span><span class="p">(</span><span class="n">ik</span><span class="p">)</span><span class="w">      </span><span class="kd">::</span><span class="w"> </span><span class="n">decimal</span>
-<span class="w">   </span><span class="kt">integer</span><span class="p">(</span><span class="n">ik</span><span class="p">)</span><span class="w">      </span><span class="kd">::</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">k</span>
-<span class="w">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">v</span>
-<span class="w">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">hl</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="p">,</span><span class="w"> </span><span class="n">vl</span>
-<span class="w">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">xyz_x</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_y</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_z</span>
+<span class="k">   type</span><span class="p">(</span><span class="n">color</span><span class="p">)</span><span class="w">      </span><span class="kd">::</span><span class="w"> </span><span class="n">custom_color</span><span class="p">,</span><span class="w"> </span><span class="n">nearest_color</span><span class="w"></span>
+<span class="w">   </span><span class="kt">integer</span><span class="p">(</span><span class="n">ik</span><span class="p">)</span><span class="w">      </span><span class="kd">::</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
+<span class="w">   </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">hex</span><span class="w"></span>
+<span class="w">   </span><span class="kt">integer</span><span class="p">(</span><span class="n">ik</span><span class="p">)</span><span class="w">      </span><span class="kd">::</span><span class="w"> </span><span class="n">decimal</span><span class="w"></span>
+<span class="w">   </span><span class="kt">integer</span><span class="p">(</span><span class="n">ik</span><span class="p">)</span><span class="w">      </span><span class="kd">::</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="w"></span>
+<span class="w">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">hl</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="p">,</span><span class="w"> </span><span class="n">vl</span><span class="w"></span>
+<span class="w">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">xyz_x</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_y</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_z</span><span class="w"></span>
 
 
 <span class="w">   </span><span class="c">! Set the color using RGB values</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom_color&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="o">=</span><span class="mi">245_ik</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">=</span><span class="mi">127_ik</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="mi">64_ik</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom_color&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="o">=</span><span class="mi">245_ik</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">=</span><span class="mi">127_ik</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="mi">64_ik</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! Convert the color to other color spaces</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;rgb2all&#39;</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;rgb2all&#39;</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! Get the values of the color in other color spaces</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hex</span><span class="o">=</span><span class="n">hex</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="o">=</span><span class="n">sl</span><span class="p">,</span><span class="w"> </span><span class="n">vl</span><span class="o">=</span><span class="n">vl</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">xyz_x</span><span class="o">=</span><span class="n">xyz_x</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_y</span><span class="o">=</span><span class="n">xyz_y</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_z</span><span class="o">=</span><span class="n">xyz_z</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hex</span><span class="o">=</span><span class="n">hex</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="o">=</span><span class="n">sl</span><span class="p">,</span><span class="w"> </span><span class="n">vl</span><span class="o">=</span><span class="n">vl</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">xyz_x</span><span class="o">=</span><span class="n">xyz_x</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_y</span><span class="o">=</span><span class="n">xyz_y</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_z</span><span class="o">=</span><span class="n">xyz_z</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! Print the name and color values</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="k">print</span><span class="p">()</span><span class="w"></span>
 
 
 
 <span class="w">   </span><span class="c">! Set the color using a hex value</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom_color&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">hex</span><span class="o">=</span><span class="s1">&#39;#F57F40&#39;</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom_color&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">hex</span><span class="o">=</span><span class="s1">&#39;#F57F40&#39;</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! Convert the color to other color spaces</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;hex2all&#39;</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;hex2all&#39;</span><span class="p">)</span><span class="w"></span>
 
 
 <span class="w">   </span><span class="c">! Get the values of the color in other color spaces</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hex</span><span class="o">=</span><span class="n">hex</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="o">=</span><span class="n">sl</span><span class="p">,</span><span class="w"> </span><span class="n">vl</span><span class="o">=</span><span class="n">vl</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">xyz_x</span><span class="o">=</span><span class="n">xyz_x</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_y</span><span class="o">=</span><span class="n">xyz_y</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_z</span><span class="o">=</span><span class="n">xyz_z</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hex</span><span class="o">=</span><span class="n">hex</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="o">=</span><span class="n">sl</span><span class="p">,</span><span class="w"> </span><span class="n">vl</span><span class="o">=</span><span class="n">vl</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">xyz_x</span><span class="o">=</span><span class="n">xyz_x</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_y</span><span class="o">=</span><span class="n">xyz_y</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_z</span><span class="o">=</span><span class="n">xyz_z</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! Print the name and color values</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="k">print</span><span class="p">()</span><span class="w"></span>
 
 
 
 <span class="w">   </span><span class="c">! Set the color using a decimal value</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom_color&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">decimal</span><span class="o">=</span><span class="mi">16088896</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom_color&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">decimal</span><span class="o">=</span><span class="mi">16088896_ik</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! Convert the color to other color spaces</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;decimal2all&#39;</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;decimal2all&#39;</span><span class="p">)</span><span class="w"></span>
 
 
 <span class="w">   </span><span class="c">! Get the values of the color in other color spaces</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hex</span><span class="o">=</span><span class="n">hex</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="o">=</span><span class="n">sl</span><span class="p">,</span><span class="w"> </span><span class="n">vl</span><span class="o">=</span><span class="n">vl</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">xyz_x</span><span class="o">=</span><span class="n">xyz_x</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_y</span><span class="o">=</span><span class="n">xyz_y</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_z</span><span class="o">=</span><span class="n">xyz_z</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hex</span><span class="o">=</span><span class="n">hex</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="o">=</span><span class="n">sl</span><span class="p">,</span><span class="w"> </span><span class="n">vl</span><span class="o">=</span><span class="n">vl</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">xyz_x</span><span class="o">=</span><span class="n">xyz_x</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_y</span><span class="o">=</span><span class="n">xyz_y</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_z</span><span class="o">=</span><span class="n">xyz_z</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! Print the name and color values</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="k">print</span><span class="p">()</span><span class="w"></span>
 
 
 
 <span class="w">   </span><span class="c">! Set the color using a decimal value</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom_color&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="o">=</span><span class="mi">0_ik</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="o">=</span><span class="mi">48_ik</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="mi">74_ik</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="mi">4_ik</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom_color&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="o">=</span><span class="mi">0_ik</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="o">=</span><span class="mi">48_ik</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="mi">74_ik</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="mi">4_ik</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! Convert the color to other color spaces</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;cmyk2all&#39;</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;cmyk2all&#39;</span><span class="p">)</span><span class="w"></span>
 
 
 <span class="w">   </span><span class="c">! Get the values of the color in other color spaces</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hex</span><span class="o">=</span><span class="n">hex</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="o">=</span><span class="n">sl</span><span class="p">,</span><span class="w"> </span><span class="n">vl</span><span class="o">=</span><span class="n">vl</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">xyz_x</span><span class="o">=</span><span class="n">xyz_x</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_y</span><span class="o">=</span><span class="n">xyz_y</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_z</span><span class="o">=</span><span class="n">xyz_z</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hex</span><span class="o">=</span><span class="n">hex</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="o">=</span><span class="n">sl</span><span class="p">,</span><span class="w"> </span><span class="n">vl</span><span class="o">=</span><span class="n">vl</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">xyz_x</span><span class="o">=</span><span class="n">xyz_x</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_y</span><span class="o">=</span><span class="n">xyz_y</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_z</span><span class="o">=</span><span class="n">xyz_z</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! Print the name and color values</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="k">print</span><span class="p">()</span><span class="w"></span>
 
 
 
 <span class="w">   </span><span class="c">! Set the color using a hsv value</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom_color&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="o">=</span><span class="mi">2</span><span class="mf">0.8840_rk</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="mi">7</span><span class="mf">3.8776_rk</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="mi">9</span><span class="mf">6.0784_rk</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom_color&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="o">=</span><span class="mi">2</span><span class="mf">0.8840_rk</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="mi">7</span><span class="mf">3.8776_rk</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="mi">9</span><span class="mf">6.0784_rk</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! Convert the color to other color spaces</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;hsv2all&#39;</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;hsv2all&#39;</span><span class="p">)</span><span class="w"></span>
 
 
 <span class="w">   </span><span class="c">! Get the values of the color in other color spaces</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hex</span><span class="o">=</span><span class="n">hex</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="o">=</span><span class="n">sl</span><span class="p">,</span><span class="w"> </span><span class="n">vl</span><span class="o">=</span><span class="n">vl</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">xyz_x</span><span class="o">=</span><span class="n">xyz_x</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_y</span><span class="o">=</span><span class="n">xyz_y</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_z</span><span class="o">=</span><span class="n">xyz_z</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hex</span><span class="o">=</span><span class="n">hex</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="o">=</span><span class="n">sl</span><span class="p">,</span><span class="w"> </span><span class="n">vl</span><span class="o">=</span><span class="n">vl</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">xyz_x</span><span class="o">=</span><span class="n">xyz_x</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_y</span><span class="o">=</span><span class="n">xyz_y</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_z</span><span class="o">=</span><span class="n">xyz_z</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! Print the name and color values</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="k">print</span><span class="p">()</span><span class="w"></span>
 
 
 
 <span class="w">   </span><span class="c">! Set the color using a hsv value</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom_color&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">hl</span><span class="o">=</span><span class="mi">2</span><span class="mf">0.8840_rk</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="o">=</span><span class="mi">9</span><span class="mf">0.0498_rk</span><span class="p">,</span><span class="w"> </span><span class="n">vl</span><span class="o">=</span><span class="mi">6</span><span class="mf">0.5882_rk</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom_color&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">hl</span><span class="o">=</span><span class="mi">2</span><span class="mf">0.8840_rk</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="o">=</span><span class="mi">9</span><span class="mf">0.0498_rk</span><span class="p">,</span><span class="w"> </span><span class="n">vl</span><span class="o">=</span><span class="mi">6</span><span class="mf">0.5882_rk</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! Convert the color to other color spaces</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;hsl2all&#39;</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;hsl2all&#39;</span><span class="p">)</span><span class="w"></span>
 
 
 <span class="w">   </span><span class="c">! Get the values of the color in other color spaces</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hex</span><span class="o">=</span><span class="n">hex</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="o">=</span><span class="n">sl</span><span class="p">,</span><span class="w"> </span><span class="n">vl</span><span class="o">=</span><span class="n">vl</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">xyz_x</span><span class="o">=</span><span class="n">xyz_x</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_y</span><span class="o">=</span><span class="n">xyz_y</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_z</span><span class="o">=</span><span class="n">xyz_z</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hex</span><span class="o">=</span><span class="n">hex</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="o">=</span><span class="n">sl</span><span class="p">,</span><span class="w"> </span><span class="n">vl</span><span class="o">=</span><span class="n">vl</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">xyz_x</span><span class="o">=</span><span class="n">xyz_x</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_y</span><span class="o">=</span><span class="n">xyz_y</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_z</span><span class="o">=</span><span class="n">xyz_z</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! Print the name and color values</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="k">print</span><span class="p">()</span><span class="w"></span>
 
 
 
 <span class="w">   </span><span class="c">! Set the color using a hsv value</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom_color&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_x</span><span class="o">=</span><span class="mi">4</span><span class="mf">6.1753_rk</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_y</span><span class="o">=</span><span class="mi">3</span><span class="mf">4.9669_rk</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_z</span><span class="o">=</span><span class="mf">9.1672_rk</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom_color&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_x</span><span class="o">=</span><span class="mi">4</span><span class="mf">6.1753_rk</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_y</span><span class="o">=</span><span class="mi">3</span><span class="mf">4.9669_rk</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_z</span><span class="o">=</span><span class="mf">9.1672_rk</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! Convert the color to other color spaces</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;xyz2all&#39;</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;xyz2all&#39;</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! Get the values of the color in other color spaces</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hex</span><span class="o">=</span><span class="n">hex</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="o">=</span><span class="n">sl</span><span class="p">,</span><span class="w"> </span><span class="n">vl</span><span class="o">=</span><span class="n">vl</span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">xyz_x</span><span class="o">=</span><span class="n">xyz_x</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_y</span><span class="o">=</span><span class="n">xyz_y</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_z</span><span class="o">=</span><span class="n">xyz_z</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hex</span><span class="o">=</span><span class="n">hex</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="o">=</span><span class="n">sl</span><span class="p">,</span><span class="w"> </span><span class="n">vl</span><span class="o">=</span><span class="n">vl</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">xyz_x</span><span class="o">=</span><span class="n">xyz_x</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_y</span><span class="o">=</span><span class="n">xyz_y</span><span class="p">,</span><span class="w"> </span><span class="n">xyz_z</span><span class="o">=</span><span class="n">xyz_z</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! Print the name and color values</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="k">print</span><span class="p">()</span><span class="w"></span>
 
 
 
 <span class="w">   </span><span class="c">! Print and save the available colors</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">print_available_colors</span><span class="p">()</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">save_available_colors</span><span class="p">()</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">print_available_colors</span><span class="p">()</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">save_available_colors</span><span class="p">()</span><span class="w"></span>
 
 
 
 <span class="w">   </span><span class="c">! Set a color using the name of a color from the available colors</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">use_library</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">use_library</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="k">print</span><span class="p">()</span><span class="w"></span>
 
 
 
 <span class="w">   </span><span class="c">! Set the color using specific RGB values</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom_color&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="o">=</span><span class="mi">100_ik</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">=</span><span class="mi">30_ik</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="mi">30_ik</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom_color&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="o">=</span><span class="mi">100_ik</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">=</span><span class="mi">30_ik</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="mi">30_ik</span><span class="p">)</span><span class="w"></span>
 
-<span class="w">   </span><span class="k">print</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Find the nearest color to the custom color&#39;</span>
-<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">find_nearest</span><span class="p">(</span><span class="n">nearest_color</span><span class="p">)</span>
+<span class="w">   </span><span class="k">print</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Find the nearest color to the custom color&#39;</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">custom_color</span><span class="p">%</span><span class="n">find_nearest</span><span class="p">(</span><span class="n">nearest_color</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! Print the name and values of the nearest color</span>
-<span class="w">   </span><span class="k">call </span><span class="n">nearest_color</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
+<span class="w">   </span><span class="k">call </span><span class="n">nearest_color</span><span class="p">%</span><span class="k">print</span><span class="p">()</span><span class="w"></span>
 
-<span class="k">end program </span><span class="n">demo_color</span>
+<span class="k">end program </span><span class="n">demo_color</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -1616,40 +1636,21 @@ large graphs.</div>
     <footer>
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col"><p>ForImage was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+          <div class="col">
+            <p>
+              ForImage
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023-2025 BSD 3-Clause
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-01-12T20:08:26.519240             </p>
+ on 2025-08-20T19:15:23.986866+0000             </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-
-    <!-- MathJax JavaScript
-             ================================================== -->
-             <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({
-          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-          });
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-          <script src="../tipuesearch/tipuesearch_content.js"></script>
-          <script src="../tipuesearch/tipuesearch_set.js"></script>
-          <script src="../tipuesearch/tipuesearch.js"></script>
-
   </body>
 </html>

@@ -6,20 +6,35 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="Documentation for ForImage">
+      <meta name="description" content="A Fortran library for processing and editing images and managing colors">
     <meta name="author" content="Seyed Ali Ghasemi" >
     <link rel="icon" href="../favicon.png">
 
     <title>format_pnm &ndash; ForImage </title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="../css/pygments.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
     <link href="../css/local.css" rel="stylesheet">
-      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="../css/pygments.css" rel="stylesheet">
     <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
@@ -29,7 +44,7 @@
     <div class="container-fluid mb-sm-4 mb-xl-2">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="../index.html">ForImage <small>0.3.0</small></a>
+          <a class="navbar-brand" href="../index.html">ForImage </a>
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
                   aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">
@@ -73,23 +88,24 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Seyed Ali Ghasemi</li>
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> BSD 3-Clause</li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
-              <a data-bs-toggle="tooltip"
-                 data-bs-placement="bottom" data-html="true"
-                 title="<p>37.0% of total for derived types.</p>Including implementation: 581 statements, 47.5% of total for derived types.">37 statements</a>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="<p>37.1% of total for derived types.</p>Including implementation: 634 statements, 48.3% of total for derived types.">39 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/pnm.f90"> Source File</a>
+              <a href="../src/pnm.F90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/pnm.f90.html'>pnm.f90</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/pnm.f90.html'>pnm.F90</a></li>
                 <li class="breadcrumb-item"><a href='../module/pnm.html'>pnm</a></li>
             <li class="breadcrumb-item active" aria-current="page">format_pnm</li>
           </ol>
@@ -98,9 +114,11 @@
     </div>
   </div>
   <script>
-    $(function () {
-    $('[data-bs-toggle="tooltip"]').tooltip()
-    })
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
   </script>
 
   </div>
@@ -117,14 +135,14 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../type/format_pnm.html#variable-magic_number">magic_number</a>
-            <a class="list-group-item" href="../type/format_pnm.html#variable-width~4">width</a>
-            <a class="list-group-item" href="../type/format_pnm.html#variable-height~4">height</a>
-            <a class="list-group-item" href="../type/format_pnm.html#variable-comment">comment</a>
-            <a class="list-group-item" href="../type/format_pnm.html#variable-max_color">max_color</a>
             <a class="list-group-item" href="../type/format_pnm.html#variable-pixels~2">pixels</a>
-            <a class="list-group-item" href="../type/format_pnm.html#variable-file_format">file_format</a>
+            <a class="list-group-item" href="../type/format_pnm.html#variable-comment">comment</a>
             <a class="list-group-item" href="../type/format_pnm.html#variable-encoding">encoding</a>
+            <a class="list-group-item" href="../type/format_pnm.html#variable-file_format">file_format</a>
+            <a class="list-group-item" href="../type/format_pnm.html#variable-height~4">height</a>
+            <a class="list-group-item" href="../type/format_pnm.html#variable-magic_number">magic_number</a>
+            <a class="list-group-item" href="../type/format_pnm.html#variable-max_color">max_color</a>
+            <a class="list-group-item" href="../type/format_pnm.html#variable-width~4">width</a>
         </div>
       </div>
     </div>
@@ -151,32 +169,35 @@
       </a>
       <div id="boundprocs-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_format">set_format</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_file_format">set_file_format</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_magicnumber">set_magicnumber</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_width">set_width</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_height">set_height</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_comment">set_comment</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_max_color">set_max_color</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_header">set_header</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-allocate_pixels">allocate_pixels</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-check_pixel_range">check_pixel_range</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_pixels">set_pixels</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_pnm">set_pnm</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-print_info">print_info</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-import_pnm">import_pnm</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-export_pnm">export_pnm</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-finalize~2">finalize</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-negative">negative</a>
             <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-brighten">brighten</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-swap_channels">swap_channels</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-remove_channels">remove_channels</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-greyscale">greyscale</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-rotate">rotate</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-crop">crop</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-export_pnm">export_pnm</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-finalize">finalize</a>
             <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-flip_horizontal">flip_horizontal</a>
             <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-flip_vertical">flip_vertical</a>
-            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-crop">crop</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-get_format">get_format</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-greyscale">greyscale</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-import_pnm">import_pnm</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-negative">negative</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-print_info">print_info</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-remove_channels">remove_channels</a>
             <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-resize">resize</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-rotate">rotate</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_format">set_format</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_pnm">set_pnm</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-swap_channels">swap_channels</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-allocate_pixels">allocate_pixels</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-check_pixel_range">check_pixel_range</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_comment">set_comment</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_file_format">set_file_format</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_header">set_header</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_height">set_height</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_magicnumber">set_magicnumber</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_max_color">set_max_color</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_pixel_a">set_pixel_a</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_pixel_b">set_pixel_b</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_pixels">set_pixels</a>
+            <a class="list-group-item" href="../type/format_pnm.html#boundprocedure-set_width">set_width</a>
         </div>
       </div>
     </div>
@@ -196,9 +217,9 @@
     </div>
     
     <div class="col-md-9" id='text'>
-      <h2>
+      <h2 id="type-def-statement">
         type, public :: format_pnm</h2>
-    
+    <p>This type is designed to store and manipulate PNM (Portable Any Map) image files.</p>
     <br>
 
     <section>
@@ -215,53 +236,19 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-magic_number"></span>
-              character(len=2),
+              <span class="anchor" id="variable-pixels~2"></span>
+              integer(kind=ik),
             </td>
-              <td>private</td>
+              <td>public,</td>
             <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>magic_number</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-width~4"></span>
-              integer,
-            </td>
-              <td>private</td>
-            <td>
-              
+              dimension(:,:), allocatable
             </td>
             <td>::</td>
-            <td><strong>width</strong></td>
+            <td><strong>pixels</strong></td>
                 <td></td>
                 <td></td>
             <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-height~4"></span>
-              integer,
-            </td>
-              <td>private</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>height</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
+                <p>Pixel values of the image.</p>
             </td>
         </tr>
         <tr>
@@ -278,58 +265,7 @@
                 <td></td>
                 <td></td>
             <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-max_color"></span>
-              integer,
-            </td>
-              <td>private</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>max_color</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-pixels~2"></span>
-              integer(kind=ik),
-            </td>
-              <td>public,</td>
-            <td>
-              dimension(:,:), allocatable
-            </td>
-            <td>::</td>
-            <td><strong>pixels</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-file_format"></span>
-              character(len=3),
-            </td>
-              <td>private</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>file_format</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
+                <p>Optional comment associated with the image.</p>
             </td>
         </tr>
         <tr>
@@ -346,7 +282,92 @@
                 <td></td>
                 <td></td>
             <td>
-                
+                <p>Encoding of the PNM image (<code>ascii</code> or <code>plain</code>, <code>binary</code> or <code>raw</code>).</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-file_format"></span>
+              character(len=3),
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>file_format</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>File format of the PNM image (<code>pbm</code>, <code>pgm</code>, <code>ppm</code>).</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-height~4"></span>
+              integer,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>height</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>Height (number of rows) of the image.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-magic_number"></span>
+              character(len=2),
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>magic_number</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>Magic number representing the PNM image type (<code>P1</code>, <code>P2</code>, <code>P3</code>, <code>P4</code>, <code>P5</code>, <code>P6</code>).</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-max_color"></span>
+              integer,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>max_color</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>Maximum color value of the image. Used for PGM and PPM images.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-width~4"></span>
+              integer,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>width</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>Width (number of columns) of the image.</p>
             </td>
         </tr>
     </tbody>
@@ -362,1365 +383,6 @@
           <div class="row">
               <div class="card mt-3">
     <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-set_format"></span>
-      <h3>
-          procedure, public ::
-  <strong>set_format</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure elemental subroutine <a href='../proc/set_format.html'>set_format</a>(this, encoding)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              character(len=*),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>encoding</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-set_file_format"></span>
-      <h3>
-          procedure, private ::
-  <strong>set_file_format</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure elemental subroutine <a href='../proc/set_file_format.html'>set_file_format</a>(this, file_format)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              character(len=3),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>file_format</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-set_magicnumber"></span>
-      <h3>
-          procedure, private ::
-  <strong>set_magicnumber</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure elemental subroutine <a href='../proc/set_magicnumber.html'>set_magicnumber</a>(this, magic_number)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              character(len=*),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>magic_number</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-set_width"></span>
-      <h3>
-          procedure, private ::
-  <strong>set_width</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure elemental subroutine <a href='../proc/set_width.html'>set_width</a>(this, width)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              integer,
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>width</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-set_height"></span>
-      <h3>
-          procedure, private ::
-  <strong>set_height</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure elemental subroutine <a href='../proc/set_height.html'>set_height</a>(this, height)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              integer,
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>height</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-set_comment"></span>
-      <h3>
-          procedure, private ::
-  <strong>set_comment</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure elemental subroutine <a href='../proc/set_comment.html'>set_comment</a>(this, comment)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              character(len=*),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>comment</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-set_max_color"></span>
-      <h3>
-          procedure, private ::
-  <strong>set_max_color</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure elemental subroutine <a href='../proc/set_max_color.html'>set_max_color</a>(this, max_color)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              integer,
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>max_color</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-set_header"></span>
-      <h3>
-          procedure, private ::
-  <strong>set_header</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure elemental subroutine <a href='../proc/set_header.html'>set_header</a>(this, magic_number, width, height, comment, max_color)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              character(len=*),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>magic_number</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              integer,
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>width</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              integer,
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>height</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              character(len=*),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>comment</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              integer,
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>max_color</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-allocate_pixels"></span>
-      <h3>
-          procedure, private ::
-  <strong>allocate_pixels</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure elemental subroutine <a href='../proc/allocate_pixels.html'>allocate_pixels</a>(this)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-check_pixel_range"></span>
-      <h3>
-          procedure, private ::
-  <strong>check_pixel_range</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure subroutine <a href='../proc/check_pixel_range.html'>check_pixel_range</a>(this, pixels)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              integer(kind=ik),
-            </td>
-<td>intent(in),</td>
-              <td></td>            <td>
-              dimension(:,:)
-            </td>
-            <td>::</td>
-            <td><strong>pixels</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-set_pixels"></span>
-      <h3>
-          procedure, private ::
-  <strong>set_pixels</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure subroutine <a href='../proc/set_pixels.html'>set_pixels</a>(this, pixels)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              integer(kind=ik),
-            </td>
-<td>intent(in),</td>
-              <td></td>            <td>
-              dimension(:,:)
-            </td>
-            <td>::</td>
-            <td><strong>pixels</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-set_pnm"></span>
-      <h3>
-          procedure, public ::
-  <strong>set_pnm</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure subroutine <a href='../proc/set_pnm.html'>set_pnm</a>(this, encoding, file_format, width, height, max_color, comment, pixels)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              character(len=*),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>encoding</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              character(len=3),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>file_format</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              integer,
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>width</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              integer,
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>height</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              integer,
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>max_color</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              character(len=*),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>comment</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              integer(kind=ik),
-            </td>
-<td>intent(in),</td>
-              <td></td>            <td>
-              dimension(:,:)
-            </td>
-            <td>::</td>
-            <td><strong>pixels</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-print_info"></span>
-      <h3>
-          procedure, public ::
-  <strong>print_info</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private impure elemental subroutine <a href='../proc/print_info.html'>print_info</a>(this)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-import_pnm"></span>
-      <h3>
-          procedure, public ::
-  <strong>import_pnm</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private impure subroutine <a href='../proc/import_pnm.html'>import_pnm</a>(this, file_name, file_format, encoding)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              character(len=*),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>file_name</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              character(len=3),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>file_format</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              character(len=*),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>encoding</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-export_pnm"></span>
-      <h3>
-          procedure, public ::
-  <strong>export_pnm</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private impure subroutine <a href='../proc/export_pnm.html'>export_pnm</a>(this, file_name, encoding)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              character(len=*),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>file_name</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              character(len=*),
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>encoding</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-finalize~2"></span>
-      <h3>
-          procedure, public ::
-  <strong>finalize</strong> => <a href='/home/runner/work/forimage/forimage/doc/proc/deallocate_pnm.html'>deallocate_pnm</a>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure elemental subroutine <a href='../proc/deallocate_pnm.html'>deallocate_pnm</a>(this)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-negative"></span>
-      <h3>
-          procedure, public ::
-  <strong>negative</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure elemental subroutine <a href='../proc/negative.html'>negative</a>(this)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
       <span class="anchor" id="boundprocedure-brighten"></span>
       <h3>
           procedure, public ::
@@ -1728,17 +390,24 @@
         
       </h3>
     </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Adjust the brightness and darkness of the image.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
     private pure elemental subroutine <a href='../proc/brighten.html'>brighten</a>(this, factor)  
 </h3>
         <dl class="dl-horizontal">
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
     </dl>
 
 
-  
+  <p>Brightens or darkens the image. Only supported for PGM and PPM images.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1785,425 +454,8 @@
   </table>
 
 
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-swap_channels"></span>
-      <h3>
-          procedure, public ::
-  <strong>swap_channels</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure elemental subroutine <a href='../proc/swap_channels.html'>swap_channels</a>(this, swap)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              character(len=*),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>swap</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-remove_channels"></span>
-      <h3>
-          procedure, public ::
-  <strong>remove_channels</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure elemental subroutine <a href='../proc/remove_channels.html'>remove_channels</a>(this, remove_r, remove_g, remove_b)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              logical,
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>remove_r</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              logical,
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>remove_g</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              logical,
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>remove_b</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-greyscale"></span>
-      <h3>
-          procedure, public ::
-  <strong>greyscale</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure elemental subroutine <a href='../proc/greyscale.html'>greyscale</a>(this)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-rotate"></span>
-      <h3>
-          procedure, public ::
-  <strong>rotate</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure elemental subroutine <a href='../proc/rotate.html'>rotate</a>(this, angle)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              integer,
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>angle</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-flip_horizontal"></span>
-      <h3>
-          procedure, public ::
-  <strong>flip_horizontal</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure elemental subroutine <a href='../proc/flip_horizontal.html'>flip_horizontal</a>(this)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
-  </div>
-
-          </div>
-          <div class="row">
-              <div class="card mt-3">
-    <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-flip_vertical"></span>
-      <h3>
-          procedure, public ::
-  <strong>flip_vertical</strong>
-        
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
-    private pure elemental subroutine <a href='../proc/flip_vertical.html'>flip_vertical</a>(this)  
-</h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              class(<a href='format_pnm.html'>format_pnm</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>this</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-        </li>
-    </ul>
+          </li>
+      </ul>
   </div>
 
           </div>
@@ -2217,17 +469,24 @@
         
       </h3>
     </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Crop the image to a specified region.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
     private pure elemental subroutine <a href='../proc/crop.html'>crop</a>(this, start_row, end_row, start_col, end_col)  
 </h3>
         <dl class="dl-horizontal">
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
     </dl>
 
 
-  
+  <p>Crops the image to a specified region.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -2319,8 +578,773 @@
   </table>
 
 
-        </li>
-    </ul>
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-export_pnm"></span>
+      <h3>
+          procedure, public ::
+  <strong>export_pnm</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Write an image to a file.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private impure subroutine <a href='../proc/export_pnm.html'>export_pnm</a>(this, file_name, encoding)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Writes the PNM image to a file.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>file_name</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>encoding</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-finalize"></span>
+      <h3>
+          procedure, public ::
+  <strong>finalize</strong> => <a href='/home/runner/work/forimage/forimage/doc/proc/deallocate_pnm.html'>deallocate_pnm</a>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Clean up allocated memory for the PNM image.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/deallocate_pnm.html'>deallocate_pnm</a>(this)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Deallocates memory for the PNM image.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-flip_horizontal"></span>
+      <h3>
+          procedure, public ::
+  <strong>flip_horizontal</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Flip the image horizontally.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/flip_horizontal.html'>flip_horizontal</a>(this)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Flips the image horizontally.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-flip_vertical"></span>
+      <h3>
+          procedure, public ::
+  <strong>flip_vertical</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Flip the image vertically.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/flip_vertical.html'>flip_vertical</a>(this)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Flips the image vertically.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-get_format"></span>
+      <h3>
+          procedure, public ::
+  <strong>get_format</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Get the encoding of the PNM image.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure function <a href='../proc/get_format.html'>get_format</a>(this) result(encoding)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Gets the encoding of the PNM image.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=:), allocatable</small>
+    </h4>
+    
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-greyscale"></span>
+      <h3>
+          procedure, public ::
+  <strong>greyscale</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Convert a color image to greyscale.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/greyscale.html'>greyscale</a>(this)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Converts a color image to greyscale. Only supported for PPM images.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-import_pnm"></span>
+      <h3>
+          procedure, public ::
+  <strong>import_pnm</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Read an image from a file.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private impure subroutine <a href='../proc/import_pnm.html'>import_pnm</a>(this, file_name, file_format, encoding)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Reads a PNM image from a file.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>file_name</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=3),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>file_format</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>encoding</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-negative"></span>
+      <h3>
+          procedure, public ::
+  <strong>negative</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Invert the colors of the image.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/negative.html'>negative</a>(this)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Inverts the colors of the image.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-print_info"></span>
+      <h3>
+          procedure, public ::
+  <strong>print_info</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Display information about the image (dimensions, aspect ratio, etc.).</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private impure elemental subroutine <a href='../proc/print_info.html'>print_info</a>(this)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Displays information about the image e.g. dimensions, aspect ratio, etc.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-remove_channels"></span>
+      <h3>
+          procedure, public ::
+  <strong>remove_channels</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Remove one or more RGB channels from the image.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/remove_channels.html'>remove_channels</a>(this, remove_r, remove_g, remove_b)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Removes one or more RGB channels from the image. Only supported for PPM images.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>remove_r</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>remove_g</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>remove_b</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
   </div>
 
           </div>
@@ -2334,17 +1358,24 @@
         
       </h3>
     </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-                  <h3>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Resize the image to a specified size.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
     private pure elemental subroutine <a href='../proc/resize.html'>resize</a>(this, new_height, new_width)  
 </h3>
         <dl class="dl-horizontal">
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
     </dl>
 
 
-  
+  <p>Resizes the image to specified dimensions.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -2406,8 +1437,1609 @@
   </table>
 
 
-        </li>
-    </ul>
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-rotate"></span>
+      <h3>
+          procedure, public ::
+  <strong>rotate</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Rotate the image by a specified angle.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/rotate.html'>rotate</a>(this, angle)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Rotates the image by a specified angle. Supported angles are 90, 180, 270, -90, -180, -270.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>angle</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-set_format"></span>
+      <h3>
+          procedure, public ::
+  <strong>set_format</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Set the encoding of the PNM image.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/set_format.html'>set_format</a>(this, encoding)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Sets the encoding of the PNM image. Supported values are <code>ascii</code> or <code>plain</code> and <code>binary</code> or <code>raw</code>.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>encoding</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-set_pnm"></span>
+      <h3>
+          procedure, public ::
+  <strong>set_pnm</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Set the attributes of the PNM image.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure subroutine <a href='../proc/set_pnm.html'>set_pnm</a>(this, encoding, file_format, width, height, max_color, comment, pixels)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Sets the attributes of the PNM image.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>encoding</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=3),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>file_format</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>width</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>height</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>max_color</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>comment</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=ik),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:,:)
+            </td>
+            <td>::</td>
+            <td><strong>pixels</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-swap_channels"></span>
+      <h3>
+          procedure, public ::
+  <strong>swap_channels</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Swap the RGB channels of the image.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/swap_channels.html'>swap_channels</a>(this, swap)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Swaps the RGB channels of the image. Only supported for PPM images.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>swap</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-allocate_pixels"></span>
+      <h3>
+          procedure, private ::
+  <strong>allocate_pixels</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Allocate memory for the pixels of the PNM image.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/allocate_pixels.html'>allocate_pixels</a>(this)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Allocates memory for the pixels of the PNM image.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-check_pixel_range"></span>
+      <h3>
+          procedure, private ::
+  <strong>check_pixel_range</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Check if the pixel values are within the valid range.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure subroutine <a href='../proc/check_pixel_range.html'>check_pixel_range</a>(this, pixels)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Checks if the pixel values are within the valid range.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=ik),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:,:)
+            </td>
+            <td>::</td>
+            <td><strong>pixels</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-set_comment"></span>
+      <h3>
+          procedure, private ::
+  <strong>set_comment</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Set a comment for the PNM image.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/set_comment.html'>set_comment</a>(this, comment)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Sets a comment for the PNM image.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>comment</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-set_file_format"></span>
+      <h3>
+          procedure, private ::
+  <strong>set_file_format</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Set the file format of the PNM image.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/set_file_format.html'>set_file_format</a>(this, file_format)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Sets the file format of the PNM image. Supported values are <code>pbm</code>, <code>pgm</code>, and <code>ppm</code>.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=3),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>file_format</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-set_header"></span>
+      <h3>
+          procedure, private ::
+  <strong>set_header</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Set the header of the PNM image.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/set_header.html'>set_header</a>(this, magic_number, width, height, comment, max_color)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Sets the header of the PNM image. The header includes the magic number, width, height, comment, and max_color.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>magic_number</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>width</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>height</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>comment</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>max_color</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-set_height"></span>
+      <h3>
+          procedure, private ::
+  <strong>set_height</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Set the height of the PNM image.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/set_height.html'>set_height</a>(this, height)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Sets the height of the PNM image.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>height</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-set_magicnumber"></span>
+      <h3>
+          procedure, private ::
+  <strong>set_magicnumber</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Set the magic number of the PNM image.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/set_magicnumber.html'>set_magicnumber</a>(this, magic_number)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Sets the magic number of the PNM image. Supported values are <code>P1</code>, <code>P2</code>, <code>P3</code>, <code>P4</code>, <code>P5</code>, and <code>P6</code>.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>magic_number</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-set_max_color"></span>
+      <h3>
+          procedure, private ::
+  <strong>set_max_color</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Set the maximum color value of the PNM image.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/set_max_color.html'>set_max_color</a>(this, max_color)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Sets the maximum color value of the PNM image. Only required for PGM and PPM images</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>max_color</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-set_pixel_a"></span>
+      <h3>
+          procedure, private ::
+  <strong>set_pixel_a</strong>
+        
+      </h3>
+    </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure subroutine <a href='../proc/set_pixel_a.html'>set_pixel_a</a>(this, pixels)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Sets the pixel values of the PNM image.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=ik),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:,:)
+            </td>
+            <td>::</td>
+            <td><strong>pixels</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-set_pixel_b"></span>
+      <h3>
+          procedure, private ::
+  <strong>set_pixel_b</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Set the pixel values of the PNM image.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/set_pixel_b.html'>set_pixel_b</a>(this, grey, r, g, b, i, j)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Sets the pixel values of the PNM image.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>grey</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>r</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>g</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>b</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-set_pixels"></span>
+      <h3>
+          generic, private ::
+  <strong>set_pixels</strong> => <a href='/home/runner/work/forimage/forimage/doc/type/format_pnm.html#boundprocedure-set_pixel_a'>set_pixel_a</a>, <a href='/home/runner/work/forimage/forimage/doc/type/format_pnm.html#boundprocedure-set_pixel_b'>set_pixel_b</a>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Set the pixel values of the PNM image.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure subroutine <a href='../proc/set_pixel_a.html'>set_pixel_a</a>(this, pixels)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Sets the pixel values of the PNM image.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=ik),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:,:)
+            </td>
+            <td>::</td>
+            <td><strong>pixels</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/set_pixel_b.html'>set_pixel_b</a>(this, grey, r, g, b, i, j)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Sets the pixel values of the PNM image.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>grey</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>r</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>g</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>b</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-set_width"></span>
+      <h3>
+          procedure, private ::
+  <strong>set_width</strong>
+        
+      </h3>
+    </div>
+        <div class="card-body">
+          
+          <blockquote>
+<p>Set the width of the PNM image.</p>
+</blockquote>
+        </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private pure elemental subroutine <a href='../proc/set_width.html'>set_width</a>(this, width)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+
+  <p>Sets the width of the PNM image.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='format_pnm.html'>format_pnm</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>width</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
   </div>
 
           </div>
@@ -2415,43 +3047,52 @@
 
     <section>
     <h3><span class="anchor" id="src"></span>Source Code</h3>
-    <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">type </span><span class="n">format_pnm</span>
-<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">                             </span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">magic_number</span>
-<span class="w">      </span><span class="kt">integer</span><span class="w">                                  </span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">width</span>
-<span class="w">      </span><span class="kt">integer</span><span class="w">                                  </span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">height</span>
-<span class="w">      </span><span class="kt">character</span><span class="p">(:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">comment</span>
-<span class="w">      </span><span class="kt">integer</span><span class="w">                                  </span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">max_color</span>
-<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="n">ik</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">pixels</span>
-<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w">                             </span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">file_format</span>
-<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w">                             </span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">encoding</span>
-<span class="w">   </span><span class="k">contains</span>
-<span class="k">      procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_format</span>
-<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_file_format</span>
-<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_magicnumber</span>
-<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_width</span>
-<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_height</span>
-<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_comment</span>
-<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_max_color</span>
-<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_header</span>
-<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">allocate_pixels</span>
-<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">check_pixel_range</span>
-<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_pixels</span>
-<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_pnm</span>
-<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">print_info</span>
-<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">import_pnm</span>
-<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">export_pnm</span>
-<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">finalize</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">deallocate_pnm</span>
-<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">negative</span>
-<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">brighten</span>
-<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">swap_channels</span>
-<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">remove_channels</span>
-<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">greyscale</span>
-<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rotate</span>
-<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">flip_horizontal</span>
-<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">flip_vertical</span>
-<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">crop</span>
-<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">resize</span>
-<span class="w">   </span><span class="k">end type </span><span class="n">format_pnm</span>
+    <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">type </span><span class="n">format_pnm</span><span class="w"></span>
+<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">                             </span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">magic_number</span><span class="w"> </span><span class="c">!! Magic number representing the PNM image type (`P1`, `P2`, `P3`, `P4`, `P5`, `P6`).</span>
+<span class="w">      </span><span class="kt">integer</span><span class="w">                                  </span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">width</span><span class="w">        </span><span class="c">!! Width (number of columns) of the image.</span>
+<span class="w">      </span><span class="kt">integer</span><span class="w">                                  </span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">height</span><span class="w">       </span><span class="c">!! Height (number of rows) of the image.</span>
+<span class="w">      </span><span class="kt">character</span><span class="p">(:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">comment</span><span class="w">      </span><span class="c">!! Optional comment associated with the image.</span>
+<span class="w">      </span><span class="kt">integer</span><span class="w">                                  </span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">max_color</span><span class="w">    </span><span class="c">!! Maximum color value of the image. Used for PGM and PPM images.</span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="n">ik</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">pixels</span><span class="w">                 </span><span class="c">!! Pixel values of the image.</span>
+<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w">                             </span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">file_format</span><span class="w">  </span><span class="c">!! File format of the PNM image (`pbm`, `pgm`, `ppm`).</span>
+<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w">                             </span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">encoding</span><span class="w">     </span><span class="c">!! Encoding of the PNM image (`ascii` or `plain`, `binary` or `raw`).</span>
+<span class="w">   </span><span class="k">contains</span><span class="w"></span>
+<span class="w">      </span><span class="c">! Procedures for setting individual attributes</span>
+<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_format</span><span class="w">                 </span><span class="c">!!&gt; Set the encoding of the PNM image.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_file_format</span><span class="w">   </span><span class="c">!!&gt; Set the file format of the PNM image.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_magicnumber</span><span class="w">   </span><span class="c">!!&gt; Set the magic number of the PNM image.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_width</span><span class="w">         </span><span class="c">!!&gt; Set the width of the PNM image.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_height</span><span class="w">        </span><span class="c">!!&gt; Set the height of the PNM image.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_comment</span><span class="w">       </span><span class="c">!!&gt; Set a comment for the PNM image.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_max_color</span><span class="w">     </span><span class="c">!!&gt; Set the maximum color value of the PNM image.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_header</span><span class="w">        </span><span class="c">!!&gt; Set the header of the PNM image.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">allocate_pixels</span><span class="w">   </span><span class="c">!!&gt; Allocate memory for the pixels of the PNM image.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">check_pixel_range</span><span class="w"> </span><span class="c">!!&gt; Check if the pixel values are within the valid range.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_pixel_a</span><span class="p">,</span><span class="w"> </span><span class="n">set_pixel_b</span><span class="w">              </span><span class="c">!!&gt; Set the pixel values of the PNM image.</span>
+<span class="w">      </span><span class="k">generic</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_pixels</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">set_pixel_a</span><span class="p">,</span><span class="w"> </span><span class="n">set_pixel_b</span><span class="w">  </span><span class="c">!!&gt; Set the pixel values of the PNM image.</span>
+
+<span class="w">      </span><span class="c">! Procedures for setting individual attributes</span>
+<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">get_format</span><span class="w">                 </span><span class="c">!!&gt; Get the encoding of the PNM image.</span>
+
+<span class="w">      </span><span class="c">! High-level procedures for working with PNM images</span>
+<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">set_pnm</span><span class="w">                    </span><span class="c">!!&gt; Set the attributes of the PNM image.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">print_info</span><span class="w">                 </span><span class="c">!!&gt; Display information about the image (dimensions, aspect ratio, etc.).</span>
+<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">import_pnm</span><span class="w">                 </span><span class="c">!!&gt; Read an image from a file.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">export_pnm</span><span class="w">                 </span><span class="c">!!&gt; Write an image to a file.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">finalize</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">deallocate_pnm</span><span class="w"> </span><span class="c">!!&gt; Clean up allocated memory for the PNM image.</span>
+
+<span class="w">      </span><span class="c">! Image manipulation procedures</span>
+<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">negative</span><span class="w">                   </span><span class="c">!!&gt; Invert the colors of the image.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">brighten</span><span class="w">                   </span><span class="c">!!&gt; Adjust the brightness and darkness of the image.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">swap_channels</span><span class="w">              </span><span class="c">!!&gt; Swap the RGB channels of the image.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">remove_channels</span><span class="w">            </span><span class="c">!!&gt; Remove one or more RGB channels from the image.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">greyscale</span><span class="w">                  </span><span class="c">!!&gt; Convert a color image to greyscale.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rotate</span><span class="w">                     </span><span class="c">!!&gt; Rotate the image by a specified angle.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">flip_horizontal</span><span class="w">            </span><span class="c">!!&gt; Flip the image horizontally.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">flip_vertical</span><span class="w">              </span><span class="c">!!&gt; Flip the image vertically.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">crop</span><span class="w">                       </span><span class="c">!!&gt; Crop the image to a specified region.</span>
+<span class="w">      </span><span class="k">procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">resize</span><span class="w">                     </span><span class="c">!!&gt; Resize the image to a specified size.</span>
+<span class="w">   </span><span class="k">end type </span><span class="n">format_pnm</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -2464,40 +3105,21 @@
     <footer>
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col"><p>ForImage was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+          <div class="col">
+            <p>
+              ForImage
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023-2025 BSD 3-Clause
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-01-12T20:08:26.519240             </p>
+ on 2025-08-20T19:15:23.986866+0000             </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-
-    <!-- MathJax JavaScript
-             ================================================== -->
-             <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({
-          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-          });
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-          <script src="../tipuesearch/tipuesearch_content.js"></script>
-          <script src="../tipuesearch/tipuesearch_set.js"></script>
-          <script src="../tipuesearch/tipuesearch.js"></script>
-
   </body>
 </html>
